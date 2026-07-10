@@ -1,0 +1,58 @@
+/* Warm Lime palette — scoped to /test2 via body:has(.warm-lime-theme).
+ *
+ * Same cascade strategy as /test: re-declare the Tailwind v4 theme variables
+ * on body so every utility that resolves them gets retinted, including the
+ * Navbar and Footer rendered by the root layout.
+ *
+ * Source palette:
+ *   #FBFBF7  warm near-white       -> surface
+ *   #1C1E1A  warm charcoal         -> primary text / dark surfaces
+ *   #A4D639  brand lime            -> primary accent (replaces clay)
+ *   #6B6D67  warm gray             -> muted text
+ *   #F0F2EB  soft tint surfaces    -> sand-100/200 family
+ */
+
+body:has(.warm-lime-theme) {
+  /* Surface — warm near-white family */
+  --color-cream: #fbfbf7;
+  --color-sand-25: #ffffff;
+  --color-sand-50: #fbfbf7;
+  --color-sand-100: #f0f2eb;
+  --color-sand-200: #e4e7dd;
+
+  /* Muted text — warm gray */
+  --color-sand-600: #6b6d67;
+  --color-sand-700: #4f514c;
+
+  /* Dark surfaces / primary text — warm charcoal */
+  --color-sand-800: #2c2e29;
+  --color-sand-900: #232520;
+  --color-sand-950: #1c1e1a;
+  --color-brown-900: #1c1e1a;
+  --color-navy: #232520;
+  --color-sage: #6b6d67;
+
+  /* Translucent charcoal (used by fixed nav silk) */
+  --color-sand-frost: rgba(28, 30, 26, 0.9);
+
+  /* Brand accent — lime, with a deeper lime on hover */
+  --color-clay: #a4d639;
+  --color-clay-500: #a4d639;
+  --color-clay-600: #8abd28;
+  --color-clay-700: #8abd28;
+}
+
+/* Patches for inline hex props that can't be reached through CSS variables. */
+
+body:has(.warm-lime-theme) .nav-silk-bg {
+  background-color: rgba(28, 30, 26, 0.9);
+}
+
+body:has(.warm-lime-theme) .card-nav-cta-button {
+  background-color: #a4d639 !important;
+  color: #1c1e1a !important;
+}
+
+body:has(.warm-lime-theme) .card-nav-cta-button:hover {
+  background-color: #8abd28 !important;
+}

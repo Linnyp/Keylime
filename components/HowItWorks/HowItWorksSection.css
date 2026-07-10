@@ -1,0 +1,13 @@
+/* HowItWorksSection — fluid display headline + large step numerals. */
+
+.hiw-heading {
+  font-size: clamp(2rem, 4vw, 3.5rem);
+  letter-spacing: -0.04em;
+  line-height: 0.95;
+  margin: 0;
+}
+
+.step-number {
+  font-size: 80px;
+  line-height: 1;
+}

@@ -1,0 +1,14 @@
+/* ResultsSection — fluid display headlines. */
+
+.results-heading {
+  font-size: clamp(2rem, 4vw, 3.5rem);
+  letter-spacing: -0.04em;
+  line-height: 0.95;
+  margin: 0;
+}
+
+.results-cta-line {
+  font-size: clamp(1.25rem, 3vw, 1.75rem);
+  letter-spacing: -0.03em;
+  line-height: 1.1;
+}

@@ -1,0 +1,50 @@
+/* Key Lime palette — scoped to /test-calculator via body:has(.key-lime-theme).
+ * Mirrors /test/test-palette.css so the calculator demo inherits the same
+ * KeyLime brand tokens (cream surface, forest text, lime accent, yellow hover).
+ */
+
+body:has(.key-lime-theme) {
+  /* Surface — cream family */
+  --color-cream: #fffcec;
+  --color-sand-25: #fffef7;
+  --color-sand-50: #fffcec;
+  --color-sand-100: #f5efd3;
+  --color-sand-200: #ebe3bd;
+
+  /* Muted text */
+  --color-sand-600: #5a6850;
+  --color-sand-700: #48553f;
+
+  /* Dark surfaces / primary text — forest family */
+  --color-sand-800: #2b411f;
+  --color-sand-900: #243b1b;
+  --color-sand-950: #1f3217;
+  --color-brown-900: #1f3217;
+  --color-navy: #2b411f;
+  --color-sage: #5a6850;
+
+  /* Translucent forest */
+  --color-sand-frost: rgba(31, 50, 23, 0.9);
+
+  /* Brand accent — lime, with yellow on hover */
+  --color-clay: #abda3d;
+  --color-clay-500: #abda3d;
+  --color-clay-600: #f5c949;
+  --color-clay-700: #f5c949;
+
+  /* Standalone secondary accent */
+  --color-accent-yellow: #f5c949;
+}
+
+body:has(.key-lime-theme) .nav-silk-bg {
+  background-color: rgba(31, 50, 23, 0.9);
+}
+
+body:has(.key-lime-theme) .card-nav-cta-button {
+  background-color: #abda3d !important;
+  color: #1f3217 !important;
+}
+
+body:has(.key-lime-theme) .card-nav-cta-button:hover {
+  background-color: #f5c949 !important;
+}

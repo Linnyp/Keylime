@@ -1,0 +1,82 @@
+@import "tailwindcss";
+
+@theme {
+  /* ----- Coastal Clay palette ----- */
+  --color-cream: #fbf8f3;
+  --color-sand-25: #ffffff;
+  --color-sand-50: #fbf8f3;
+  --color-sand-100: #f3eee4;
+  --color-sand-200: #ede6d6;
+  --color-sand-600: #78705f;
+  --color-sand-700: #5c5449;
+  --color-sand-800: #3e372d;
+  --color-sand-900: #2a251d;
+  --color-sand-950: #1f1b16;
+
+  --color-clay: #c2552d;
+  --color-clay-500: #c2552d;
+  --color-clay-600: #a3431f;
+  --color-clay-700: #a3431f;
+
+  --color-brown-900: #2a1f14;
+  --color-navy: #1a2b4a;
+  --color-sage: #6b8f71;
+
+  /* Translucent sand for fixed nav */
+  --color-sand-frost: rgba(42, 37, 29, 0.9);
+
+  /* ----- Typography ----- */
+  --font-display: "Fraunces", Georgia, serif;
+  --font-body: "Inter", system-ui, sans-serif;
+  --font-brand: "Inter", "Helvetica Neue", Helvetica, Arial, sans-serif;
+
+  /* ----- Layout ----- */
+  --container-brand: 1200px;
+  --spacing-gutter: 24px;
+}
+
+body {
+  background-color: var(--color-sand-50);
+  color: var(--color-sand-950);
+  font-family: var(--font-body);
+}
+
+/* ----- Reusable background patterns -------------------------------------
+ * Used across sections for Swiss-style grid/dot/diagonal textures.
+ * ----------------------------------------------------------------------- */
+
+.bg-grid-pattern {
+  background-image:
+    repeating-linear-gradient(
+      0deg,
+      transparent,
+      transparent 23px,
+      rgba(31, 27, 22, 0.06) 23px,
+      rgba(31, 27, 22, 0.06) 24px
+    ),
+    repeating-linear-gradient(
+      90deg,
+      transparent,
+      transparent 23px,
+      rgba(31, 27, 22, 0.06) 23px,
+      rgba(31, 27, 22, 0.06) 24px
+    );
+}
+
+.bg-dots-pattern {
+  background-image: radial-gradient(
+    rgba(251, 248, 243, 0.12) 1px,
+    transparent 1px
+  );
+  background-size: 16px 16px;
+}
+
+.bg-diag-pattern {
+  background-image: repeating-linear-gradient(
+    45deg,
+    rgba(31, 27, 22, 0.04) 0px,
+    rgba(31, 27, 22, 0.04) 1px,
+    transparent 1px,
+    transparent 10px
+  );
+}

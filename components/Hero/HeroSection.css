@@ -1,0 +1,10 @@
+.hero-title-wrap {
+  container-type: inline-size;
+}
+
+.hero-title {
+  font-size: clamp(2.25rem, 15.5cqi, 6rem);
+  line-height: 0.95;
+  letter-spacing: -0.04em;
+  margin: 0;
+}

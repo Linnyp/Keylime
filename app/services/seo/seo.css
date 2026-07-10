@@ -1,0 +1,28 @@
+/* SEO service page — fluid display headlines.
+   Mirrors the clamp() pattern from the Websites service page so type
+   scales with the viewport without breaking the grid. */
+
+.seo-hero-title {
+  font-size: clamp(2.5rem, 6vw, 5rem);
+  line-height: 0.95;
+  letter-spacing: -0.04em;
+  margin: 0;
+}
+
+.seo-section-heading {
+  font-size: clamp(2rem, 4vw, 3.5rem);
+  letter-spacing: -0.04em;
+  line-height: 0.95;
+}
+
+.seo-faq-heading {
+  font-size: clamp(1.75rem, 3vw, 2.5rem);
+  letter-spacing: -0.04em;
+  line-height: 0.95;
+}
+
+.seo-cta-heading {
+  font-size: clamp(2.5rem, 6vw, 5rem);
+  letter-spacing: -0.04em;
+  line-height: 0.95;
+}

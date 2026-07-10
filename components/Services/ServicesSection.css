@@ -1,0 +1,15 @@
+/* ServicesSection — fluid display headlines. */
+
+.services-headline {
+  font-size: clamp(2rem, 4vw, 3.5rem);
+  letter-spacing: -0.04em;
+  line-height: 0.95;
+  margin: 0;
+}
+
+.services-headline-accent {
+  font-size: clamp(2rem, 4vw, 3.5rem);
+  letter-spacing: -0.04em;
+  line-height: 0.95;
+  margin: 0;
+}

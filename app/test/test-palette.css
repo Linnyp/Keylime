@@ -1,0 +1,65 @@
+/* Key Lime palette — scoped to /test via body:has(.key-lime-theme).
+ *
+ * Cascade strategy: Tailwind v4 utilities (bg-sand-50, text-sand-950,
+ * bg-clay-500, etc.) compile to `var(--color-...)`. Re-declaring those
+ * variables on body cascades to every descendant — including Navbar
+ * and Footer rendered above/below the page content by the root layout.
+ *
+ * Source palette:
+ *   #FFFCEC  pale buttery cream    -> surface
+ *   #1F3217  deep forest green     -> primary text / dark surfaces
+ *   #ABDA3D  brand lime            -> primary accent (replaces clay)
+ *   #F5C949  soft sunshine yellow  -> hover state for lime CTAs
+ *   #5A6850  mossy gray-green      -> muted text
+ */
+
+body:has(.key-lime-theme) {
+  /* Surface — cream family */
+  --color-cream: #fffcec;
+  --color-sand-25: #fffef7;
+  --color-sand-50: #fffcec;
+  --color-sand-100: #f5efd3;
+  --color-sand-200: #ebe3bd;
+
+  /* Muted text */
+  --color-sand-600: #5a6850;
+  --color-sand-700: #48553f;
+
+  /* Dark surfaces / primary text — forest family */
+  --color-sand-800: #2b411f;
+  --color-sand-900: #243b1b;
+  --color-sand-950: #1f3217;
+  --color-brown-900: #1f3217;
+  --color-navy: #2b411f;
+  --color-sage: #5a6850;
+
+  /* Translucent forest (used by fixed nav silk) */
+  --color-sand-frost: rgba(31, 50, 23, 0.9);
+
+  /* Brand accent — lime, with yellow on hover */
+  --color-clay: #abda3d;
+  --color-clay-500: #abda3d;
+  --color-clay-600: #f5c949;
+  --color-clay-700: #f5c949;
+
+  /* Standalone secondary accent (for future use) */
+  --color-accent-yellow: #f5c949;
+}
+
+/* The hero pattern, logo-loop fade, RippleGrid color, and CardNav button
+ * colors are passed as inline hex props in JSX and cannot be overridden
+ * through CSS variables. We override them here by targeting the rendered
+ * canvas / button elements within the test scope. */
+
+body:has(.key-lime-theme) .nav-silk-bg {
+  background-color: rgba(31, 50, 23, 0.9);
+}
+
+body:has(.key-lime-theme) .card-nav-cta-button {
+  background-color: #abda3d !important;
+  color: #1f3217 !important;
+}
+
+body:has(.key-lime-theme) .card-nav-cta-button:hover {
+  background-color: #f5c949 !important;
+}
