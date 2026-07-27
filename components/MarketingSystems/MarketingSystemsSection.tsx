@@ -3,17 +3,16 @@
 /*
  * KeyLime — "Marketing Systems" section (Three Systems snapshot).
  *
- * Local replication of the Webflow homepage tabbed system explorer:
- * split header (intro left, right-aligned eyebrow + heading), a tab list
- * of the three systems, and a detail pane with price, included list, and
- * CTAs — restyled in the site's Coastal Clay idiom. The Webflow build
- * still carries Agencia template placeholders (a "Lite" tab, $5,500 and
- * $10,500 prices, lorem bodies); copy here comes from homepage-copy.md §6.
+ * Split header, a tab list of the three systems, and a detail pane with price,
+ * included list, and CTA. Editorial Citrus & Charcoal treatment: rounded tab
+ * cards (active = charcoal fill), soft-shadowed detail panel, lime accents used
+ * with discipline. Copy comes from homepage-copy.md §6.
  */
 
 import { useState } from "react";
 import { SectionLabel } from "../shared/SectionLabel";
-import { IconPlus } from "../shared/icons";
+import { PrimaryButton } from "../shared/PrimaryButton";
+import { IconCheck, IconPlus } from "../shared/icons";
 
 interface MarketingSystem {
   name: string;
@@ -75,12 +74,12 @@ export function MarketingSystemsSection() {
     <section
       id="systems"
       aria-label="Marketing systems"
-      className="relative z-10 border-t-4 border-sand-950 bg-sand-50 py-28"
+      className="relative z-10 bg-sand-100 py-24 md:py-28"
     >
       <div className="mx-auto w-full max-w-brand px-6">
         {/* Split header — intro left, eyebrow + heading right */}
-        <div className="mb-16 flex flex-col-reverse gap-8 lg:flex-row lg:items-end lg:justify-between">
-          <p className="m-0 max-w-[524px] font-brand text-[15px] leading-[1.65] text-sand-600">
+        <div className="mb-14 flex flex-col-reverse gap-8 lg:flex-row lg:items-end lg:justify-between">
+          <p className="m-0 max-w-[524px] text-[16px] leading-[1.6] text-sand-600">
             Each system is complete the day it goes live — not a stripped-down
             preview of the next one up. Prices are on the site. Month-to-month.
           </p>
@@ -88,17 +87,17 @@ export function MarketingSystemsSection() {
             <div className="flex lg:justify-end">
               <SectionLabel text="Marketing Systems" />
             </div>
-            <h2 className="m-0 font-brand font-black uppercase text-sand-950 text-[clamp(2rem,4vw,3.5rem)] leading-[0.95] tracking-[-0.04em]">
-              Three Systems.
+            <h2 className="m-0 font-brand font-extrabold text-sand-950 text-[clamp(2rem,4vw,3.25rem)] leading-[1.05] tracking-[-0.03em]">
+              Three systems.
               <br />
-              One <span className="text-clay-500">Monthly Price.</span>
+              One <span className="text-lime-700">monthly price.</span>
             </h2>
           </div>
         </div>
 
         {/* Tab list + detail pane */}
-        <div className="grid grid-cols-1 gap-6 lg:grid-cols-[5fr_7fr] lg:gap-10">
-          <div role="tablist" aria-label="Marketing systems" className="flex flex-col">
+        <div className="grid grid-cols-1 gap-6 lg:grid-cols-[5fr_7fr] lg:gap-8">
+          <div role="tablist" aria-label="Marketing systems" className="flex flex-col gap-4">
             {systems.map((system, i) => {
               const isActive = i === activeIndex;
               return (
@@ -109,34 +108,36 @@ export function MarketingSystemsSection() {
                   aria-selected={isActive}
                   aria-controls="system-panel"
                   onClick={() => setActiveIndex(i)}
-                  className={`group -mt-1 flex w-full cursor-pointer items-center justify-between gap-4 border-4 border-sand-950 px-8 py-7 text-left transition-colors duration-150 first:mt-0 ${
+                  className={`group flex w-full cursor-pointer items-center justify-between gap-4 rounded-2xl border px-7 py-6 text-left transition-all duration-200 ${
                     isActive
-                      ? "bg-sand-900 text-sand-50"
-                      : "bg-sand-50 text-sand-950 hover:bg-sand-100"
+                      ? "border-sand-900 bg-sand-900 text-white shadow-[0_12px_26px_0_rgba(28,30,26,0.14)]"
+                      : "border-sand-200 bg-white text-sand-950 shadow-[0_1px_2px_0_rgba(28,30,26,0.08)] hover:-translate-y-0.5 hover:border-lime-300"
                   }`}
                 >
                   <span className="flex flex-col gap-1.5">
                     <span className="flex flex-wrap items-center gap-3">
-                      <span className="font-brand text-[22px] font-black uppercase tracking-[-0.03em]">
+                      <span className="font-brand text-[22px] font-extrabold tracking-[-0.03em]">
                         {system.name}
                       </span>
                       {system.badge && (
-                        <span className="bg-clay-500 px-2.5 py-1 font-brand text-[10px] font-bold uppercase tracking-[0.12em] text-sand-50">
+                        <span className="rounded-full bg-lime-500 px-2.5 py-1 font-brand text-[10px] font-semibold uppercase tracking-[0.1em] text-sand-950">
                           {system.badge}
                         </span>
                       )}
                     </span>
                     <span
-                      className={`font-brand text-[13px] italic leading-[1.5] ${
-                        isActive ? "text-sand-50/70" : "text-sand-600"
+                      className={`text-[13px] leading-[1.5] ${
+                        isActive ? "text-white/70" : "text-sand-600"
                       }`}
                     >
                       {system.tagline}
                     </span>
                   </span>
                   <span
-                    className={`shrink-0 transition-transform duration-150 ${
-                      isActive ? "rotate-45 text-clay-500" : "text-sand-950 group-hover:text-clay-500"
+                    className={`shrink-0 transition-transform duration-200 ${
+                      isActive
+                        ? "rotate-45 text-lime-300"
+                        : "text-char-400 group-hover:text-lime-700"
                     }`}
                   >
                     <IconPlus />
@@ -150,51 +151,44 @@ export function MarketingSystemsSection() {
             id="system-panel"
             role="tabpanel"
             aria-label={active.name}
-            className="border-4 border-sand-950 bg-sand-25 p-10"
+            className="rounded-3xl border border-sand-200 bg-white p-10 shadow-[0_2px_6px_0_rgba(28,30,26,0.06)]"
           >
             <div className="mb-8 flex items-baseline gap-2">
-              <span className="font-brand text-[56px] font-black leading-none tracking-[-0.04em] text-sand-950">
+              <span className="font-brand text-[56px] font-extrabold leading-none tracking-[-0.04em] text-sand-950">
                 {active.price}
               </span>
-              <span className="font-brand text-[16px] font-semibold text-sand-600">
-                /mo
-              </span>
+              <span className="text-[16px] font-medium text-sand-600">/mo</span>
             </div>
 
-            <h3 className="m-0 mb-3 font-brand text-[16px] font-extrabold uppercase tracking-[0.04em] text-sand-950">
+            <h3 className="m-0 mb-2 font-brand text-[18px] font-bold tracking-[-0.03em] text-sand-950">
               What&apos;s included in {active.name}
             </h3>
-            <p className="m-0 mb-7 font-brand text-[14px] italic leading-[1.65] text-sand-600">
+            <p className="m-0 mb-7 text-[14px] leading-[1.6] text-sand-600">
               {active.tagline}
             </p>
 
-            <ul className="m-0 mb-10 flex list-none flex-col gap-3 p-0">
+            <ul className="m-0 mb-10 grid list-none grid-cols-1 gap-3 p-0 sm:grid-cols-2">
               {active.included.map((item) => (
                 <li
                   key={item}
-                  className="flex items-start gap-3 font-brand text-[14px] leading-[1.5] text-sand-950"
+                  className="flex items-start gap-3 text-[14px] leading-[1.5] text-sand-950"
                 >
                   <span
                     aria-hidden
-                    className="mt-[5px] inline-block h-2.5 w-2.5 shrink-0 bg-clay-500"
-                  />
+                    className="mt-0.5 flex h-5 w-5 shrink-0 items-center justify-center rounded-full bg-lime-100 text-lime-800"
+                  >
+                    <IconCheck />
+                  </span>
                   {item}
                 </li>
               ))}
             </ul>
 
-            <div className="flex flex-wrap items-center gap-6">
-              <a
-                href="#contact"
-                className="inline-flex min-h-[48px] items-center gap-2.5 border-2 border-transparent bg-clay-500 px-7 py-3.5 font-brand text-[12px] font-bold uppercase tracking-[0.1em] text-sand-50 no-underline transition-colors duration-150 hover:bg-clay-700"
-              >
-                Get Started
-              </a>
-            </div>
+            <PrimaryButton href="#contact">Get Started</PrimaryButton>
           </div>
         </div>
 
-        <p className="m-0 mt-10 text-center font-brand text-[13px] leading-[1.65] text-sand-600">
+        <p className="m-0 mt-10 text-center text-[13px] leading-[1.6] text-sand-600">
           $200 one-time setup. Month-to-month. Move up or down anytime — your
           contacts and workflows carry across.
         </p>

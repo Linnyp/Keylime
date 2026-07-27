@@ -1,5 +1,4 @@
 import type { Metadata } from "next";
-import Link from "next/link";
 
 export const metadata: Metadata = {
   title: "Blog Post | Linax Digital",
@@ -14,13 +13,6 @@ export default async function BlogPostPage({
 
   return (
     <main>
-      {/* Breadcrumb */}
-      <nav className="px-6 pt-6 max-w-7xl mx-auto text-sm text-[var(--color-sand-700)]">
-        <Link href="/">Home</Link> &rsaquo;{" "}
-        <Link href="/blog">Blog</Link> &rsaquo;{" "}
-        <span className="capitalize">{slug.replace(/-/g, " ")}</span>
-      </nav>
-
       {/* ── ARTICLE HEADER ───────────────────────────────────────────────── */}
       <section id="article-header" className="px-6 py-16 max-w-3xl mx-auto">
         <h1 className="text-5xl font-[var(--font-display)]">Article Header — Post title (Fraunces) · category badge · publish date · estimated read time</h1>

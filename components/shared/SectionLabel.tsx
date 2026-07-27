@@ -1,11 +1,14 @@
 interface SectionLabelProps {
   text: string;
+  /** Use on dark (charcoal) surfaces. */
+  light?: boolean;
 }
 
-export function SectionLabel({ text }: SectionLabelProps) {
+/** Editorial eyebrow — Inter uppercase micro-label with a short lime rule. */
+export function SectionLabel({ text, light = false }: SectionLabelProps) {
   return (
-    <div className="mb-6 flex items-center gap-2.5 font-brand text-[11px] font-bold uppercase tracking-[0.15em]">
-      <span className="text-sand-950">{text}</span>
+    <div className={`wf-eyebrow mb-6 ${light ? "wf-eyebrow-light" : ""}`}>
+      <span>{text}</span>
     </div>
   );
 }

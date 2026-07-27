@@ -2,14 +2,14 @@
    decorative composition. */
 
 .cta-heading {
-  font-size: clamp(2.5rem, 6vw, 5rem);
-  letter-spacing: -0.04em;
-  line-height: 0.95;
+  font-size: clamp(2.5rem, 6vw, 4.5rem);
+  letter-spacing: -0.03em;
+  line-height: 1.02;
 }
 
 .corner-mark {
   position: absolute;
-  background-color: rgba(251, 248, 243, 0.6);
+  background-color: rgba(164, 214, 57, 0.7);
 }
 
 .corner-mark-h {

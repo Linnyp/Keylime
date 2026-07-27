@@ -1,6 +1,8 @@
 "use client";
 
 import { useMemo, useState, type ReactNode } from "react";
+import Stepper, { Step } from "@/components/Stepper/Stepper";
+import { IconArrowRight } from "../shared/icons";
 
 /* ─────────────────────────────────────────────────────────────────────────────
  * Revenue Loss Calculator — KeyLime demo
@@ -229,6 +231,9 @@ export function RevenueCalculator() {
     [dailyInquiries, closingRate, avgValue, responseMinutes],
   );
 
+  // The final revenue-leak panel only reveals once the stepper is completed.
+  const [completed, setCompleted] = useState(false);
+
   const monthlyTotal = missed + reputation.total + speed;
   const annualTotal = monthlyTotal * 12;
   const keyLimeMonthly = 195; // Growth tier
@@ -236,26 +241,27 @@ export function RevenueCalculator() {
   const netAnnual = netMonthly * 12;
 
   return (
-    <div className="bg-sand-50 pt-24 pb-32">
+    <div className="bg-sand-50 pt-28 pb-32">
       <div className="mx-auto w-full max-w-[1200px] px-6">
         {/* ── Hero ─────────────────────────────────────────────────────── */}
-        <header className="mb-12 max-w-[820px]">
-          <div className="mb-5 flex items-center gap-2.5 font-brand text-[11px] font-bold uppercase tracking-[0.15em] text-sand-700">
-            <span className="inline-block h-1.5 w-6 bg-clay-500" />
-            Free tool — Revenue leak audit
+        <header className="mb-14 max-w-[820px]">
+          <div className="wf-eyebrow mb-6">
+            <span>Free tool — Revenue leak audit</span>
           </div>
-          <h1 className="font-brand text-4xl font-black leading-[1.05] text-sand-950 sm:text-5xl md:text-6xl">
-            See what your business is losing each month.
+          <h1 className="font-brand text-4xl font-extrabold leading-[1.05] tracking-[-0.03em] text-sand-950 sm:text-5xl md:text-6xl">
+            See what your business is
+            <br />
+            losing <span className="text-lime-700">every month.</span>
           </h1>
-          <p className="mt-6 font-brand text-base leading-[1.65] text-sand-700 sm:text-lg">
+          <p className="mt-6 max-w-[620px] font-brand text-base leading-[1.65] text-sand-600 sm:text-lg">
             Missed calls. Slow reviews. Slow responses. Most local operators
-            leak $20K–$80K a year through three holes they can't see. Punch in
-            your numbers — see yours in under three minutes.
+            leak $20K–$80K a year through three holes they can&apos;t see. Punch
+            in your numbers — see yours in under three minutes.
           </p>
 
           {/* Industry selector */}
           <div
-            className="mt-8 inline-flex items-center gap-1 rounded-none border-2 border-sand-950 bg-sand-25 p-1"
+            className="mt-8 inline-flex items-center gap-1 rounded-full border border-sand-200 bg-white p-1 shadow-[0_1px_4px_0_rgba(28,30,26,0.06)]"
             role="tablist"
             aria-label="Choose industry"
           >
@@ -273,10 +279,10 @@ export function RevenueCalculator() {
                       setAvgValue(industryConfig[key].valuePlaceholder);
                     }
                   }}
-                  className={`px-5 py-2.5 font-brand text-[12px] font-bold uppercase tracking-[0.08em] transition-colors duration-150 ${
+                  className={`rounded-full px-5 py-2.5 font-brand text-[13px] font-semibold tracking-[-0.02em] transition-colors duration-150 ${
                     active
-                      ? "bg-sand-950 text-sand-50"
-                      : "bg-transparent text-sand-950 hover:bg-sand-100"
+                      ? "bg-sand-950 text-white shadow-[0_1px_4px_0_rgba(28,30,26,0.12)]"
+                      : "bg-transparent text-sand-600 hover:text-sand-950"
                   }`}
                 >
                   {industryConfig[key].label}
@@ -286,9 +292,16 @@ export function RevenueCalculator() {
           </div>
         </header>
 
-        {/* ── Two-column layout: modules + sticky total ─────────────────── */}
-        <div className="grid gap-10 lg:grid-cols-[minmax(0,1fr)_320px]">
-          <div className="flex flex-col gap-8">
+        {/* ── Stepper modules + results ─────────────────────────────────── */}
+        <div>
+          <div className="flex flex-col gap-6">
+            <Stepper
+              backButtonText="Back"
+              nextButtonText="Next"
+              onStepChange={() => setCompleted(false)}
+              onFinalStepCompleted={() => setCompleted(true)}
+            >
+            <Step>
             {/* Module 1 — Missed calls */}
             <Module
               num="01"
@@ -341,7 +354,9 @@ export function RevenueCalculator() {
                 prefix="$"
               />
             </Module>
+            </Step>
 
+            <Step>
             {/* Module 2 — Reputation */}
             <Module
               num="02"
@@ -422,7 +437,9 @@ export function RevenueCalculator() {
                 help="Auto-calculated from your current review count. Reflects what automated post-job review requests realistically generate — additive growth that dampens as you scale past 200+ reviews."
               />
             </Module>
+            </Step>
 
+            <Step>
             {/* Module 3 — Speed to Lead */}
             <Module
               num="03"
@@ -475,12 +492,14 @@ export function RevenueCalculator() {
                 value={fmtMoney(avgValue)}
               />
             </Module>
+            </Step>
+            </Stepper>
 
-            {/* Final results panel */}
-            <div className="border-2 border-sand-950 bg-sand-950 p-8 text-sand-50 md:p-10">
-              <div className="mb-6 flex items-center gap-2.5 font-brand text-[11px] font-bold uppercase tracking-[0.15em] text-clay-500">
-                <span className="inline-block h-1.5 w-6 bg-clay-500" />
-                Your revenue leak
+            {/* Final results panel — revealed after the stepper completes */}
+            {completed && (
+            <div className="overflow-hidden rounded-[32px] bg-sand-900 bg-dots-pattern p-8 text-white md:p-10">
+              <div className="wf-eyebrow wf-eyebrow-light mb-8">
+                <span>Your revenue leak</span>
               </div>
               <div className="grid gap-8 md:grid-cols-3">
                 <ResultBlock
@@ -503,80 +522,22 @@ export function RevenueCalculator() {
                 />
               </div>
               <div className="mt-10 flex flex-col gap-3 sm:flex-row">
-                <a
-                  href="#book"
-                  className="inline-flex items-center justify-center gap-2.5 border-2 border-clay-500 bg-clay-500 px-7 py-4 font-brand text-[13px] font-bold uppercase tracking-[0.08em] text-sand-950 no-underline transition-colors duration-150 hover:border-clay-700 hover:bg-clay-700"
-                >
-                  Email me the full breakdown →
+                <a href="#book" className="wf-btn wf-btn-lime">
+                  Email me the full breakdown <IconArrowRight />
                 </a>
-                <a
-                  href="#tiers"
-                  className="inline-flex items-center justify-center gap-2.5 border-2 border-sand-50 bg-transparent px-7 py-4 font-brand text-[13px] font-bold uppercase tracking-[0.08em] text-sand-50 no-underline transition-colors duration-150 hover:bg-sand-50 hover:text-sand-950"
-                >
+                <a href="#tiers" className="wf-btn wf-btn-ghost-light">
                   See which tier fixes this
                 </a>
               </div>
-              <p className="mt-6 font-brand text-[12px] leading-[1.65] text-sand-200/80">
+              <p className="mt-8 max-w-[560px] font-brand text-[13px] leading-[1.65] text-white/50">
                 All calculations use conservative public-research multipliers.
                 Numbers are an estimate, not a guarantee — your actual leak
-                depends on your business, market, and the recovery curves you'd
+                depends on your business, market, and the recovery curves you&apos;d
                 see in practice.
               </p>
             </div>
+            )}
           </div>
-
-          {/* ── Sticky running total ─────────────────────────────────── */}
-          <aside className="lg:sticky lg:top-28 lg:self-start">
-            <div className="border-2 border-sand-950 bg-sand-25 p-6">
-              <div className="mb-4 flex items-center gap-2.5 font-brand text-[11px] font-bold uppercase tracking-[0.15em] text-sand-950">
-                <span className="inline-block h-1.5 w-5 bg-clay-500" />
-                Running total
-              </div>
-
-              <RunningRow
-                label="Missed calls"
-                value={missed}
-                active={missed > 0}
-              />
-              <RunningRow
-                label="Reputation gap"
-                value={reputation.total}
-                active={reputation.total > 0}
-              />
-              <RunningRow
-                label="Slow responses"
-                value={speed}
-                active={speed > 0}
-              />
-
-              <div className="mt-4 border-t-2 border-sand-950 pt-4">
-                <div className="font-brand text-[11px] font-bold uppercase tracking-[0.12em] text-sand-600">
-                  Monthly loss
-                </div>
-                <div className="mt-1 font-brand text-3xl font-black text-sand-950 tabular-nums">
-                  {fmtMoney(monthlyTotal)}
-                </div>
-              </div>
-
-              <div className="mt-4">
-                <div className="font-brand text-[11px] font-bold uppercase tracking-[0.12em] text-sand-600">
-                  Annual loss
-                </div>
-                <div className="mt-1 font-brand text-2xl font-black text-clay-500 tabular-nums">
-                  {fmtMoney(annualTotal)}
-                </div>
-              </div>
-
-              <div className="mt-6 border-t border-sand-200 pt-4 font-brand text-[12px] leading-[1.5] text-sand-700">
-                KeyLime Growth tier is{" "}
-                <strong className="text-sand-950">$195/mo</strong> — about{" "}
-                {monthlyTotal > 0
-                  ? `${(monthlyTotal / keyLimeMonthly).toFixed(1)}× less`
-                  : "less"}{" "}
-                than your current leak.
-              </div>
-            </div>
-          </aside>
         </div>
       </div>
     </div>
@@ -606,26 +567,33 @@ function Module({
 }) {
   const [open, setOpen] = useState(false);
   return (
-    <section className="border-2 border-sand-950 bg-sand-25 p-6 md:p-8">
-      <div className="mb-6 flex flex-wrap items-baseline justify-between gap-x-6 gap-y-2">
-        <div>
-          <div className="font-brand text-[11px] font-bold uppercase tracking-[0.15em] text-sand-600">
-            Module {num} &middot; {tag}
-          </div>
-          <h2 className="mt-1 font-brand text-2xl font-black text-sand-950 sm:text-3xl">
-            {title}
-          </h2>
-          <div className="mt-1 font-brand text-[12px] font-semibold uppercase tracking-[0.06em] text-clay-500">
-            {fix}
+    <section className="rounded-3xl border border-sand-200 bg-white p-6 shadow-[0_2px_6px_0_rgba(28,30,26,0.06)] md:p-8">
+      <div className="mb-7 flex flex-wrap items-start justify-between gap-x-6 gap-y-4">
+        <div className="flex items-start gap-4">
+          <span className="flex h-11 w-11 shrink-0 items-center justify-center rounded-full bg-lime-500 font-brand text-[15px] font-extrabold tracking-[-0.02em] text-sand-950">
+            {num}
+          </span>
+          <div>
+            <div className="font-brand text-[12px] font-semibold uppercase tracking-[0.12em] text-char-400">
+              {tag}
+            </div>
+            <h2 className="mt-1 font-brand text-2xl font-bold tracking-[-0.03em] text-sand-950 sm:text-[28px]">
+              {title}
+            </h2>
+            <div className="mt-1.5 font-brand text-[13px] font-semibold tracking-[-0.01em] text-lime-700">
+              {fix}
+            </div>
           </div>
         </div>
         <div className="text-right">
-          <div className="font-brand text-[11px] font-bold uppercase tracking-[0.12em] text-sand-600">
+          <div className="font-brand text-[12px] font-semibold uppercase tracking-[0.12em] text-char-400">
             Subtotal
           </div>
-          <div className="mt-1 font-brand text-2xl font-black text-sand-950 tabular-nums">
+          <div className="mt-1 font-brand text-2xl font-extrabold tracking-[-0.03em] text-sand-950 tabular-nums">
             {fmtMoney(subtotal)}
-            <span className="ml-1 text-sm font-bold text-sand-600">/ mo</span>
+            <span className="ml-1 text-sm font-semibold text-char-400">
+              / mo
+            </span>
           </div>
         </div>
       </div>
@@ -635,14 +603,14 @@ function Module({
       <button
         type="button"
         onClick={() => setOpen((v) => !v)}
-        className="mt-6 inline-flex items-center gap-2 font-brand text-[12px] font-bold uppercase tracking-[0.08em] text-sand-700 hover:text-sand-950"
+        className="mt-7 inline-flex items-center gap-2 font-brand text-[13px] font-semibold tracking-[-0.01em] text-sand-600 transition-colors duration-150 hover:text-sand-950"
         aria-expanded={open}
       >
-        <span>{open ? "▾" : "▸"}</span>
+        <span className="text-lime-700">{open ? "▾" : "▸"}</span>
         How we calculate this
       </button>
       {open && (
-        <div className="mt-4 space-y-3 border-l-2 border-clay-500 bg-sand-50 p-5 font-brand text-[13px] leading-[1.65] text-sand-700">
+        <div className="mt-4 space-y-3 rounded-r-2xl border-l-2 border-lime-500 bg-sand-50 p-5 font-brand text-[13px] leading-[1.65] text-sand-600">
           {methodology}
         </div>
       )}
@@ -672,13 +640,13 @@ function NumberField({
   suffix?: string;
 }) {
   return (
-    <label className="flex flex-col gap-1.5">
-      <span className="font-brand text-[12px] font-bold uppercase tracking-[0.08em] text-sand-950">
+    <label className="flex flex-col gap-2">
+      <span className="font-brand text-[13px] font-semibold tracking-[-0.01em] text-sand-950">
         {label}
       </span>
-      <div className="flex items-stretch border-2 border-sand-950 bg-sand-50 focus-within:border-clay-500">
+      <div className="flex items-stretch overflow-hidden rounded-xl border border-sand-200 bg-sand-50 transition-colors duration-150 focus-within:border-lime-500 focus-within:ring-2 focus-within:ring-lime-500/20">
         {prefix && (
-          <span className="flex items-center bg-sand-100 px-3 font-brand text-sm font-bold text-sand-700">
+          <span className="flex items-center bg-sand-100 px-3 font-brand text-sm font-semibold text-sand-600">
             {prefix}
           </span>
         )}
@@ -692,16 +660,16 @@ function NumberField({
           min={min}
           max={max}
           step={step}
-          className="w-full bg-transparent px-3 py-2.5 font-brand text-base text-sand-950 outline-none tabular-nums"
+          className="w-full bg-transparent px-3.5 py-2.5 font-brand text-base text-sand-950 outline-none tabular-nums"
         />
         {suffix && (
-          <span className="flex items-center bg-sand-100 px-3 font-brand text-sm font-bold text-sand-700">
+          <span className="flex items-center bg-sand-100 px-3 font-brand text-sm font-semibold text-sand-600">
             {suffix}
           </span>
         )}
       </div>
       {help && (
-        <span className="font-brand text-[12px] leading-[1.4] text-sand-600">
+        <span className="font-brand text-[12px] leading-[1.45] text-char-400">
           {help}
         </span>
       )}
@@ -722,15 +690,15 @@ function PercentDropdownField({
 }) {
   const options = [10, 20, 30, 40, 50, 60, 70, 80, 90, 100];
   return (
-    <label className="flex flex-col gap-1.5">
-      <span className="font-brand text-[12px] font-bold uppercase tracking-[0.08em] text-sand-950">
+    <label className="flex flex-col gap-2">
+      <span className="font-brand text-[13px] font-semibold tracking-[-0.01em] text-sand-950">
         {label}
       </span>
-      <div className="border-2 border-sand-950 bg-sand-50 focus-within:border-clay-500">
+      <div className="overflow-hidden rounded-xl border border-sand-200 bg-sand-50 transition-colors duration-150 focus-within:border-lime-500 focus-within:ring-2 focus-within:ring-lime-500/20">
         <select
           value={value}
           onChange={(e) => onChange(Number(e.target.value))}
-          className="w-full bg-transparent px-3 py-2.5 font-brand text-base text-sand-950 outline-none"
+          className="w-full bg-transparent px-3.5 py-2.5 font-brand text-base text-sand-950 outline-none"
         >
           {options.map((pct) => (
             <option key={pct} value={pct}>
@@ -740,7 +708,7 @@ function PercentDropdownField({
         </select>
       </div>
       {help && (
-        <span className="font-brand text-[12px] leading-[1.4] text-sand-600">
+        <span className="font-brand text-[12px] leading-[1.45] text-char-400">
           {help}
         </span>
       )}
@@ -764,15 +732,15 @@ function ResponseTimeField({
     { mins: 2880, label: "Over a day" },
   ];
   return (
-    <label className="flex flex-col gap-1.5 sm:col-span-2">
-      <span className="font-brand text-[12px] font-bold uppercase tracking-[0.08em] text-sand-950">
+    <label className="flex flex-col gap-2 sm:col-span-2">
+      <span className="font-brand text-[13px] font-semibold tracking-[-0.01em] text-sand-950">
         Average response time to digital inquiries
       </span>
-      <div className="border-2 border-sand-950 bg-sand-50 focus-within:border-clay-500">
+      <div className="overflow-hidden rounded-xl border border-sand-200 bg-sand-50 transition-colors duration-150 focus-within:border-lime-500 focus-within:ring-2 focus-within:ring-lime-500/20">
         <select
           value={value}
           onChange={(e) => onChange(Number(e.target.value))}
-          className="w-full bg-transparent px-3 py-2.5 font-brand text-base text-sand-950 outline-none"
+          className="w-full bg-transparent px-3.5 py-2.5 font-brand text-base text-sand-950 outline-none"
         >
           {options.map((o) => (
             <option key={o.mins} value={o.mins}>
@@ -781,7 +749,7 @@ function ResponseTimeField({
           ))}
         </select>
       </div>
-      <span className="font-brand text-[12px] leading-[1.4] text-sand-600">
+      <span className="font-brand text-[12px] leading-[1.45] text-char-400">
         Honest answer — how long between a form / DM / SMS coming in and someone
         actually replying.
       </span>
@@ -799,43 +767,18 @@ function ReadonlyField({
   help?: string;
 }) {
   return (
-    <div className="flex flex-col gap-1.5">
-      <span className="font-brand text-[12px] font-bold uppercase tracking-[0.08em] text-sand-600">
+    <div className="flex flex-col gap-2">
+      <span className="font-brand text-[13px] font-semibold tracking-[-0.01em] text-char-400">
         {label}
       </span>
-      <div className="flex items-center border-2 border-dashed border-sand-200 bg-sand-50 px-3 py-2.5 font-brand text-base text-sand-700 tabular-nums">
+      <div className="flex items-center rounded-xl border border-dashed border-sand-200 bg-sand-100/60 px-3.5 py-2.5 font-brand text-base text-sand-600 tabular-nums">
         {value}
       </div>
       {help && (
-        <span className="font-brand text-[12px] leading-[1.4] text-sand-600">
+        <span className="font-brand text-[12px] leading-[1.45] text-char-400">
           {help}
         </span>
       )}
-    </div>
-  );
-}
-
-function RunningRow({
-  label,
-  value,
-  active,
-}: {
-  label: string;
-  value: number;
-  active: boolean;
-}) {
-  return (
-    <div className="flex items-center justify-between border-b border-sand-200 py-2.5 last:border-b-0">
-      <span
-        className={`font-brand text-[13px] ${active ? "text-sand-950" : "text-sand-600"}`}
-      >
-        {label}
-      </span>
-      <span
-        className={`font-brand text-[14px] font-bold tabular-nums ${active ? "text-sand-950" : "text-sand-600"}`}
-      >
-        {fmtMoney(value)}
-      </span>
     </div>
   );
 }
@@ -853,26 +796,25 @@ function ResultBlock({
 }) {
   const valueColor =
     tone === "leak"
-      ? "text-clay-500"
+      ? "text-lime-500"
       : tone === "net"
-        ? "text-clay-500"
-        : "text-sand-50";
+        ? "text-lime-500"
+        : "text-white";
   return (
     <div>
-      <div className="font-brand text-[11px] font-bold uppercase tracking-[0.12em] text-sand-200/80">
+      <div className="font-brand text-[12px] font-semibold uppercase tracking-[0.12em] text-white/60">
         {label}
       </div>
       <div
-        className={`mt-2 font-brand text-4xl font-black tabular-nums ${valueColor}`}
+        className={`mt-2 font-brand text-4xl font-extrabold tracking-[-0.03em] tabular-nums ${valueColor}`}
       >
         {fmtMoney(monthly)}
-        <span className="ml-1 font-brand text-base font-bold text-sand-200/80">
+        <span className="ml-1 font-brand text-base font-semibold text-white/60">
           / mo
         </span>
       </div>
-      <div className="mt-1 font-brand text-sm font-bold text-sand-200 tabular-nums">
-        {fmtMoney(annual)}{" "}
-        <span className="text-sand-200/80">/ yr</span>
+      <div className="mt-1 font-brand text-sm font-semibold text-white/80 tabular-nums">
+        {fmtMoney(annual)} <span className="text-white/50">/ yr</span>
       </div>
     </div>
   );

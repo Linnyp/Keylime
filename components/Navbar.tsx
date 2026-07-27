@@ -2,42 +2,45 @@
 
 import CardNav from "@/components/CardNav";
 
-const LOGO_SRC = "/linax-digital-logo.png";
+const LOGO_SRC = "/keylimelogolite.png";
 
 const NAV_ITEMS = [
   {
-    label: "Services",
+    label: "Systems",
     bgColor: "var(--color-sand-900)",
     textColor: "#FFFFFF",
     links: [
+      { label: "Foundation", ariaLabel: "Foundation system", href: "/systems/foundation" },
+      { label: "Growth", ariaLabel: "Growth system", href: "/systems/growth" },
+      { label: "Expansion", ariaLabel: "Expansion system", href: "/systems/expansion" },
+      { label: "How It Works", ariaLabel: "How KeyLime works", href: "/how-it-works" },
+      { label: "Compare & Pricing", ariaLabel: "Compare systems and pricing", href: "/pricing" },
+    ],
+  },
+  {
+    label: "Services",
+    bgColor: "var(--color-sand-800)",
+    textColor: "#FFFFFF",
+    links: [
+      { label: "All Services", ariaLabel: "All Services", href: "/services" },
       { label: "Websites", ariaLabel: "Website Design Services", href: "/services/websites" },
       { label: "Local SEO", ariaLabel: "Local SEO Services", href: "/services/seo" },
       { label: "Google & Meta Ads", ariaLabel: "Google and Meta Ads Services", href: "/services/ads" },
       { label: "Reputation Management", ariaLabel: "Reputation Management Services", href: "/services/reputation" },
-      { label: "Chat & Voice Agent", ariaLabel: "AI Chat and Voice Agent Services", href: "/services/chat-voice-agent" },
-      { label: "Automations", ariaLabel: "Marketing and Workflow Automations", href: "/services/automations" },
     ],
   },
   {
     label: "Company",
-    bgColor: "var(--color-sand-800)",
-    textColor: "#FFFFFF",
-    links: [
-      { label: "About", ariaLabel: "About Linax Digital", href: "/about" },
-      { label: "How We Work", ariaLabel: "Our Process", href: "/process" },
-      { label: "Case Studies", ariaLabel: "Client Case Studies", href: "/case-studies" },
-      { label: "Contact", ariaLabel: "Contact Linax Digital", href: "/contact" },
-    ],
-  },
-  {
-    label: "Resources",
     bgColor: "var(--color-clay-500)",
     textColor: "#FFFFFF",
     links: [
-      { label: "Pricing", ariaLabel: "Pricing Plans", href: "/pricing" },
+      { label: "About", ariaLabel: "About Linax Digital", href: "/about" },
+      { label: "Case Studies", ariaLabel: "Client Case Studies", href: "/case-studies" },
+      { label: "Revenue Calculator", ariaLabel: "Missed-call revenue calculator", href: "/calculators/missed-call-revenue" },
       { label: "Free Audit", ariaLabel: "Free Digital Presence Audit", href: "/audit" },
       { label: "FAQ", ariaLabel: "Frequently Asked Questions", href: "/faq" },
       { label: "Blog", ariaLabel: "Linax Digital Blog", href: "/blog" },
+      { label: "Contact", ariaLabel: "Contact Linax Digital", href: "/contact" },
     ],
   },
 ];
@@ -49,12 +52,12 @@ export default function Navbar() {
       <div className="pointer-events-auto">
         <CardNav
           logo={LOGO_SRC}
-          logoAlt="Linax Digital"
+          logoAlt="KeyLime"
           items={NAV_ITEMS}
           baseColor="transparent"
-          menuColor="#1F1B16"
-          buttonBgColor="#C2552D"
-          buttonTextColor="#FBF8F3"
+          menuColor="#1C1E1A"
+          buttonBgColor="#A4D639"
+          buttonTextColor="#1C1E1A"
         />
       </div>
     </div>

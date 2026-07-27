@@ -2,6 +2,6 @@
 
 .faq-heading {
   font-size: clamp(1.75rem, 3vw, 2.5rem);
-  letter-spacing: -0.04em;
-  line-height: 0.95;
+  letter-spacing: -0.03em;
+  line-height: 1.05;
 }

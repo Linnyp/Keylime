@@ -105,17 +105,17 @@ export function ProblemSection() {
           ref={mobileHeadingRef}
           className={`${mobileSticky ? "sticky top-20" : ""} md:relative! md:top-auto! z-20 -mx-6 px-6 lg:hidden bg-sand-50`}
         >
-          <h2 className="problem-heading font-brand font-black uppercase text-sand-950 md:hidden">
+          <h2 className="problem-heading font-brand font-extrabold text-sand-950 md:hidden">
             You&apos;ve Got 99 Problems
             <br />
-            <span className="text-clay-500">Marketing</span> Shouldn&apos;t Be 1
+            <span className="text-lime-700">Marketing</span> Shouldn&apos;t Be 1
           </h2>
-          <h2 className="problem-heading font-brand font-black uppercase text-sand-950 hidden md:block">
+          <h2 className="problem-heading font-brand font-extrabold text-sand-950 hidden md:block">
             You&apos;ve Got
             <br />
             99 Problems
             <br />
-            <span className="text-clay-500">Marketing </span>
+            <span className="text-lime-700">Marketing </span>
             <br />
             Shouldn&apos;t Be 1
           </h2>
@@ -132,12 +132,12 @@ export function ProblemSection() {
             <div className="lg:sticky lg:top-24">
               <div className="hidden lg:block">
                 <SectionLabel text="The Problem" />
-                <h2 className="problem-heading font-brand font-black uppercase text-sand-950">
+                <h2 className="problem-heading font-brand font-extrabold text-sand-950">
                   You&apos;ve Got
                   <br />
                   99 Problems
                   <br />
-                  <span className="text-clay-500">Marketing </span>
+                  <span className="text-lime-700">Marketing </span>
                   <br />
                   Shouldn&apos;t Be 1
                   <br />

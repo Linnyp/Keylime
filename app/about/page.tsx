@@ -1,49 +1,6 @@
 import type { Metadata } from "next";
-
-export const metadata: Metadata = {
-  title: "About Linax Digital — Founder-Led Agency, Cape Coral FL",
-  description:
-    "Meet the founder of Linax Digital. Technical expertise, Southwest Florida roots, and the person who actually does the work.",
-};
-
-export default function AboutPage() {
-  return (
-    <main>
-      {/* ── FOUNDER HERO ─────────────────────────────────────────────────── */}
-      <section id="founder-hero" className="px-6 py-24 max-w-7xl mx-auto">
-        <h1 className="text-5xl font-[var(--font-display)]">Founder Hero — Founder photo + headline: "I build the sites, I run the campaigns, I answer the phone" · warm, direct Fraunces tone</h1>
-      </section>
-
-      {/* ── FOUNDER STORY ────────────────────────────────────────────────── */}
-      <section id="founder-story" className="bg-[var(--color-sand-100)] px-6 py-24">
-        <div className="max-w-7xl mx-auto">
-          <h1 className="text-4xl font-[var(--font-display)]">Founder Story — Plain-language background: operating since 2022 · SWFL rooted · technical without being technical · why Linax Digital was formalized in 2026</h1>
-        </div>
-      </section>
-
-      {/* ── WHY LINAX DIGITAL ────────────────────────────────────────────── */}
-      <section id="why-linax" className="px-6 py-24 max-w-7xl mx-auto">
-        <h1 className="text-4xl font-[var(--font-display)]">Why Linax Digital — 5 differentiators in Everyman language: modern tech · founder-led quality · AI-augmented delivery · platform-powered services · SWFL local expertise</h1>
-      </section>
-
-      {/* ── CLIENT LOGOS / VERTICALS ─────────────────────────────────────── */}
-      <section id="clients" className="bg-[var(--color-sand-100)] px-6 py-24">
-        <div className="max-w-7xl mx-auto">
-          <h1 className="text-4xl font-[var(--font-display)]">Clients & Verticals — Four Leaf Charters · Verona Cabinets · Mycelia Foundation · Mega Kovas · ord-x · Virtue Sod · verticals: home services, marine, specialty contractors</h1>
-        </div>
-      </section>
-
-      {/* ── FOUNDER CONTACT ──────────────────────────────────────────────── */}
-      <section id="founder-contact" className="px-6 py-24 max-w-7xl mx-auto">
-        <h1 className="text-4xl font-[var(--font-display)]">Founder Contact — Direct email or phone as a signal of accountability: "You can reach me directly"</h1>
-      </section>
-
-      {/* ── CTA ──────────────────────────────────────────────────────────── */}
-      <section id="cta" className="bg-[var(--color-brown-900)] text-white px-6 py-24">
-        <div className="max-w-7xl mx-auto">
-          <h1 className="text-4xl font-[var(--font-display)]">CTA — "Book a direct call with me" (Calendly) · links to /services and /pricing mentioned in founder story</h1>
-        </div>
-      </section>
-    </main>
-  );
-}
+import Link from "next/link";
+import { FiArrowRight, FiMapPin, FiMessageSquare, FiUsers } from "react-icons/fi";
+export const metadata: Metadata = { title: "About", description: "KeyLime runs managed marketing systems for home-service and beauty businesses." };
+const values = [["Plain-English communication", "You should not need a marketing dictionary to know what we are doing or what it costs."], ["Fair pricing", "System prices are published. Work that depends on scope gets a real scope and quote before you commit."], ["Fit-for-purpose systems", "We build around the way a service business actually takes calls, books work, follows up, and earns repeat business."], ["No lock-in", "The core systems are month-to-month and can grow or contract with the business."]];
+export default function AboutPage() { return <main className="bg-sand-50 pt-20 text-sand-950"><section className="border-b-4 border-sand-950 py-20 md:py-28"><div className="mx-auto max-w-[1050px] px-6"><p className="font-brand text-xs font-bold uppercase tracking-[.18em] text-clay-500">About KeyLime</p><h1 className="mt-4 max-w-[900px] font-brand text-[clamp(3rem,6vw,5.6rem)] font-black uppercase leading-[.9] tracking-[-.06em]">We run marketing systems for local service businesses. That&apos;s it.</h1><p className="mt-7 max-w-[650px] text-[17px] leading-[1.7] text-sand-700">One team sets up the system, runs the work, and stays accountable for it. You get back to running the business.</p></div></section><section className="py-24 md:py-32"><div className="mx-auto grid max-w-[1200px] gap-12 px-6 lg:grid-cols-2"><div><p className="font-brand text-xs font-bold uppercase tracking-[.18em] text-clay-500">Why this exists</p><h2 className="mt-4 font-brand text-[clamp(2.4rem,4.5vw,4.1rem)] font-black uppercase leading-[.93] tracking-[-.055em]">Most owners do not need more software.</h2></div><div className="space-y-5 text-[17px] leading-[1.75] text-sand-700"><p>They need someone to run the marketing around the business they already have. The calls, messages, booking, follow-up, reviews, and local search work should talk to each other. Usually, they do not.</p><p>KeyLime is built for home services and beauty businesses because both live by the same practical things: phones that get answered, appointments that show up, reviews that keep coming in, and customers who come back.</p></div></div></section><section className="bg-sand-100 py-24"><div className="mx-auto grid max-w-[1200px] gap-6 px-6 md:grid-cols-3"><article className="rounded-3xl bg-sand-50 p-8"><FiMessageSquare className="text-clay-500" size={28}/><h2 className="mt-6 font-brand text-xl font-black uppercase">One point of contact.</h2><p className="mt-4 leading-[1.7] text-sand-700">The person who knows the plan is the person you can reach. No vendor pile-up and no “let me check with the team.”</p></article><article className="rounded-3xl bg-sand-50 p-8"><FiUsers className="text-clay-500" size={28}/><h2 className="mt-6 font-brand text-xl font-black uppercase">A real team behind the work.</h2><p className="mt-4 leading-[1.7] text-sand-700">The core team is supported by vetted specialists when the work calls for it. The client experience stays simple.</p></article><article className="rounded-3xl bg-sand-50 p-8"><FiMapPin className="text-clay-500" size={28}/><h2 className="mt-6 font-brand text-xl font-black uppercase">Southwest Florida roots.</h2><p className="mt-4 leading-[1.7] text-sand-700">We are based in Southwest Florida and serve local businesses nationally. Local business is the work we understand.</p></article></div></section><section className="py-24 md:py-32"><div className="mx-auto max-w-[1200px] px-6"><p className="font-brand text-xs font-bold uppercase tracking-[.18em] text-clay-500">What we believe</p><h2 className="mt-4 max-w-[700px] font-brand text-[clamp(2.4rem,4.5vw,4.1rem)] font-black uppercase leading-[.93] tracking-[-.055em]">How we work is part of the product.</h2><div className="mt-12 grid gap-5 md:grid-cols-2">{values.map(([title, body]) => <article key={title} className="border-t-2 border-sand-950 pt-6"><h3 className="font-brand text-xl font-extrabold uppercase">{title}</h3><p className="mt-3 max-w-[470px] leading-[1.7] text-sand-700">{body}</p></article>)}</div></div></section><section className="bg-sand-900 py-24 text-sand-50"><div className="mx-auto max-w-[850px] px-6 text-center"><h2 className="font-brand text-[clamp(2.3rem,5vw,4.2rem)] font-black uppercase leading-[.93] tracking-[-.055em]">Book a free consult. 30 minutes. No pitch deck.</h2><p className="mx-auto mt-6 max-w-[560px] leading-[1.7] text-sand-50/70">We will look at the problem, the tools you already use, and the system that makes sense.</p><div className="mt-9 flex flex-wrap justify-center gap-5"><a href="https://calendly.com/keylime-marketing/discovery-call" className="rounded-full bg-clay-500 px-6 py-3 text-sm font-bold uppercase tracking-[.06em] text-sand-50 no-underline">Book Free Consult</a><Link href="/calculators/missed-call-revenue" className="inline-flex items-center gap-2 rounded-full border-2 border-sand-50/60 px-6 py-3 text-sm font-bold uppercase tracking-[.06em] text-sand-50 no-underline">Run the numbers first <FiArrowRight/></Link></div></div></section></main>; }

@@ -1,82 +1,226 @@
 @import "tailwindcss";
 
 @theme {
-  /* ----- Coastal Clay palette ----- */
-  --color-cream: #fbf8f3;
-  --color-sand-25: #ffffff;
-  --color-sand-50: #fbf8f3;
-  --color-sand-100: #f3eee4;
-  --color-sand-200: #ede6d6;
-  --color-sand-600: #78705f;
-  --color-sand-700: #5c5449;
-  --color-sand-800: #3e372d;
-  --color-sand-900: #2a251d;
-  --color-sand-950: #1f1b16;
+  /* =====================================================================
+   * Citrus & Charcoal — KeyLime Webflow design system (Agencia X structure)
+   * Legacy `sand-*` / `clay-*` token names are retained but remapped onto the
+   * warm-charcoal neutral scale + Key Lime accent so the whole site inherits
+   * the palette. New work should prefer the `char-*` / `lime-*` tokens.
+   * ===================================================================== */
 
-  --color-clay: #c2552d;
-  --color-clay-500: #c2552d;
-  --color-clay-600: #a3431f;
-  --color-clay-700: #a3431f;
+  /* ----- Neutral scale (warm charcoal) ----- */
+  --color-cream: #fbfbf7;
+  --color-sand-25: #ffffff; /* neutral 100 — white surface        */
+  --color-sand-50: #fbfbf7; /* --primary-05 — warm near-white canvas */
+  --color-sand-100: #f0f2eb; /* neutral 200 — alternating surface  */
+  --color-sand-200: #dcddd7; /* neutral 300 — light borders        */
+  --color-sand-600: #4f524b; /* neutral 600 — body / support text  */
+  --color-sand-700: #292b26; /* neutral 700 — strong emphasis      */
+  --color-sand-800: #292b26; /* neutral 700 — dark surface alt     */
+  --color-sand-900: #1c1e1a; /* neutral 800 — dark sections, footer */
+  --color-sand-950: #1c1e1a; /* neutral 800 — primary text / charcoal */
 
-  --color-brown-900: #2a1f14;
-  --color-navy: #1a2b4a;
-  --color-sage: #6b8f71;
+  --color-char-300: #c7c9c3; /* neutral 400 — input / divider      */
+  --color-char-400: #898b85; /* neutral 500 — placeholder / muted  */
 
-  /* Translucent sand for fixed nav */
-  --color-sand-frost: rgba(42, 37, 29, 0.9);
+  /* ----- Primary scale — Key Lime accent ----- */
+  --color-lime-50: #ecf6cf;
+  --color-lime-100: #dff0b0;
+  --color-lime-200: #cde886;
+  --color-lime-300: #bbe05e;
+  --color-lime-500: #a4d639; /* --primary-01 — brand accent        */
+  --color-lime-600: #6fa51f; /* --primary-02 — hover / accent text */
+  --color-lime-700: #588817; /* --primary-03 — pressed / icons     */
+  --color-lime-800: #436c0e; /* --primary-04 — deepest / links     */
+
+  /* ----- Legacy accent aliases (kept on-palette) ----- */
+  --color-clay: #a4d639;
+  --color-clay-500: #588817;
+  --color-clay-600: #436c0e;
+  --color-clay-700: #436c0e;
+
+  --color-brown-900: #1c1e1a;
+  --color-navy: #292b26;
+  --color-sage: #6fa51f;
+
+  /* Translucent charcoal for the fixed nav frost */
+  --color-sand-frost: rgba(28, 30, 26, 0.9);
 
   /* ----- Typography ----- */
-  --font-display: "Fraunces", Georgia, serif;
+  --font-display: "Inter", system-ui, sans-serif;
   --font-body: "Inter", system-ui, sans-serif;
   --font-brand: "Inter", "Helvetica Neue", Helvetica, Arial, sans-serif;
 
   /* ----- Layout ----- */
   --container-brand: 1200px;
   --spacing-gutter: 24px;
+
+  /* ----- Radius scale ----- */
+  --radius-sm: 8px;
+  --radius-md: 16px;
+  --radius-lg: 24px;
+  --radius-xl: 32px;
 }
 
 body {
   background-color: var(--color-sand-50);
   color: var(--color-sand-950);
   font-family: var(--font-body);
+  letter-spacing: -0.03em; /* universal tracking — defining detail of the system */
+  -webkit-font-smoothing: antialiased;
 }
 
-/* ----- Reusable background patterns -------------------------------------
- * Used across sections for Swiss-style grid/dot/diagonal textures.
- * ----------------------------------------------------------------------- */
+/* =====================================================================
+ * Reusable component classes (mirrors the Webflow class system)
+ * ===================================================================== */
+
+/* ----- Buttons — fully pill-shaped, 300ms transform lift ----- */
+.wf-btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  min-height: 52px;
+  padding: 14px 28px;
+  border-radius: 80px;
+  border: 1px solid transparent;
+  font-size: 16px;
+  line-height: 1.25;
+  font-weight: 500;
+  letter-spacing: -0.03em;
+  text-decoration: none;
+  cursor: pointer;
+  transition:
+    transform 300ms ease,
+    background-color 150ms ease,
+    box-shadow 150ms ease,
+    color 150ms ease;
+}
+.wf-btn:hover {
+  transform: translateY(-2px);
+}
+
+.wf-btn-primary {
+  background-color: var(--color-sand-950);
+  border-color: var(--color-sand-950);
+  color: #ffffff;
+  box-shadow: 0 1px 4px 0 rgba(28, 30, 26, 0.08);
+}
+.wf-btn-primary:hover {
+  box-shadow: 0 4px 14px 0 rgba(28, 30, 26, 0.18);
+}
+
+.wf-btn-lime {
+  background-color: var(--color-lime-500);
+  border-color: var(--color-lime-500);
+  color: var(--color-sand-950);
+  box-shadow: 0 1px 4px 0 rgba(111, 165, 31, 0.2);
+}
+.wf-btn-lime:hover {
+  background-color: var(--color-lime-600);
+  border-color: var(--color-lime-600);
+  box-shadow: 0 4px 14px 0 rgba(111, 165, 31, 0.24);
+}
+
+.wf-btn-secondary {
+  background-color: transparent;
+  border-color: var(--color-char-300);
+  color: var(--color-sand-950);
+  box-shadow: 0 1px 4px 0 rgba(28, 30, 26, 0.06);
+}
+.wf-btn-secondary:hover {
+  background-color: var(--color-sand-100);
+}
+
+/* Secondary button on dark surfaces */
+.wf-btn-ghost-light {
+  background-color: transparent;
+  border-color: rgba(255, 255, 255, 0.35);
+  color: #ffffff;
+}
+.wf-btn-ghost-light:hover {
+  background-color: rgba(255, 255, 255, 0.08);
+}
+
+/* ----- Editorial eyebrow label with lime rule ----- */
+.wf-eyebrow {
+  display: inline-flex;
+  align-items: center;
+  gap: 12px;
+  font-size: 12px;
+  font-weight: 600;
+  line-height: 1.5;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  color: var(--color-lime-700);
+}
+.wf-eyebrow::before {
+  content: "";
+  width: 28px;
+  height: 2px;
+  background-color: var(--color-lime-500);
+}
+.wf-eyebrow-light {
+  color: var(--color-lime-300);
+}
+
+/* ----- Cards & elevation ----- */
+.wf-card {
+  background-color: #ffffff;
+  border: 1px solid var(--color-sand-200);
+  border-radius: var(--radius-lg);
+  box-shadow: 0 2px 6px 0 rgba(28, 30, 26, 0.06);
+}
+
+.wf-shadow-01 {
+  box-shadow: 0 1px 2px 0 rgba(28, 30, 26, 0.1);
+}
+.wf-shadow-03 {
+  box-shadow: 0 2px 6px 0 rgba(28, 30, 26, 0.14);
+}
+.wf-shadow-05 {
+  box-shadow: 0 12px 26px 0 rgba(28, 30, 26, 0.14);
+}
+.wf-shadow-lime {
+  box-shadow: 0 12px 26px 0 rgba(111, 165, 31, 0.2);
+}
+
+/* =====================================================================
+ * Background textures (kept, retuned to the charcoal palette)
+ * ===================================================================== */
 
 .bg-grid-pattern {
   background-image:
     repeating-linear-gradient(
       0deg,
       transparent,
-      transparent 23px,
-      rgba(31, 27, 22, 0.06) 23px,
-      rgba(31, 27, 22, 0.06) 24px
+      transparent 31px,
+      rgba(28, 30, 26, 0.04) 31px,
+      rgba(28, 30, 26, 0.04) 32px
     ),
     repeating-linear-gradient(
       90deg,
       transparent,
-      transparent 23px,
-      rgba(31, 27, 22, 0.06) 23px,
-      rgba(31, 27, 22, 0.06) 24px
+      transparent 31px,
+      rgba(28, 30, 26, 0.04) 31px,
+      rgba(28, 30, 26, 0.04) 32px
     );
 }
 
 .bg-dots-pattern {
   background-image: radial-gradient(
-    rgba(251, 248, 243, 0.12) 1px,
+    rgba(164, 214, 57, 0.18) 1px,
     transparent 1px
   );
-  background-size: 16px 16px;
+  background-size: 18px 18px;
 }
 
 .bg-diag-pattern {
   background-image: repeating-linear-gradient(
     45deg,
-    rgba(31, 27, 22, 0.04) 0px,
-    rgba(31, 27, 22, 0.04) 1px,
+    rgba(28, 30, 26, 0.03) 0px,
+    rgba(28, 30, 26, 0.03) 1px,
     transparent 1px,
-    transparent 10px
+    transparent 12px
   );
 }

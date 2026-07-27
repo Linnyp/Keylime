@@ -14,25 +14,23 @@ export function ProblemCard({
   total: _total,
 }: ProblemCardProps) {
   return (
-    <article className="group h-full cursor-default border-4 border-sand-950 bg-sand-100 p-10 transition-colors duration-150 hover:bg-sand-950">
+    <article className="group h-full cursor-default rounded-3xl border border-sand-200 bg-white p-10 shadow-[0_2px_6px_0_rgba(28,30,26,0.06)] transition-all duration-200 hover:-translate-y-1 hover:border-lime-300 hover:shadow-[0_12px_26px_0_rgba(28,30,26,0.12)]">
       <div className="mb-4 flex items-start justify-between gap-4">
-        <h3 className="font-brand text-[20px] font-extrabold uppercase tracking-[-0.02em] text-sand-950 transition-colors duration-150 group-hover:text-sand-50">
+        <h3 className="font-brand text-[22px] font-bold tracking-[-0.03em] text-sand-950">
           {problem.name}
         </h3>
-        <span className="shrink-0 font-brand text-[11px] font-black tracking-[0.1em] text-clay-500 transition-colors duration-150 group-hover:text-sand-50">
+        <span className="shrink-0 font-brand text-[13px] font-extrabold tracking-[0.02em] text-lime-700">
           0{index + 1}
         </span>
       </div>
 
-      <p className="mb-5 font-brand text-[15px] leading-[1.7] text-sand-600 transition-colors duration-150 group-hover:text-white/90">
+      <p className="mb-5 text-[15px] leading-[1.7] text-sand-600">
         {problem.body}
       </p>
 
-      <p className="font-brand text-[15px] leading-[1.7] text-sand-600 transition-colors duration-150 group-hover:text-white/90">
-        <span className="font-bold text-clay-500 transition-colors duration-150 group-hover:text-sand-50">
-          Solution:
-        </span>{" "}
-        {problem.solution}
+      <p className="flex gap-2 text-[15px] leading-[1.7] text-sand-950">
+        <span className="font-semibold text-lime-800">Solution:</span>
+        <span className="text-sand-600">{problem.solution}</span>
       </p>
     </article>
   );

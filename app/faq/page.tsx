@@ -1,53 +1,12 @@
 import type { Metadata } from "next";
 import Link from "next/link";
+import { FiArrowRight } from "react-icons/fi";
 
-export const metadata: Metadata = {
-  title: "FAQ — Digital Marketing Questions Answered | Linax Digital",
-  description:
-    "Answers to common questions about pricing, contracts, services, timelines, and working with Linax Digital.",
-};
-
-export default function FaqPage() {
-  return (
-    <main>
-      {/* ── HERO ─────────────────────────────────────────────────────────── */}
-      <section id="hero" className="px-6 py-24 max-w-7xl mx-auto">
-        <nav className="text-sm text-[var(--color-sand-700)] mb-6">
-          <Link href="/">Home</Link> &rsaquo; FAQ
-        </nav>
-        <h1 className="text-5xl font-[var(--font-display)]">FAQ Hero — "Straight answers to the questions we hear most" · organized into sections for easy scanning</h1>
-      </section>
-
-      {/* ── PRICING & CONTRACTS ──────────────────────────────────────────── */}
-      <section id="pricing-contracts" className="bg-[var(--color-sand-100)] px-6 py-20">
-        <div className="max-w-7xl mx-auto">
-          <h1 className="text-4xl font-[var(--font-display)]">Pricing & Contracts — How much does it cost? · What's the 12-month website contract? · Can I cancel? · Is pricing negotiable?</h1>
-        </div>
-      </section>
-
-      {/* ── SERVICES & SCOPE ─────────────────────────────────────────────── */}
-      <section id="services-scope" className="px-6 py-20 max-w-7xl mx-auto">
-        <h1 className="text-4xl font-[var(--font-display)]">Services & Scope — What's included in reputation management? · Do you do social media? · What platforms do you build on? · Can I get just one service?</h1>
-      </section>
-
-      {/* ── RESULTS & TIMELINES ──────────────────────────────────────────── */}
-      <section id="results-timelines" className="bg-[var(--color-sand-100)] px-6 py-20">
-        <div className="max-w-7xl mx-auto">
-          <h1 className="text-4xl font-[var(--font-display)]">Results & Timelines — How long until I see SEO results? · How fast can a website be built? · What kind of ROI can I expect from ads?</h1>
-        </div>
-      </section>
-
-      {/* ── WORKING TOGETHER ─────────────────────────────────────────────── */}
-      <section id="working-together" className="px-6 py-20 max-w-7xl mx-auto">
-        <h1 className="text-4xl font-[var(--font-display)]">Working Together — Do I work with you directly? · What does onboarding look like? · How do I get started? → link to /audit</h1>
-      </section>
-
-      {/* ── CTA ──────────────────────────────────────────────────────────── */}
-      <section id="cta" className="bg-[var(--color-brown-900)] text-white px-6 py-24">
-        <div className="max-w-7xl mx-auto">
-          <h1 className="text-4xl font-[var(--font-display)]">CTA — Still have questions? Book a free 30-min call (Calendly)</h1>
-        </div>
-      </section>
-    </main>
-  );
-}
+export const metadata: Metadata = { title: "FAQ", description: "Straight answers about KeyLime’s managed marketing systems, onboarding, pricing, and custom work." };
+const groups = [
+  ["The system and pricing", [["What is KeyLime, exactly?", "KeyLime is a managed marketing system for local service businesses. We set up and run the marketing infrastructure; you use the inbox, CRM, and reporting that help you run the business."], ["What is included in every system?", "Every account gets a dedicated business number, the required SMS registration, a private workspace, baseline workflows, a written gameplan, and a single point of contact."], ["Can I change systems later?", "Yes. The core systems are month-to-month. Your contacts and configured workflows carry across when you move up or down."], ["What is the difference between an add-on and custom work?", "An add-on is a defined capability you can add to your system. Full SEO, ads management, custom websites, and large workflow builds are scoped and quoted around the actual work."]]],
+  ["Onboarding", [["How long does setup take?", "Most systems go live in 4 to 8 weeks. We use that time for discovery, the written gameplan, setup, integrations, and the workflows your business needs."], ["What do I have to do during onboarding?", "Give us the practical information we need about your business, services, customer flow, and current tools. We do the setup work and keep you involved where a decision needs your input."], ["Do I get an account manager?", "You get one point of contact who stays with the engagement. No handoff chain and no guessing who owns the next step."]]],
+  ["Your existing tools", [["Do I have to replace my booking or field-service software?", "No. Keep the tools you use for booking, dispatch, and payments. KeyLime runs the marketing system around them and connects what needs connecting."], ["Do you work with home services and beauty businesses?", "Yes. Those are the two operational shapes the system is built for: businesses that live or die by calls, appointments, reviews, and repeat customers."], ["Do I have to learn another platform?", "No. We configure and run the platform. You use the useful parts: the inbox, CRM, and monthly report."]]],
+  ["Compliance and custom work", [["What is the SMS registration you handle?", "US carriers require businesses to register before sending customer texts. We take care of that setup and the ongoing practical details so your messages are less likely to be blocked."], ["Do I own my contacts and messages?", "Your customer data stays in your private workspace. Ask us about the specific handoff and data terms before you sign; we will explain them plainly."], ["Can you run ads, SEO, or build a custom site?", "Yes. Those are custom-scoped because the actual work depends on your market, goals, and existing setup. Use the contact form and select the type of work you need."]]],
+] as const;
+export default function FaqPage() { return <main className="bg-sand-50 pt-20 text-sand-950"><section className="border-b-4 border-sand-950 py-20 text-center md:py-28"><div className="mx-auto max-w-[900px] px-6"><p className="font-brand text-xs font-bold uppercase tracking-[.18em] text-clay-500">Straight answers</p><h1 className="mt-4 font-brand text-[clamp(3rem,6vw,5.6rem)] font-black uppercase leading-[.9] tracking-[-.06em]">The questions people ask before they book.</h1><p className="mx-auto mt-7 max-w-[650px] text-[17px] leading-[1.7] text-sand-700">No acronym wall. No sales-script answers. Just the practical details that help you decide whether KeyLime fits.</p></div></section><section className="py-24 md:py-32"><div className="mx-auto max-w-[920px] px-6">{groups.map(([title, faqs], i) => <div key={title} className={i ? "mt-20" : ""}><h2 className="font-brand text-[clamp(2rem,4vw,3.25rem)] font-black uppercase tracking-[-.05em]">{title}</h2><div className="mt-8 border-y-2 border-sand-950">{faqs.map(([question, answer]) => <details key={question} className="group border-b-2 border-sand-950 last:border-b-0"><summary className="flex cursor-pointer list-none justify-between gap-6 py-6 font-brand text-[15px] font-bold uppercase leading-[1.4]"><span>{question}</span><span className="text-2xl text-clay-500 group-open:rotate-45">+</span></summary><p className="max-w-[730px] pb-7 leading-[1.75] text-sand-700">{answer}</p></details>)}</div></div>)}</div></section><section className="bg-sand-900 py-24 text-sand-50"><div className="mx-auto max-w-[850px] px-6 text-center"><h2 className="font-brand text-[clamp(2.3rem,5vw,4.2rem)] font-black uppercase leading-[.93] tracking-[-.055em]">Still have a question?</h2><p className="mx-auto mt-6 max-w-[560px] leading-[1.7] text-sand-50/70">Book a free consult when you want to talk about your business. If you are still sizing up the problem, run the numbers first.</p><div className="mt-9 flex flex-wrap justify-center gap-5"><a href="https://calendly.com/keylime-marketing/discovery-call" className="rounded-full bg-clay-500 px-6 py-3 text-sm font-bold uppercase tracking-[.06em] text-sand-50 no-underline">Book Free Consult</a><Link href="/calculators/missed-call-revenue" className="inline-flex items-center gap-2 rounded-full border-2 border-sand-50/60 px-6 py-3 text-sm font-bold uppercase tracking-[.06em] text-sand-50 no-underline">Calculate my missed-call revenue <FiArrowRight /></Link></div></div></section></main>; }

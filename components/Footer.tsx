@@ -7,7 +7,7 @@ const FOOTER_LINKS = [
   { label: "Contact", href: "#contact" },
 ];
 
-const LOGO_SRC = "/linax-digital-logo.png";
+const LOGO_SRC = "/keylimelogolite.png";
 
 export default function Footer() {
   return (
@@ -18,12 +18,12 @@ export default function Footer() {
           <div className="flex flex-col gap-4">
             <a
               href="/"
-              aria-label="Linax Digital home"
+              aria-label="KeyLime home"
               className="inline-block max-w-[110px]"
             >
               <img
                 src={LOGO_SRC}
-                alt="Linax Digital"
+                alt="KeyLime"
                 className="block h-auto w-full"
               />
             </a>
@@ -43,7 +43,7 @@ export default function Footer() {
                 <li key={link.href}>
                   <a
                     href={link.href}
-                    className="footer-link font-brand text-[11px] font-semibold uppercase tracking-[0.1em] text-sand-50/70 no-underline transition-colors duration-150 hover:text-clay-500"
+                    className="footer-link font-brand text-[11px] font-semibold uppercase tracking-[0.1em] text-sand-50/70 no-underline transition-colors duration-150 hover:text-lime-300"
                   >
                     {link.label}
                   </a>
@@ -60,7 +60,7 @@ export default function Footer() {
           </p>
           <div className="flex items-center gap-2">
             <span className="block h-0.5 w-2 bg-sand-50/40" />
-            <span className="block h-0.5 w-4 bg-clay-500" />
+            <span className="block h-0.5 w-4 bg-lime-500" />
             <span className="block h-0.5 w-2 bg-sand-50/40" />
           </div>
         </div>

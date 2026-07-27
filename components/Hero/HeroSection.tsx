@@ -1,10 +1,10 @@
-﻿"use client";
+"use client";
 
-import { motion } from "framer-motion";
 import PixelBlast from "@/components/PixelBlast";
 import LogoLoop from "@/components/LogoLoop";
 import { MissedCallWidget } from "@/components/MissedCallWidget/MissedCallWidget";
 import { clientLogos } from "../../data/clientLogos";
+import { PrimaryButton } from "../shared/PrimaryButton";
 import { IconArrowRight } from "../shared/icons";
 import "./HeroSection.css";
 
@@ -12,13 +12,13 @@ export function HeroSection() {
   return (
     <section
       aria-label="Hero"
-      className="hero relative overflow-x-clip bg-sand-50 pt-28 md:pt-32 border-b-4 border-black"
+      className="hero relative overflow-x-clip bg-sand-50 pt-28 md:pt-32"
     >
       <div className="pointer-events-none absolute inset-0 z-0">
         <PixelBlast
           variant="square"
           pixelSize={4}
-          color="#F3EEE4"
+          color="#E4E8DA"
           patternScale={2}
           patternDensity={1}
           pixelSizeJitter={0}
@@ -39,70 +39,63 @@ export function HeroSection() {
       </div>
 
       <div className="relative z-10 mx-auto w-full max-w-[1200px] px-6 pb-16 lg:pb-20">
-        <div className="grid items-center gap-12 lg:grid-cols-[minmax(0,1.05fr)_minmax(0,1fr)] lg:items-stretch lg:gap-16">
+        <div className="grid items-center gap-12 lg:grid-cols-[minmax(0,1.05fr)_minmax(0,1fr)] lg:gap-16">
           <div className="flex flex-col items-center text-center lg:items-start lg:text-left">
-            <div className="hero-title-wrap relative z-30 mb-4 w-[85%] max-w-[640px]">
-              <h1 className="hero-title font-brand font-black uppercase whitespace-nowrap text-sand-950 text-center lg:text-left">
-                Get Found.
+            <div className="mb-6 flex justify-center lg:justify-start">
+              <span className="wf-eyebrow">Digital marketing · Southwest Florida</span>
+            </div>
+
+            <div className="hero-title-wrap relative z-30 mb-6 w-full max-w-[640px]">
+              <h1 className="hero-title font-brand font-extrabold text-sand-950 text-center lg:text-left">
+                What are missed calls
                 <br />
-                Get Trusted.
-                <br />
-                Get <span className="text-clay-500">Booked.</span>
+                costing <span className="text-lime-700">you?</span>
               </h1>
             </div>
 
-            <p className="mb-10 max-w-[640px] font-brand text-sm md:text-[16px] font-normal leading-[1.65] text-sand-700">
-              Linax Digital helps local service businesses in South Florida show
-              up on Google, look credible to the people who find them, and turn
-              those visitors into phone calls. Four core services. Honest
-              pricing.
+            <p className="mb-9 max-w-[600px] text-[17px] font-normal leading-[1.6] text-sand-600">
+              KeyLime helps local service businesses in South Florida show up on
+              Google, look credible to the people who find them, and turn those
+              visitors into booked jobs. One working system. Honest pricing.
             </p>
 
-            <div className="relative z-20 flex flex-col items-center gap-3 min-[740px]:flex-row min-[740px]:items-stretch">
-              <motion.a
-                href="#contact"
-                className="inline-flex min-h-[52px] items-center gap-2.5 border-2 border-transparent bg-clay-500 px-8 py-4 font-brand text-[13px] font-bold uppercase tracking-[0.08em] text-sand-50 no-underline transition-colors duration-150 hover:bg-clay-700"
-                style={{ transformOrigin: "50% 50%" }}
-                whileHover={{ rotate: [0, 1.6, 0, -1.6, 0] }}
-                transition={{
-                  duration: 1.1,
-                  repeat: Infinity,
-                  ease: "easeInOut",
-                }}
-              >
+            <div className="flex flex-col items-center gap-3 min-[740px]:flex-row min-[740px]:items-stretch">
+              <PrimaryButton href="#contact" variant="lime">
                 Book a Free Consult <IconArrowRight />
-              </motion.a>
-              <motion.a
-                href="#services"
-                className="inline-flex min-h-[52px] items-center gap-2 border-2 border-sand-950 bg-transparent px-8 py-4 font-brand text-[13px] font-bold uppercase tracking-[0.08em] text-sand-950 no-underline transition-colors duration-150 hover:bg-sand-100"
-                style={{ transformOrigin: "50% 50%" }}
-                whileHover={{ rotate: [0, 1.6, 0, -1.6, 0] }}
-                transition={{
-                  duration: 1.1,
-                  repeat: Infinity,
-                  ease: "easeInOut",
-                }}
-              >
+              </PrimaryButton>
+              <PrimaryButton href="#services">
                 See What We Do
-              </motion.a>
+              </PrimaryButton>
             </div>
           </div>
 
-          {/* Missed-call revenue widget â€” the hero's conversion centerpiece,
-              mirroring the Webflow hero: copy left, live estimator card right.
-              Mobile: same centered width as the copy block above. Desktop:
-              stretched to the copy column's height. */}
-          <div className="mx-auto flex w-full max-w-[640px] justify-center lg:mx-0 lg:max-w-none lg:justify-end">
-            <MissedCallWidget />
+          {/* Missed-call revenue widget — the hero's conversion centerpiece.
+              Desktop (441×435 comp): estimator card floating over a lime
+              rounded-rect backdrop with the hero iPhone rising behind it. */}
+          <div className="relative mx-auto w-full max-w-[480px] lg:mx-0 lg:aspect-[441/435] lg:max-w-none">
+            {/* Lime backdrop */}
+            <div
+              className="absolute inset-0 hidden rounded-[48px] bg-lime-700 lg:block"
+              aria-hidden="true"
+            />
+
+            {/* Hero iPhone rising behind the card. */}
+            <div className="absolute right-0 bottom-0 aspect-[268/425] w-[56%] overflow-hidden lg:top-[19.3%] lg:aspect-auto lg:w-[60.8%] lg:rounded-br-[48px]">
+              <img src="/heroiphone.png" alt="" className="w-full" />
+            </div>
+
+            {/* Card — inset equally from the backdrop's bottom and left edges
+                on desktop (container is ~square, so 6% reads even on both). */}
+            <div className="relative mt-[18%] w-[74%] lg:absolute lg:bottom-[6%] lg:left-[6%] lg:mt-0 lg:w-[58%]">
+              <MissedCallWidget />
+            </div>
           </div>
         </div>
       </div>
 
-      <div className="relative z-10 w-full border-t-4 border-black bg-sand-100 bg-grid-pattern">
-        <div className="mx-auto flex w-full max-w-brand flex-col items-center gap-4 px-6 py-5 md:flex-row md:items-center md:gap-10">
-          <span className="font-brand text-[14px] font-bold uppercase tracking-[0.2em] text-clay-500 whitespace-nowrap mb-1 md:mb-0">
-            Trusted by
-          </span>
+      <div className="relative z-10 w-full border-t border-sand-200 bg-sand-100">
+        <div className="mx-auto flex w-full max-w-brand flex-col items-center gap-4 px-6 py-6 md:flex-row md:items-center md:gap-10">
+          <span className="wf-eyebrow whitespace-nowrap">Trusted by</span>
           <div className="relative z-0 flex h-14 w-full flex-1 items-center overflow-hidden">
             <LogoLoop
               logos={clientLogos}
@@ -112,7 +105,7 @@ export function HeroSection() {
               gap={120}
               scaleOnHover
               fadeOut
-              fadeOutColor="#f3eee4"
+              fadeOutColor="#f0f2eb"
               ariaLabel="Trusted by local Southwest Florida businesses"
             />
           </div>

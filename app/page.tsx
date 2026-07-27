@@ -23,7 +23,6 @@ export default function HomePage() {
       <ThreeStepsSection />
       <ResultsSection />
       <MarketingSystemsSection />
-      <HowItWorksSection />
       <ServicesSection />
       <FaqSection />
       <FinalCtaSection />

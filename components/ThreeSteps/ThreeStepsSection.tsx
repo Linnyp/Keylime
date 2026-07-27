@@ -1,14 +1,14 @@
 /*
  * KeyLime — "A complete marketing system in three steps" section.
  *
- * Homepage 3-step snapshot between Problem and Services, using the same
- * visual treatment as the "Method" (HowItWorks) section: right-aligned
- * header, grid-pattern band, flush process cards with oversized numerals.
- * Card body copy comes from homepage-copy.md §4 — the Webflow build still
- * carries lorem-ipsum placeholders there.
+ * Homepage 3-step snapshot between Problem and Services. Editorial Citrus &
+ * Charcoal treatment: warm alternating surface, soft rounded step cards with
+ * oversized lime numerals, right-aligned header. Card body copy comes from
+ * homepage-copy.md §4.
  */
 
 import { SectionLabel } from "../shared/SectionLabel";
+import { PrimaryButton } from "../shared/PrimaryButton";
 
 const steps = [
   {
@@ -33,52 +33,48 @@ export function ThreeStepsSection() {
     <section
       id="how-it-works-snapshot"
       aria-label="How it works in three steps"
-      className="relative z-10 border-t-4 border-sand-950 bg-sand-100 bg-grid-pattern py-28"
+      className="relative z-10 bg-sand-100 py-24 md:py-28"
     >
       <div className="mx-auto w-full max-w-[1200px] px-6">
-        <div className="mb-16 text-right">
+        <div className="mb-14 text-right">
           <div className="flex justify-end">
             <SectionLabel text="Our Fix" />
           </div>
-          <h2 className="m-0 font-brand font-black uppercase text-sand-950 text-[clamp(2rem,4vw,3.5rem)] leading-[0.95] tracking-[-0.04em]">
-            A Complete Marketing System
+          <h2 className="m-0 font-brand font-extrabold text-sand-950 text-[clamp(2rem,4vw,3.25rem)] leading-[1.05] tracking-[-0.03em]">
+            A complete marketing system
             <br />
-            In <span className="text-clay-500">Three Steps.</span>
+            in <span className="text-lime-700">three steps.</span>
           </h2>
-          <p className="m-0 ml-auto mt-6 max-w-[540px] font-brand text-[15px] leading-[1.65] text-sand-600">
+          <p className="m-0 ml-auto mt-6 max-w-[540px] text-[16px] leading-[1.6] text-sand-600">
             You run the business. We run the marketing. Here&apos;s exactly how
             that works.
           </p>
         </div>
 
-        <div className="grid grid-cols-1 gap-0 lg:grid-cols-3">
-          {steps.map((step, i) => (
+        <div className="grid grid-cols-1 gap-6 lg:grid-cols-3">
+          {steps.map((step) => (
             <div
               key={step.number}
-              className={`relative overflow-hidden border-t-4 border-sand-950 bg-sand-50 px-10 py-12 ${
-                i > 0 ? "lg:border-l-2 lg:border-l-sand-950" : ""
-              }`}
+              className="relative overflow-hidden rounded-3xl border border-sand-200 bg-white px-9 py-10 shadow-[0_2px_6px_0_rgba(28,30,26,0.06)]"
             >
-              <h3 className="m-0 font-brand text-[80px] font-black leading-none tracking-[-0.04em] text-clay-500">
+              <span
+                aria-hidden
+                className="font-brand text-[72px] font-extrabold leading-none tracking-[-0.04em] text-lime-500"
+              >
                 {step.number}
-              </h3>
-              <h3 className="mt-6 mb-4 font-brand text-[16px] font-extrabold uppercase tracking-[0.04em] leading-[1.3] text-sand-950">
+              </span>
+              <h3 className="mt-6 mb-3 font-brand text-[20px] font-bold leading-[1.25] tracking-[-0.03em] text-sand-950">
                 {step.title}
               </h3>
-              <p className="m-0 font-brand text-[14px] leading-[1.75] text-sand-600">
+              <p className="m-0 text-[15px] leading-[1.7] text-sand-600">
                 {step.body}
               </p>
             </div>
           ))}
         </div>
 
-        <div className="mt-14 flex justify-center">
-          <a
-            href="#contact"
-            className="inline-flex min-h-[52px] items-center gap-2.5 border-2 border-transparent bg-clay-500 px-8 py-4 font-brand text-[13px] font-bold uppercase tracking-[0.08em] text-sand-50 no-underline transition-colors duration-150 hover:bg-clay-700"
-          >
-            Let&apos;s Talk
-          </a>
+        <div className="mt-12 flex justify-center">
+          <PrimaryButton href="#contact">Let&apos;s Talk</PrimaryButton>
         </div>
       </div>
     </section>

@@ -1,5 +1,4 @@
 import type { Metadata } from "next";
-import Link from "next/link";
 
 export const metadata: Metadata = {
   title: "Case Study | Linax Digital",
@@ -14,13 +13,6 @@ export default async function CaseStudyPage({
 
   return (
     <main>
-      {/* Breadcrumb */}
-      <nav className="px-6 pt-6 max-w-7xl mx-auto text-sm text-[var(--color-sand-700)]">
-        <Link href="/">Home</Link> &rsaquo;{" "}
-        <Link href="/case-studies">Case Studies</Link> &rsaquo;{" "}
-        <span className="capitalize">{slug.replace(/-/g, " ")}</span>
-      </nav>
-
       {/* ── CLIENT CONTEXT ───────────────────────────────────────────────── */}
       <section id="client-context" className="px-6 py-24 max-w-7xl mx-auto">
         <h1 className="text-5xl font-[var(--font-display)]">Client Context — Industry, business size, challenge they faced before working with Linax Digital</h1>

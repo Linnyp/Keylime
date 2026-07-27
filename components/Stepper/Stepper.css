@@ -1,0 +1,151 @@
+/* React Bits Stepper — restyled for the Citrus & Charcoal design system.
+ * The stepper chrome (container) is transparent: the indicator row sits on
+ * the section background and each Step supplies its own card (the Module).
+ * Accent is Key Lime (#a4d639 / #6fa51f) on warm charcoal (#1c1e1a). */
+
+.outer-container {
+  width: 100%;
+}
+
+.step-circle-container {
+  width: 100%;
+}
+
+.step-indicator-row {
+  display: flex;
+  width: 100%;
+  align-items: center;
+  padding: 0 0.5rem 1.75rem;
+}
+
+.step-content-default {
+  position: relative;
+  overflow: hidden;
+}
+
+/* Pass-through wrapper — small padding keeps the card's drop shadow from
+ * being clipped by the overflow-hidden content container. */
+.step-default {
+  padding: 4px 8px 14px;
+}
+
+.footer-container {
+  padding: 0 8px;
+}
+
+.footer-nav {
+  margin-top: 1.5rem;
+  display: flex;
+}
+
+.footer-nav.spread {
+  justify-content: space-between;
+}
+
+.footer-nav.end {
+  justify-content: flex-end;
+}
+
+.back-button {
+  transition: color 200ms ease;
+  border: none;
+  background: transparent;
+  border-radius: 9999px;
+  padding: 0.75rem 1rem;
+  font-family: var(--font-brand);
+  font-size: 14px;
+  font-weight: 600;
+  letter-spacing: -0.02em;
+  color: #4f524b; /* sand-600 */
+  cursor: pointer;
+}
+
+.back-button:hover {
+  color: #1c1e1a; /* sand-950 */
+}
+
+.back-button.inactive {
+  pointer-events: none;
+  opacity: 0.5;
+}
+
+.next-button {
+  transition:
+    transform 300ms ease,
+    background-color 150ms ease,
+    box-shadow 150ms ease;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  min-height: 52px;
+  border-radius: 80px;
+  border: 1px solid #a4d639; /* lime-500 */
+  background-color: #a4d639;
+  color: #1c1e1a; /* sand-950 */
+  font-family: var(--font-brand);
+  font-size: 15px;
+  font-weight: 500;
+  letter-spacing: -0.03em;
+  padding: 14px 28px;
+  box-shadow: 0 1px 4px 0 rgba(111, 165, 31, 0.2);
+  cursor: pointer;
+}
+
+.next-button:hover {
+  background-color: #6fa51f; /* lime-600 */
+  border-color: #6fa51f;
+  transform: translateY(-2px);
+  box-shadow: 0 4px 14px 0 rgba(111, 165, 31, 0.24);
+}
+
+.step-indicator {
+  position: relative;
+  cursor: pointer;
+  outline: none;
+}
+
+.step-indicator-inner {
+  display: flex;
+  height: 2rem;
+  width: 2rem;
+  align-items: center;
+  justify-content: center;
+  border-radius: 9999px;
+  font-family: var(--font-brand);
+  font-weight: 700;
+}
+
+.active-dot {
+  height: 0.7rem;
+  width: 0.7rem;
+  border-radius: 9999px;
+  background-color: #1c1e1a; /* sand-950 on lime */
+}
+
+.step-number {
+  font-size: 0.85rem;
+}
+
+.step-connector {
+  position: relative;
+  margin-left: 0.5rem;
+  margin-right: 0.5rem;
+  height: 2px;
+  flex: 1;
+  overflow: hidden;
+  border-radius: 0.25rem;
+  background-color: #dcddd7; /* sand-200 track */
+}
+
+.step-connector-inner {
+  position: absolute;
+  left: 0;
+  top: 0;
+  height: 100%;
+}
+
+.check-icon {
+  height: 1rem;
+  width: 1rem;
+  color: #1c1e1a; /* sand-950 on lime */
+}
