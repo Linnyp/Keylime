@@ -19,7 +19,7 @@ export function ProblemCard({
         <h3 className="font-brand text-[22px] font-bold tracking-[-0.03em] text-sand-950">
           {problem.name}
         </h3>
-        <span className="shrink-0 font-brand text-[13px] font-extrabold tracking-[0.02em] text-lime-700">
+        <span className="shrink-0 font-brand text-[13px] font-extrabold tracking-[0.02em] text-lime-600">
           0{index + 1}
         </span>
       </div>

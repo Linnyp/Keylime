@@ -33,7 +33,7 @@ export function PricingCard({ plan, mode, setMode }: PricingCardProps) {
         <Badge className="bg-sand-800 text-sand-50/70">Subscription only</Badge>
       )}
       {isFeatured && (
-        <Badge className="bg-clay-500 text-sand-50">Most Popular</Badge>
+        <Badge className="bg-lime-500 text-sand-950">Most Popular</Badge>
       )}
 
       <div>
@@ -78,7 +78,7 @@ export function PricingCard({ plan, mode, setMode }: PricingCardProps) {
       <div className="flex flex-1 items-start">
         <a
           href={plan.breakdownHref}
-          className="group/link inline-flex items-center gap-1.5 font-brand text-[13px] font-semibold leading-[1.5] text-clay-500 underline underline-offset-4 transition-colors duration-150 hover:text-clay-700"
+          className="group/link inline-flex items-center gap-1.5 font-brand text-[13px] font-semibold leading-[1.5] text-lime-600 underline underline-offset-4 transition-colors duration-150 hover:text-clay-700"
         >
           Full {plan.name} Breakdown
           <span className="transition-transform duration-150 group-hover/link:translate-x-0.5">
@@ -89,7 +89,7 @@ export function PricingCard({ plan, mode, setMode }: PricingCardProps) {
 
       <a
         href="#contact"
-        className="flex min-h-[48px] items-center justify-center bg-clay-500 px-6 py-3.5 font-brand text-[12px] font-bold uppercase tracking-[0.1em] text-sand-50 no-underline transition-colors duration-150 hover:bg-clay-700"
+        className="flex min-h-[48px] items-center justify-center bg-lime-500 px-6 py-3.5 font-brand text-[12px] font-bold uppercase tracking-[0.1em] text-sand-950 no-underline transition-colors duration-150 hover:bg-lime-600"
       >
         {plan.cta}
       </a>
@@ -147,7 +147,7 @@ function MiniBillingToggle({
             aria-selected={active}
             onClick={() => setMode(opt.id)}
             className={`cursor-pointer border-none px-2 py-1 font-brand text-[10px] font-bold uppercase tracking-[0.08em] transition-colors duration-150 ${
-              active ? "bg-clay-500 text-sand-50" : `bg-transparent ${inactiveText}`
+              active ? "bg-lime-500 text-sand-950" : `bg-transparent ${inactiveText}`
             }`}
           >
             {opt.label}

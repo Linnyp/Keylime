@@ -29,7 +29,7 @@ export function BillingToggle({ mode, setMode }: BillingToggleProps) {
             onClick={() => setMode(opt.id)}
             className={`min-h-[40px] cursor-pointer border-none px-5 py-2.5 font-brand text-[12px] font-bold uppercase tracking-[0.12em] transition-colors duration-150 ${
               active
-                ? "bg-clay-500 text-sand-50"
+                ? "bg-lime-500 text-sand-950"
                 : "bg-transparent text-sand-950"
             }`}
           >

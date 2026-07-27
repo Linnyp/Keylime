@@ -58,12 +58,12 @@ export function IncludedGrid({ items }: { items: IncludedItem[] }) {
           className="group flex flex-col rounded-3xl border-2 border-sand-200 bg-sand-50 p-8 transition-colors duration-200 md:hover:border-sand-950 md:hover:bg-sand-950 max-md:data-[active=true]:border-sand-950 max-md:data-[active=true]:bg-sand-950"
         >
           <div className="flex items-baseline justify-between">
-            <span className="font-brand text-xs font-bold uppercase tracking-[0.18em] text-clay-500">
+            <span className="font-brand text-xs font-bold uppercase tracking-[0.18em] text-lime-600">
               {item.no}
             </span>
             <span
               aria-hidden="true"
-              className="h-0.5 w-10 bg-sand-200 transition-colors duration-200 md:group-hover:bg-clay-500 max-md:group-data-[active=true]:bg-clay-500"
+              className="h-0.5 w-10 bg-sand-200 transition-colors duration-200 md:group-hover:bg-lime-500 max-md:group-data-[active=true]:bg-lime-500"
             />
           </div>
 

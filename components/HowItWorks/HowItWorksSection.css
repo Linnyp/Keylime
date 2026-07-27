@@ -7,7 +7,10 @@
   margin: 0;
 }
 
-.step-number {
+/* Prefixed: a bare `.step-number` collides with Stepper.css, which sets
+   0.85rem. Both files are unlayered and equally specific, so the winner
+   depended on CSS injection order. */
+.hiw-step-number {
   font-size: 80px;
   line-height: 1;
 }

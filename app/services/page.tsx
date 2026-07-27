@@ -270,7 +270,7 @@ function SolutionRow({ solution, isLast }: { solution: Solution; isLast: boolean
       }`}
     >
       <div>
-        <Icon size={28} className="text-clay-500" aria-hidden="true" />
+        <Icon size={28} className="text-lime-600" aria-hidden="true" />
         <h3 className="mt-5 font-brand text-2xl font-black uppercase leading-[0.98] tracking-[-0.045em] md:text-[1.75rem]">
           {solution.name}
         </h3>
@@ -294,7 +294,7 @@ function SolutionRow({ solution, isLast }: { solution: Solution; isLast: boolean
         {solution.href ? (
           <Link
             href={solution.href}
-            className="mt-5 inline-flex items-center gap-2 font-brand text-[13px] font-bold uppercase tracking-[0.06em] text-sand-950 underline decoration-clay-500 decoration-2 underline-offset-[6px] hover:text-clay-600"
+            className="mt-5 inline-flex items-center gap-2 font-brand text-[13px] font-bold uppercase tracking-[0.06em] text-sand-950 underline decoration-lime-500 decoration-2 underline-offset-[6px] hover:text-clay-600"
           >
             See the details <FiArrowRight aria-hidden="true" />
           </Link>
@@ -306,18 +306,18 @@ function SolutionRow({ solution, isLast }: { solution: Solution; isLast: boolean
 
 export default function ServicesHubPage() {
   return (
-    <main className="overflow-hidden bg-sand-50 pt-20 text-sand-950">
+    <main className="overflow-hidden bg-sand-50 text-sand-950">
       {/* ── HERO ─────────────────────────────────────────────────────────── */}
       <section className="relative border-b-4 border-sand-950 py-20 md:py-28">
         <HeroGlow className="-right-40 top-0 h-[520px] w-[520px]" />
         <div className="relative mx-auto grid w-full max-w-[1200px] gap-12 px-6 lg:grid-cols-[7fr_5fr] lg:items-end">
           <div>
-            <p className="mb-5 font-brand text-xs font-bold uppercase tracking-[0.18em] text-clay-500">
+            <p className="mb-5 font-brand text-xs font-bold uppercase tracking-[0.18em] text-lime-600">
               The catalog
             </p>
             <h1 className="max-w-[760px] font-brand text-[clamp(2.75rem,5.5vw,5.25rem)] font-black uppercase leading-[0.91] tracking-[-0.055em]">
               Twelve platform solutions. Three specialized services.{" "}
-              <span className="text-clay-500">One managed system.</span>
+              <span className="text-lime-600">One managed system.</span>
             </h1>
             <p className="mt-7 max-w-[600px] text-[17px] leading-[1.7] text-sand-700">
               This is everything we run. Some of it is in every system. Some of it is
@@ -327,13 +327,13 @@ export default function ServicesHubPage() {
             <div className="mt-9 flex flex-wrap items-center gap-5">
               <Link
                 href="/pricing"
-                className="inline-flex min-h-[50px] items-center justify-center gap-2 rounded-full bg-clay-500 px-6 py-3 font-brand text-sm font-bold uppercase tracking-[0.06em] text-sand-50 no-underline transition-transform duration-200 hover:-translate-y-0.5 hover:bg-clay-700"
+                className="inline-flex min-h-[50px] items-center justify-center gap-2 rounded-full bg-lime-500 px-6 py-3 font-brand text-sm font-bold uppercase tracking-[0.06em] text-sand-950 no-underline transition-transform duration-200 hover:-translate-y-0.5 hover:bg-lime-600"
               >
                 Compare systems <FiArrowRight aria-hidden="true" />
               </Link>
               <a
                 href={CALENDLY_URL}
-                className="inline-flex items-center gap-2 font-brand text-sm font-bold uppercase tracking-[0.06em] text-sand-950 underline decoration-clay-500 decoration-2 underline-offset-8 hover:text-clay-600"
+                className="inline-flex items-center gap-2 font-brand text-sm font-bold uppercase tracking-[0.06em] text-sand-950 underline decoration-lime-500 decoration-2 underline-offset-8 hover:text-clay-600"
               >
                 Book Free Consult <FiArrowRight aria-hidden="true" />
               </a>
@@ -341,8 +341,8 @@ export default function ServicesHubPage() {
           </div>
 
           {/* Count panel — mirrors the price card on the system pages. */}
-          <div className="rounded-3xl bg-sand-950 p-8 text-sand-50 shadow-[10px_10px_0_0_#588817]">
-            <p className="font-brand text-sm font-bold uppercase tracking-[0.12em] text-clay-500">
+          <div className="rounded-3xl bg-sand-950 p-8 text-sand-950 shadow-[10px_10px_0_0_#588817]">
+            <p className="font-brand text-sm font-bold uppercase tracking-[0.12em] text-lime-600">
               What we run
             </p>
             <dl className="mt-6 space-y-5">
@@ -352,14 +352,14 @@ export default function ServicesHubPage() {
                 ["1", "Monthly price", "One team, one invoice, month-to-month."],
               ].map(([count, label, detail]) => (
                 <div key={label} className="flex gap-5 border-t border-sand-50/15 pt-5 first:border-0 first:pt-0">
-                  <dt className="font-brand text-4xl font-black leading-none tracking-[-0.06em] text-clay-500">
+                  <dt className="font-brand text-4xl font-black leading-none tracking-[-0.06em] text-lime-600">
                     {count}
                   </dt>
                   <dd>
                     <p className="font-brand text-sm font-extrabold uppercase tracking-[-0.01em]">
                       {label}
                     </p>
-                    <p className="mt-1 text-[13px] leading-relaxed text-sand-50/65">{detail}</p>
+                    <p className="mt-1 text-[13px] leading-relaxed text-sand-950/65">{detail}</p>
                   </dd>
                 </div>
               ))}
@@ -371,7 +371,7 @@ export default function ServicesHubPage() {
       {/* ── JUMP INDEX ───────────────────────────────────────────────────── */}
       <section className="border-b-4 border-sand-950 bg-sand-100 py-10">
         <div className="mx-auto w-full max-w-[1200px] px-6">
-          <p className="font-brand text-xs font-bold uppercase tracking-[0.18em] text-clay-500">
+          <p className="font-brand text-xs font-bold uppercase tracking-[0.18em] text-lime-600">
             Jump to a solution
           </p>
           <nav aria-label="Solution index" className="mt-6 grid gap-x-10 gap-y-8 md:grid-cols-2 lg:grid-cols-4">
@@ -407,11 +407,11 @@ export default function ServicesHubPage() {
           <div className="mx-auto w-full max-w-[1200px] px-6">
             <div className="grid gap-8 lg:grid-cols-[5fr_6fr] lg:items-end">
               <div>
-                <p className="mb-4 font-brand text-xs font-bold uppercase tracking-[0.18em] text-clay-500">
+                <p className="mb-4 font-brand text-xs font-bold uppercase tracking-[0.18em] text-lime-600">
                   {group.eyebrow}
                 </p>
                 <h2 className="font-brand text-[clamp(2.25rem,4.4vw,4rem)] font-black uppercase leading-[0.93] tracking-[-0.055em]">
-                  <span className="text-clay-500">{group.number}</span> {group.title}
+                  <span className="text-lime-600">{group.number}</span> {group.title}
                 </h2>
               </div>
               <p className="max-w-[560px] text-[17px] leading-[1.7] text-sand-700 lg:pb-2">
@@ -452,7 +452,7 @@ export default function ServicesHubPage() {
       <section className="border-y-4 border-sand-950 bg-sand-100 bg-grid-pattern py-20 md:py-28">
         <div className="mx-auto w-full max-w-[1200px] px-6">
           <div className="max-w-[720px]">
-            <p className="mb-4 font-brand text-xs font-bold uppercase tracking-[0.18em] text-clay-500">
+            <p className="mb-4 font-brand text-xs font-bold uppercase tracking-[0.18em] text-lime-600">
               How it is priced
             </p>
             <h2 className="font-brand text-[clamp(2.25rem,4.4vw,4rem)] font-black uppercase leading-[0.93] tracking-[-0.055em]">
@@ -461,7 +461,7 @@ export default function ServicesHubPage() {
           </div>
           <div className="mt-12 grid gap-6 lg:grid-cols-2">
             <article className="rounded-3xl bg-sand-50 p-8 md:p-10">
-              <FiLayers size={28} className="text-clay-500" aria-hidden="true" />
+              <FiLayers size={28} className="text-lime-600" aria-hidden="true" />
               <h3 className="mt-6 font-brand text-2xl font-black uppercase tracking-[-0.04em]">
                 Published add-on prices.
               </h3>
@@ -472,13 +472,13 @@ export default function ServicesHubPage() {
               </p>
               <Link
                 href="/pricing"
-                className="mt-7 inline-flex items-center gap-2 font-brand text-sm font-bold uppercase tracking-[0.06em] text-sand-950 underline decoration-clay-500 decoration-2 underline-offset-[6px] hover:text-clay-600"
+                className="mt-7 inline-flex items-center gap-2 font-brand text-sm font-bold uppercase tracking-[0.06em] text-sand-950 underline decoration-lime-500 decoration-2 underline-offset-[6px] hover:text-clay-600"
               >
                 See what each system includes <FiArrowRight aria-hidden="true" />
               </Link>
             </article>
             <article className="rounded-3xl bg-sand-950 p-8 text-sand-50 md:p-10">
-              <FiGlobe size={28} className="text-clay-500" aria-hidden="true" />
+              <FiGlobe size={28} className="text-lime-600" aria-hidden="true" />
               <h3 className="mt-6 font-brand text-2xl font-black uppercase tracking-[-0.04em]">
                 Custom-quoted work.
               </h3>
@@ -489,7 +489,7 @@ export default function ServicesHubPage() {
               </p>
               <Link
                 href="/contact"
-                className="mt-7 inline-flex items-center gap-2 font-brand text-sm font-bold uppercase tracking-[0.06em] text-sand-50 underline decoration-clay-500 decoration-2 underline-offset-[6px]"
+                className="mt-7 inline-flex items-center gap-2 font-brand text-sm font-bold uppercase tracking-[0.06em] text-sand-50 underline decoration-lime-500 decoration-2 underline-offset-[6px]"
               >
                 Talk to us about scope <FiArrowRight aria-hidden="true" />
               </Link>
@@ -502,7 +502,7 @@ export default function ServicesHubPage() {
       <section className="bg-sand-900 py-24 text-sand-50 md:py-32">
         <div className="mx-auto w-full max-w-[1200px] px-6">
           <div className="max-w-[760px]">
-            <p className="mb-4 font-brand text-xs font-bold uppercase tracking-[0.18em] text-clay-500">
+            <p className="mb-4 font-brand text-xs font-bold uppercase tracking-[0.18em] text-lime-600">
               What next
             </p>
             <h2 className="font-brand text-[clamp(2.5rem,5vw,4.5rem)] font-black uppercase leading-[0.92] tracking-[-0.055em]">
@@ -529,7 +529,7 @@ export default function ServicesHubPage() {
                 Compare systems <FiArrowRight aria-hidden="true" />
               </Link>
             </article>
-            <article className="rounded-3xl border border-clay-500/50 bg-sand-800 p-8 md:p-10">
+            <article className="rounded-3xl border border-lime-500/50 bg-sand-800 p-8 md:p-10">
               <h3 className="font-brand text-2xl font-black uppercase tracking-[-0.04em]">
                 Not sure what you need?
               </h3>
@@ -539,7 +539,7 @@ export default function ServicesHubPage() {
               </p>
               <a
                 href={CALENDLY_URL}
-                className="mt-8 inline-flex min-h-[50px] items-center justify-center gap-2 rounded-full bg-clay-500 px-6 py-3 font-brand text-sm font-bold uppercase tracking-[0.06em] text-sand-50 no-underline transition-transform duration-200 hover:-translate-y-0.5 hover:bg-clay-700"
+                className="mt-8 inline-flex min-h-[50px] items-center justify-center gap-2 rounded-full bg-lime-500 px-6 py-3 font-brand text-sm font-bold uppercase tracking-[0.06em] text-sand-950 no-underline transition-transform duration-200 hover:-translate-y-0.5 hover:bg-lime-600"
               >
                 Book Free Consult <FiArrowRight aria-hidden="true" />
               </a>
@@ -549,7 +549,7 @@ export default function ServicesHubPage() {
             Still scoping the problem?{" "}
             <Link
               href="/calculators/missed-call-revenue"
-              className="font-bold text-sand-50 underline decoration-clay-500 decoration-2 underline-offset-4"
+              className="font-bold text-sand-50 underline decoration-lime-500 decoration-2 underline-offset-4"
             >
               Calculate my missed-call revenue →
             </Link>

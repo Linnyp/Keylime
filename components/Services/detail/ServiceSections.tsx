@@ -17,7 +17,7 @@ export const CALENDLY_URL =
 
 const CONTAINER = "mx-auto w-full max-w-[1200px] px-6";
 const EYEBROW =
-  "font-brand text-xs font-bold uppercase tracking-[0.18em] text-clay-500";
+  "font-brand text-xs font-bold uppercase tracking-[0.18em] text-lime-600";
 const H2 =
   "font-brand text-[clamp(2.25rem,4.4vw,4rem)] font-black uppercase leading-[0.93] tracking-[-0.055em]";
 const PILL_BASE =
@@ -35,10 +35,10 @@ export function ServicePill({
 }) {
   const variantClass =
     variant === "charcoal"
-      ? "bg-sand-950 text-sand-50 hover:bg-sand-800"
+      ? "bg-sand-950 text-sand-950 hover:bg-sand-800"
       : variant === "light"
-        ? "border-2 border-sand-50/60 bg-transparent text-sand-50"
-        : "bg-clay-500 text-sand-50 hover:bg-clay-700";
+        ? "border-2 border-sand-50/60 bg-transparent text-sand-950"
+        : "bg-lime-500 text-sand-950 hover:bg-lime-600";
   const isInternal = href.startsWith("/");
   const content = (
     <>
@@ -66,7 +66,7 @@ export function ServiceTextLink({
   children: ReactNode;
   light?: boolean;
 }) {
-  const cls = `inline-flex items-center gap-2 font-brand text-sm font-bold uppercase tracking-[0.06em] underline decoration-clay-500 decoration-2 underline-offset-8 ${
+  const cls = `inline-flex items-center gap-2 font-brand text-sm font-bold uppercase tracking-[0.06em] underline decoration-lime-500 decoration-2 underline-offset-8 ${
     light ? "text-sand-50" : "text-sand-950 hover:text-clay-600"
   }`;
   const content = (
@@ -141,7 +141,7 @@ export function ServiceHero({
           <div className="flex flex-col gap-6">
             {media}
             <div className="rounded-3xl bg-sand-950 p-8 text-sand-50 shadow-[10px_10px_0_0_#588817]">
-              <p className="font-brand text-sm font-bold uppercase tracking-[0.12em] text-clay-500">
+              <p className="font-brand text-sm font-bold uppercase tracking-[0.12em] text-lime-600">
                 At a glance
               </p>
               <dl className="mt-6 space-y-4">
@@ -161,7 +161,7 @@ export function ServiceHero({
                         revealDirection="start"
                         speed={70}
                         useOriginalCharsOnly
-                        encryptedClassName="text-clay-500"
+                        encryptedClassName="text-lime-600"
                       />
                     </dd>
                   </div>
@@ -252,7 +252,7 @@ export function ProcessSteps({
             index > 0 ? "border-t-2 border-sand-950 lg:border-t-0 lg:border-l-2" : ""
           }`}
         >
-          <p className="font-brand text-5xl font-black leading-none tracking-[-0.06em] text-clay-500 md:text-6xl">
+          <p className="font-brand text-5xl font-black leading-none tracking-[-0.06em] text-lime-600 md:text-6xl">
             {step.no}
           </p>
           <h3 className="mt-7 font-brand text-lg font-extrabold uppercase leading-tight tracking-[-0.03em]">
@@ -289,14 +289,14 @@ export function StatGrid({
       {stats.map((stat) => (
         <div
           key={stat.label}
-          className="rounded-2xl border-2 border-sand-200 bg-sand-50 p-7 transition-colors hover:border-clay-500"
+          className="rounded-2xl border-2 border-sand-200 bg-sand-50 p-7 transition-colors hover:border-lime-500"
         >
           <div className="flex items-baseline gap-2">
             <span className="font-brand text-[44px] font-black leading-none tracking-[-0.055em] md:text-[52px]">
               {stat.value}
             </span>
             {stat.unit ? (
-              <span className="font-brand text-lg font-bold text-clay-500">
+              <span className="font-brand text-lg font-bold text-lime-600">
                 {stat.unit}
               </span>
             ) : null}
@@ -322,7 +322,7 @@ export function TestimonialCallout({
   return (
     <figure className="mt-10 rounded-3xl bg-sand-950 bg-dots-pattern p-10 text-sand-50 md:p-12">
       <p className={EYEBROW}>In their words</p>
-      <blockquote className="mt-5 max-w-[720px] border-l-4 border-clay-500 pl-6 font-brand text-xl font-bold leading-snug tracking-[-0.03em] md:text-2xl">
+      <blockquote className="mt-5 max-w-[720px] border-l-4 border-lime-500 pl-6 font-brand text-xl font-bold leading-snug tracking-[-0.03em] md:text-2xl">
         {quote}
       </blockquote>
       <figcaption className="mt-5 font-brand text-xs font-bold uppercase tracking-[0.14em] text-sand-50/60">
@@ -360,7 +360,7 @@ export function PricingPair({ cards }: { cards: PriceCard[] }) {
             className={`relative flex h-full flex-col gap-6 rounded-3xl p-8 md:p-10 ${
               dark
                 ? "bg-sand-950 text-sand-50 shadow-[10px_10px_0_0_#588817]"
-                : "border-2 border-sand-200 bg-sand-50 transition-colors hover:border-clay-500"
+                : "border-2 border-sand-200 bg-sand-50 transition-colors hover:border-lime-500"
             }`}
           >
             {card.badge ? (
@@ -435,7 +435,7 @@ export function PricingPair({ cards }: { cards: PriceCard[] }) {
                 >
                   <span
                     aria-hidden="true"
-                    className="mt-2 h-1.5 w-3 shrink-0 rounded-full bg-clay-500"
+                    className="mt-2 h-1.5 w-3 shrink-0 rounded-full bg-lime-500"
                   />
                   {feature}
                 </li>
@@ -516,7 +516,7 @@ export function ServiceFaq({
           >
             <summary className="flex cursor-pointer list-none justify-between gap-6 py-6 font-brand text-[15px] font-bold uppercase">
               <span>{item.question}</span>
-              <span aria-hidden="true" className="text-2xl text-clay-500 group-open:rotate-45">
+              <span aria-hidden="true" className="text-2xl text-lime-600 group-open:rotate-45">
                 +
               </span>
             </summary>
@@ -563,7 +563,7 @@ export function ServiceCta({
           <h2 className="font-brand text-[clamp(2.5rem,5vw,4.5rem)] font-black uppercase leading-[0.92] tracking-[-0.055em]">
             {heading}
           </h2>
-          <p className="mt-8 max-w-[520px] border-l-4 border-clay-500 pl-5 text-[17px] leading-[1.7] text-sand-50/70">
+          <p className="mt-8 max-w-[520px] border-l-4 border-lime-500 pl-5 text-[17px] leading-[1.7] text-sand-50/70">
             {blurb}
           </p>
           <div className="mt-9 flex flex-wrap items-center gap-6">
@@ -585,7 +585,7 @@ export function ServiceCta({
               className="group flex items-start justify-between gap-4 border-t border-sand-50/15 py-5 no-underline last:border-b"
             >
               <div>
-                <p className="font-brand text-[15px] font-bold uppercase tracking-[-0.01em] text-sand-50 group-hover:text-clay-500">
+                <p className="font-brand text-[15px] font-bold uppercase tracking-[-0.01em] text-sand-50 group-hover:text-lime-600">
                   {item.label}
                 </p>
                 <p className="mt-1 max-w-[320px] text-[13px] leading-[1.55] text-sand-50/60">
@@ -594,7 +594,7 @@ export function ServiceCta({
               </div>
               <FiArrowRight
                 aria-hidden="true"
-                className="mt-1 shrink-0 text-clay-500 transition-transform group-hover:translate-x-1"
+                className="mt-1 shrink-0 text-lime-600 transition-transform group-hover:translate-x-1"
               />
             </Link>
           ))}

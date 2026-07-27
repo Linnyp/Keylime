@@ -133,7 +133,7 @@ export function ServicesSection() {
             >
               Twelve individual solutions to
               <br />
-              <span className="text-lime-700">customize your system with.</span>
+              <span className="text-lime-600">customize your system with.</span>
             </h2>
           </div>
           <PrimaryButton

@@ -152,14 +152,9 @@ body {
   line-height: 1.5;
   letter-spacing: 0.14em;
   text-transform: uppercase;
-  color: var(--color-lime-700);
+  color: var(--color-lime-600);
 }
-.wf-eyebrow::before {
-  content: "";
-  width: 28px;
-  height: 2px;
-  background-color: var(--color-lime-500);
-}
+
 .wf-eyebrow-light {
   color: var(--color-lime-300);
 }

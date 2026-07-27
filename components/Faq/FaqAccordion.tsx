@@ -26,14 +26,14 @@ export function FaqAccordion() {
             >
               <span
                 className={`font-brand text-[16px] font-bold leading-[1.4] tracking-[-0.02em] transition-colors duration-150 ${
-                  isOpen ? "text-lime-700" : "text-sand-950"
+                  isOpen ? "text-lime-600" : "text-sand-950"
                 }`}
               >
                 {item.question}
               </span>
               <span
                 className={`flex shrink-0 items-center transition-[transform,color] duration-200 ${
-                  isOpen ? "rotate-45 text-lime-700" : "text-char-400"
+                  isOpen ? "rotate-45 text-lime-600" : "text-char-400"
                 }`}
               >
                 <IconPlus />

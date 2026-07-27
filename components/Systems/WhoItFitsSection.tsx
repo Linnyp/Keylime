@@ -15,7 +15,7 @@ export function WhoItFitsSection({
     <section className="py-24 md:py-32">
       <div className="mx-auto grid max-w-[1200px] gap-12 px-6 lg:grid-cols-2">
         <div>
-          <p className="font-brand text-xs font-bold uppercase tracking-[.18em] text-clay-500">
+          <p className="font-brand text-xs font-bold uppercase tracking-[.18em] text-lime-600">
             Who it fits
           </p>
           <h2 className="mt-4 font-brand text-[clamp(2.3rem,4vw,4rem)] font-black uppercase leading-[.93] tracking-[-.055em]">

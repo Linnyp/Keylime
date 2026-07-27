@@ -1,8 +1,9 @@
 /*
  * KeyLime — Missed-Call Revenue Widget (hero-embed standalone)
  *
- * Self-contained interactive card. Three editable inputs, live monthly-loss
- * recalculation. Design tokens inline (Citrus & Charcoal). No external deps —
+ * Self-contained interactive card on a dark surface. Three editable inputs,
+ * live monthly-loss recalculation. Design tokens inline (Citrus & Charcoal —
+ * the dark-surface group at the bottom of `t`). No external deps —
  * safe to lift into a Webflow Custom Code embed by re-implementing as vanilla
  * later.
  *
@@ -18,25 +19,23 @@ import { useId, useMemo, useState, type CSSProperties } from "react";
 
 const WEEKS_PER_MONTH = 4.33;
 
-/* ─── Citrus & Charcoal tokens (mirrors styleguide.md §14) ────────────────── */
+/* ─── Citrus & Charcoal tokens (mirrors styleguide.md §14) ─────────────────
+ * Dark surface — the card runs inverted (dark bg, light text) so it reads as a
+ * distinct object against the sand hero and the lime backdrop. Accent is the
+ * brand lime #A4D639; the deep green #436C0E reads as mud on dark and is
+ * deliberately absent here.
+ */
 const t = {
   font: "'Inter', -apple-system, BlinkMacSystemFont, sans-serif",
   tracking: "-0.03em",
-  n100: "#FFFFFF",
-  n200: "#F0F2EB",
-  n300: "#DCDDD7",
-  n400: "#C7C9C3",
-  n500: "#898B85",
-  n600: "#4F524B",
-  n700: "#292B26",
-  n800: "#1C1E1A",
-  p01: "#A4D639",
-  p02: "#6FA51F",
-  p04: "#436C0E",
-  greenSoft: "#ECF6CF",
-  shadow02: "0 1px 4px 0 rgba(28, 30, 26, 0.08)",
-  shadow05: "0 12px 26px 0 rgba(28, 30, 26, 0.18)",
-  primaryShadow03: "0 2px 6px 0 rgba(111, 165, 31, 0.22)",
+  surface: "#1C1E1A",
+  surfaceHover: "#292B26",
+  surfaceBorder: "#3A3D36",
+  onSurface: "#FFFFFF",
+  onSurfaceMuted: "#A9ACA4",
+  accent: "#A4D639",
+  accentSoft: "rgba(164, 214, 57, 0.14)",
+  shadowDark: "0 12px 26px 0 rgba(0, 0, 0, 0.32)",
 } as const;
 
 /* ─── Public props ────────────────────────────────────────────────────────── */
@@ -101,8 +100,8 @@ function FieldRow({
     // and we only resync on blur transitions.
   }
 
-  const rowBg = focused || hovered ? t.n200 : "transparent";
-  const underline = focused ? t.p02 : t.n300;
+  const rowBg = focused || hovered ? t.surfaceHover : "transparent";
+  const underline = focused ? t.accent : t.surfaceBorder;
 
   return (
     <label
@@ -127,7 +126,7 @@ function FieldRow({
           fontSize: 13,
           fontWeight: 400,
           letterSpacing: t.tracking,
-          color: t.n600,
+          color: t.onSurfaceMuted,
           lineHeight: 1.4,
           flex: 1,
           minWidth: 0,
@@ -154,7 +153,7 @@ function FieldRow({
               fontSize: 14,
               fontWeight: 600,
               letterSpacing: t.tracking,
-              color: t.n800,
+              color: t.onSurface,
               lineHeight: 1.2,
             }}
           >
@@ -210,7 +209,8 @@ function FieldRow({
             fontSize: 14,
             fontWeight: 600,
             letterSpacing: t.tracking,
-            color: t.n800,
+            color: t.onSurface,
+            caretColor: t.accent,
             lineHeight: 1.2,
             padding: 0,
           }}
@@ -223,7 +223,7 @@ function FieldRow({
               fontSize: 14,
               fontWeight: 600,
               letterSpacing: t.tracking,
-              color: t.n800,
+              color: t.onSurface,
               lineHeight: 1.2,
             }}
           >
@@ -255,11 +255,11 @@ export function MissedCallWidget({
     width: "100%",
     maxWidth: maxWidth ?? "none",
     height: "100%",
-    backgroundColor: t.n100,
+    backgroundColor: t.surface,
     borderRadius: 20,
     padding: 24,
-    boxShadow: t.shadow05,
-    border: `1px solid ${t.n300}`,
+    boxShadow: t.shadowDark,
+    border: `1px solid ${t.surfaceBorder}`,
     display: "flex",
     flexDirection: "column",
     // gap is the floor; when the parent stretches the card taller (hero
@@ -287,7 +287,7 @@ export function MissedCallWidget({
             fontSize: 12,
             fontWeight: 600,
             letterSpacing: t.tracking,
-            color: t.p04,
+            color: t.accent,
             textTransform: "uppercase",
             lineHeight: 1,
           }}
@@ -302,14 +302,14 @@ export function MissedCallWidget({
             gap: 6,
             paddingInline: 8,
             paddingBlock: 4,
-            backgroundColor: t.greenSoft,
+            backgroundColor: t.accentSoft,
             borderRadius: 80,
             fontFamily: t.font,
             fontSize: 10,
             fontWeight: 600,
             letterSpacing: "0.04em",
             textTransform: "uppercase",
-            color: t.p04,
+            color: t.accent,
             lineHeight: 1,
           }}
         >
@@ -318,7 +318,7 @@ export function MissedCallWidget({
               width: 5,
               height: 5,
               borderRadius: "50%",
-              backgroundColor: t.p02,
+              backgroundColor: t.accent,
               display: "inline-block",
             }}
           />
@@ -333,7 +333,7 @@ export function MissedCallWidget({
           fontSize: 40,
           fontWeight: 700,
           letterSpacing: t.tracking,
-          color: t.n800,
+          color: t.onSurface,
           lineHeight: 1,
           display: "flex",
           alignItems: "baseline",
@@ -344,7 +344,7 @@ export function MissedCallWidget({
         <span
           style={{
             fontSize: 18,
-            color: t.n500,
+            color: t.onSurfaceMuted,
             fontWeight: 500,
             letterSpacing: t.tracking,
           }}
@@ -357,7 +357,7 @@ export function MissedCallWidget({
       <div
         style={{
           height: 1,
-          backgroundColor: t.n300,
+          backgroundColor: t.surfaceBorder,
           marginBlock: 2,
         }}
         aria-hidden
@@ -398,7 +398,7 @@ export function MissedCallWidget({
           fontFamily: t.font,
           fontSize: 11,
           letterSpacing: t.tracking,
-          color: t.n500,
+          color: t.onSurfaceMuted,
           lineHeight: 1.4,
           marginTop: 2,
         }}

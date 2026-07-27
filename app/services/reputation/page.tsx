@@ -208,14 +208,14 @@ const pairs: PairsWithItem[] = [
 
 export default function ReputationPage() {
   return (
-    <main className="overflow-hidden bg-sand-50 pt-20 text-sand-950">
+    <main className="overflow-hidden bg-sand-50 text-sand-950">
       <ServiceHero
         eyebrow="Included on every system"
         badge="Flagship"
         title={
           <>
             Your reviews, your inbox, your follow-ups.{" "}
-            <span className="text-clay-500">Handled.</span>
+            <span className="text-lime-600">Handled.</span>
           </>
         }
         intro="We run the system that turns happy customers into five-star reviews — and pulls every text, email, and message from every channel into one inbox you actually check. Done for you, on a platform you never have to learn."
@@ -233,7 +233,7 @@ export default function ReputationPage() {
           headingId="included-heading"
           heading={
             <>
-              One platform. <span className="text-clay-500">One inbox.</span> One bill.
+              One platform. <span className="text-lime-600">One inbox.</span> One bill.
             </>
           }
           intro="Reputation Management is not just review requests. It is the operations layer underneath your customer relationships — set up, run, and monitored by us. Here is what is in the box."
@@ -247,7 +247,7 @@ export default function ReputationPage() {
           headingId="pricing-heading"
           heading={
             <>
-              One flat fee. <span className="text-clay-500">No setup cost.</span> No
+              One flat fee. <span className="text-lime-600">No setup cost.</span> No
               lock-in.
             </>
           }
@@ -269,7 +269,7 @@ export default function ReputationPage() {
           heading={
             <>
               More reviews. Fewer{" "}
-              <span className="text-clay-500">missed replies.</span>
+              <span className="text-lime-600">missed replies.</span>
             </>
           }
           intro="Local search ranking is half-decided by your review presence and your responsiveness. We work both sides, quietly, every day — while you handle the customers walking through the door."
@@ -288,7 +288,7 @@ export default function ReputationPage() {
           align="right"
           heading={
             <>
-              From onboarding to <span className="text-clay-500">autopilot.</span>
+              From onboarding to <span className="text-lime-600">autopilot.</span>
             </>
           }
         />
@@ -302,7 +302,7 @@ export default function ReputationPage() {
           heading={
             <>
               What unlocks once{" "}
-              <span className="text-clay-500">you&apos;re on.</span>
+              <span className="text-lime-600">you&apos;re on.</span>
             </>
           }
           intro="Every Reputation Management client is already on the platform, which makes everything below faster and cheaper to add than starting from scratch — quoted per scope, with no hidden platform fees."
@@ -320,7 +320,7 @@ export default function ReputationPage() {
           heading={
             <>
               Honest answers about{" "}
-              <span className="text-clay-500">your reviews.</span>
+              <span className="text-lime-600">your reviews.</span>
             </>
           }
           intro="The questions every owner asks before paying for a managed reputation service — answered the way we would answer them on a call."
@@ -332,7 +332,7 @@ export default function ReputationPage() {
         heading={
           <>
             Stop watching reviews trickle in{" "}
-            <span className="text-clay-500">from last year.</span>
+            <span className="text-lime-600">from last year.</span>
           </>
         }
         blurb="Free 30-minute consult. We will look at your current review presence and your inbox setup, and tell you straight what a managed reputation system would do for your business — and what it would not."

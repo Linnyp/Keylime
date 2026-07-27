@@ -20,7 +20,7 @@ export function HowItWorksSection() {
           >
             From Audit to Results
             <br />
-            In <span className="text-clay-500">three stages.</span>
+            In <span className="text-lime-600">three stages.</span>
           </h2>
         </div>
 
@@ -38,7 +38,7 @@ export function HowItWorksSection() {
                 aria-hidden="true"
                 className="pointer-events-none absolute right-4 top-4 h-[100px] w-[100px] object-contain"
               />
-              <h3 className="step-number m-0 font-brand font-black tracking-[-0.04em] text-clay-500">
+              <h3 className="hiw-step-number m-0 font-brand font-black tracking-[-0.04em] text-lime-600">
                 {step.number}
               </h3>
               <h3 className="mt-6 mb-4 font-brand text-[16px] font-extrabold uppercase tracking-[0.04em] leading-[1.3] text-sand-950">

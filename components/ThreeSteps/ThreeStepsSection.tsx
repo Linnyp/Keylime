@@ -43,7 +43,7 @@ export function ThreeStepsSection() {
           <h2 className="m-0 font-brand font-extrabold text-sand-950 text-[clamp(2rem,4vw,3.25rem)] leading-[1.05] tracking-[-0.03em]">
             A complete marketing system
             <br />
-            in <span className="text-lime-700">three steps.</span>
+            in <span className="text-lime-600">three steps.</span>
           </h2>
           <p className="m-0 ml-auto mt-6 max-w-[540px] text-[16px] leading-[1.6] text-sand-600">
             You run the business. We run the marketing. Here&apos;s exactly how

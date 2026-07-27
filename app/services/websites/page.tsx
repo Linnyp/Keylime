@@ -194,13 +194,13 @@ const pairs: PairsWithItem[] = [
 
 export default function WebsitesPage() {
   return (
-    <main className="overflow-hidden bg-sand-50 pt-20 text-sand-950">
+    <main className="overflow-hidden bg-sand-50 text-sand-950">
       <ServiceHero
         eyebrow="Specialized work"
         title={
           <>
             A site built to work hard. Not to{" "}
-            <span className="text-clay-500">look pretty on a deck.</span>
+            <span className="text-lime-600">look pretty on a deck.</span>
           </>
         }
         intro="A custom site built from scratch on the same modern stack the big national sites run on. Fast on a phone. Easy to update. Designed around one job: turning a search into a booked call."
@@ -218,7 +218,7 @@ export default function WebsitesPage() {
           headingId="included-heading"
           heading={
             <>
-              Sites that earn back the <span className="text-clay-500">build.</span>
+              Sites that earn back the <span className="text-lime-600">build.</span>
             </>
           }
           intro="We do not ship slow sites and we do not ship sites that just sit there. Here is what a KeyLime build includes, and what to expect after launch."
@@ -232,7 +232,7 @@ export default function WebsitesPage() {
           headingId="pricing-heading"
           heading={
             <>
-              Two ways to pay. <span className="text-clay-500">Same site</span> either
+              Two ways to pay. <span className="text-lime-600">Same site</span> either
               way.
             </>
           }
@@ -241,7 +241,7 @@ export default function WebsitesPage() {
         <PricingPair cards={priceCards} />
 
         <div className="mt-10 rounded-3xl border-2 border-sand-200 bg-sand-50 p-8">
-          <p className="font-brand text-xs font-bold uppercase tracking-[0.18em] text-clay-500">
+          <p className="font-brand text-xs font-bold uppercase tracking-[0.18em] text-lime-600">
             Add-ons
           </p>
           <ul className="mt-5 flex list-none flex-wrap gap-x-8 gap-y-3">
@@ -249,7 +249,7 @@ export default function WebsitesPage() {
               <li key={addOn.label} className="flex items-center gap-2.5 text-[15px]">
                 <span
                   aria-hidden="true"
-                  className="h-2.5 w-2.5 shrink-0 rounded-full bg-clay-500"
+                  className="h-2.5 w-2.5 shrink-0 rounded-full bg-lime-500"
                 />
                 <span className="font-brand font-bold uppercase tracking-[-0.01em]">
                   {addOn.label}
@@ -275,7 +275,7 @@ export default function WebsitesPage() {
           align="right"
           heading={
             <>
-              Sites that earn back the <span className="text-clay-500">build.</span>
+              Sites that earn back the <span className="text-lime-600">build.</span>
             </>
           }
           intro="A site is not a brochure. It is the thing that has to turn a stranger's search into a phone call — so we measure it that way."
@@ -295,7 +295,7 @@ export default function WebsitesPage() {
           heading={
             <>
               From kickoff to launch in{" "}
-              <span className="text-clay-500">2–4 weeks.</span>
+              <span className="text-lime-600">2–4 weeks.</span>
             </>
           }
         />
@@ -307,7 +307,7 @@ export default function WebsitesPage() {
           eyebrow="Questions about websites"
           heading={
             <>
-              Honest answers about <span className="text-clay-500">your site.</span>
+              Honest answers about <span className="text-lime-600">your site.</span>
             </>
           }
           intro="The questions every owner asks before signing — answered the way we would answer them on a call."
@@ -319,7 +319,7 @@ export default function WebsitesPage() {
         heading={
           <>
             Stop losing leads to a site that{" "}
-            <span className="text-clay-500">loads like 2014.</span>
+            <span className="text-lime-600">loads like 2014.</span>
           </>
         }
         blurb="Free 30-minute consult. No pitch deck, no upsell. Just an honest read on whether a new site would actually move the needle for your business — and what it would cost."

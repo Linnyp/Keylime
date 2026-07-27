@@ -90,7 +90,7 @@ export function MarketingSystemsSection() {
             <h2 className="m-0 font-brand font-extrabold text-sand-950 text-[clamp(2rem,4vw,3.25rem)] leading-[1.05] tracking-[-0.03em]">
               Three systems.
               <br />
-              One <span className="text-lime-700">monthly price.</span>
+              One <span className="text-lime-600">monthly price.</span>
             </h2>
           </div>
         </div>
@@ -137,7 +137,7 @@ export function MarketingSystemsSection() {
                     className={`shrink-0 transition-transform duration-200 ${
                       isActive
                         ? "rotate-45 text-lime-300"
-                        : "text-char-400 group-hover:text-lime-700"
+                        : "text-char-400 group-hover:text-lime-600"
                     }`}
                   >
                     <IconPlus />

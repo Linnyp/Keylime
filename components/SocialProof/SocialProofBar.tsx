@@ -32,7 +32,7 @@ export function SocialProofBar() {
 
         <div className="flex flex-nowrap items-center justify-start gap-8 border-t-2 border-sand-950 px-8 py-5">
           <div className="flex shrink-0 flex-col gap-0.5 border-r-2 border-sand-950 pr-6">
-            <span className="font-brand text-[10px] font-bold uppercase tracking-[0.15em] text-clay-500">
+            <span className="font-brand text-[10px] font-bold uppercase tracking-[0.15em] text-lime-600">
               Trusted by
             </span>
             <span className="font-brand text-[11px] italic text-sand-700">

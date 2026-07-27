@@ -189,13 +189,13 @@ const pairs: PairsWithItem[] = [
 
 export default function AdsPage() {
   return (
-    <main className="overflow-hidden bg-sand-50 pt-20 text-sand-950">
+    <main className="overflow-hidden bg-sand-50 text-sand-950">
       <ServiceHero
         eyebrow="Specialized work"
         title={
           <>
             Get in front of customers{" "}
-            <span className="text-clay-500">already looking.</span>
+            <span className="text-lime-600">already looking.</span>
           </>
         }
         intro="Google and Meta ads built and managed for local service businesses. We run the campaigns in your account, in your name. If we do not hit a 2:1 return on ad spend, you do not pay management fees that month."
@@ -213,7 +213,7 @@ export default function AdsPage() {
           headingId="included-heading"
           heading={
             <>
-              Every channel that <span className="text-clay-500">earns its keep.</span>
+              Every channel that <span className="text-lime-600">earns its keep.</span>
             </>
           }
           intro="Search, social, local services, Performance Max. We pick the mix that fits your business, not the one that is biggest. Every dollar is tracked back to a lead, a call, or a booking."
@@ -227,7 +227,7 @@ export default function AdsPage() {
           headingId="pricing-heading"
           heading={
             <>
-              A flat fee. A real <span className="text-clay-500">guarantee.</span>
+              A flat fee. A real <span className="text-lime-600">guarantee.</span>
             </>
           }
           intro="Management is priced on what you spend and capped where it should be capped. Performance is backed by a 2:1 floor — clear that bar or we do not charge for the work that month."
@@ -247,7 +247,7 @@ export default function AdsPage() {
           align="right"
           heading={
             <>
-              Real spend. Real <span className="text-clay-500">returns.</span>
+              Real spend. Real <span className="text-lime-600">returns.</span>
             </>
           }
           intro="Ads work fast or they do not work. Unlike SEO, you find out inside sixty days. Here is the floor we hold ourselves to and the numbers worth looking at before you write the first check."
@@ -266,7 +266,7 @@ export default function AdsPage() {
           align="right"
           heading={
             <>
-              From audit to <span className="text-clay-500">booked calls.</span>
+              From audit to <span className="text-lime-600">booked calls.</span>
             </>
           }
         />
@@ -278,7 +278,7 @@ export default function AdsPage() {
           eyebrow="Questions about ads"
           heading={
             <>
-              Honest answers about <span className="text-clay-500">paid ads.</span>
+              Honest answers about <span className="text-lime-600">paid ads.</span>
             </>
           }
           intro="The questions every owner asks before handing a card to Google — answered the way we would answer them on a call."
@@ -290,7 +290,7 @@ export default function AdsPage() {
         heading={
           <>
             Stop guessing at spend. Start{" "}
-            <span className="text-clay-500">tracking returns.</span>
+            <span className="text-lime-600">tracking returns.</span>
           </>
         }
         blurb="Free 30-minute consult. We will pull your current ad accounts — or your competitors' — and tell you straight whether ads are the right move right now, or whether SEO would get you there cheaper in the long run."

@@ -98,7 +98,7 @@ export function ServicesTabs() {
                   ? "bg-sand-50 text-sand-950"
                   : "border-b-2 border-sand-950 bg-sand-100 text-sand-950/70 hover:bg-sand-50 hover:text-sand-950",
                 isActive
-                  ? "before:absolute before:inset-x-0 before:top-0 before:h-1 before:bg-clay-500 before:content-['']"
+                  ? "before:absolute before:inset-x-0 before:top-0 before:h-1 before:bg-lime-500 before:content-['']"
                   : "",
               ].join(" ")}
             >
@@ -125,7 +125,7 @@ export function ServicesTabs() {
 
         <div className="relative z-10 flex flex-col items-start justify-center gap-8">
           <div className="flex flex-col gap-4">
-            <span className="font-brand text-[12px] font-bold uppercase tracking-[0.12em] text-clay-500">
+            <span className="font-brand text-[12px] font-bold uppercase tracking-[0.12em] text-lime-600">
               {active.tagline}
             </span>
             <h3 className="m-0 font-brand text-[clamp(28px,4vw,44px)] font-black uppercase leading-[1.05] tracking-[-0.02em] text-sand-950">
@@ -144,7 +144,7 @@ export function ServicesTabs() {
             </a>
             <a
               href={active.href}
-              className="group inline-flex items-center gap-1.5 font-brand text-[13px] font-semibold uppercase tracking-[0.08em] text-clay-500 underline underline-offset-4 transition-colors duration-150 hover:text-clay-700"
+              className="group inline-flex items-center gap-1.5 font-brand text-[13px] font-semibold uppercase tracking-[0.08em] text-lime-600 underline underline-offset-4 transition-colors duration-150 hover:text-clay-700"
             >
               Full breakdown
               <span className="transition-transform duration-150 group-hover:translate-x-0.5">

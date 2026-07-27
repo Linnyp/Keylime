@@ -49,7 +49,7 @@ export function HeroSection() {
               <h1 className="hero-title font-brand font-extrabold text-sand-950 text-center lg:text-left">
                 What are missed calls
                 <br />
-                costing <span className="text-lime-700">you?</span>
+                costing <span className="text-lime-600">you?</span>
               </h1>
             </div>
 
@@ -61,7 +61,7 @@ export function HeroSection() {
 
             <div className="flex flex-col items-center gap-3 min-[740px]:flex-row min-[740px]:items-stretch">
               <PrimaryButton href="#contact" variant="lime">
-                Book a Free Consult <IconArrowRight />
+            Calculate Total Losses <IconArrowRight />
               </PrimaryButton>
               <PrimaryButton href="#services">
                 See What We Do
@@ -75,7 +75,7 @@ export function HeroSection() {
           <div className="relative mx-auto w-full max-w-[480px] lg:mx-0 lg:aspect-[441/435] lg:max-w-none">
             {/* Lime backdrop */}
             <div
-              className="absolute inset-0 hidden rounded-[48px] bg-lime-700 lg:block"
+              className="absolute inset-0 hidden rounded-[48px] bg-lime-500 lg:block"
               aria-hidden="true"
             />
 

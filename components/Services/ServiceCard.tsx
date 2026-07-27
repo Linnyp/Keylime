@@ -31,7 +31,7 @@ export function ServiceCard({ service, index }: ServiceCardProps) {
 
       <a
         href="#contact"
-        className="mt-auto self-start font-brand text-[14px] font-bold text-clay-500 underline underline-offset-4"
+        className="mt-auto self-start font-brand text-[14px] font-bold text-lime-600 underline underline-offset-4"
       >
         More about {service.title.toLowerCase()} →
       </a>

@@ -31,8 +31,8 @@ const NAV_ITEMS = [
   },
   {
     label: "Company",
-    bgColor: "var(--color-clay-500)",
-    textColor: "#FFFFFF",
+    bgColor: "var(--color-lime-500)",
+    textColor: "#1C1E1A",
     links: [
       { label: "About", ariaLabel: "About Linax Digital", href: "/about" },
       { label: "Case Studies", ariaLabel: "Client Case Studies", href: "/case-studies" },

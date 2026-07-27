@@ -251,7 +251,7 @@ export function RevenueCalculator() {
           <h1 className="font-brand text-4xl font-extrabold leading-[1.05] tracking-[-0.03em] text-sand-950 sm:text-5xl md:text-6xl">
             See what your business is
             <br />
-            losing <span className="text-lime-700">every month.</span>
+            losing <span className="text-lime-600">every month.</span>
           </h1>
           <p className="mt-6 max-w-[620px] font-brand text-base leading-[1.65] text-sand-600 sm:text-lg">
             Missed calls. Slow reviews. Slow responses. Most local operators
@@ -580,7 +580,7 @@ function Module({
             <h2 className="mt-1 font-brand text-2xl font-bold tracking-[-0.03em] text-sand-950 sm:text-[28px]">
               {title}
             </h2>
-            <div className="mt-1.5 font-brand text-[13px] font-semibold tracking-[-0.01em] text-lime-700">
+            <div className="mt-1.5 font-brand text-[13px] font-semibold tracking-[-0.01em] text-lime-600">
               {fix}
             </div>
           </div>
@@ -606,7 +606,7 @@ function Module({
         className="mt-7 inline-flex items-center gap-2 font-brand text-[13px] font-semibold tracking-[-0.01em] text-sand-600 transition-colors duration-150 hover:text-sand-950"
         aria-expanded={open}
       >
-        <span className="text-lime-700">{open ? "▾" : "▸"}</span>
+        <span className="text-lime-600">{open ? "▾" : "▸"}</span>
         How we calculate this
       </button>
       {open && (

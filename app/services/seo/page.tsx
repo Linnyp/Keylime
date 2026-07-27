@@ -182,13 +182,13 @@ const pairs: PairsWithItem[] = [
 
 export default function SeoPage() {
   return (
-    <main className="overflow-hidden bg-sand-50 pt-20 text-sand-950">
+    <main className="overflow-hidden bg-sand-50 text-sand-950">
       <ServiceHero
         eyebrow="Specialized work"
         title={
           <>
             Show up when your customers{" "}
-            <span className="text-clay-500">already search.</span>
+            <span className="text-lime-600">already search.</span>
           </>
         }
         intro="Most local searches end with a call to one of the top three results. We do the work that gets you there — keyword research, citations, Google Business Profile, content, and backlinks — month over month, until you are the obvious pick."
@@ -207,7 +207,7 @@ export default function SeoPage() {
           heading={
             <>
               The whole stack. Not just tags and{" "}
-              <span className="text-clay-500">backlinks.</span>
+              <span className="text-lime-600">backlinks.</span>
             </>
           }
           intro="Local SEO is a stack — keyword research, on-page, citations, profile, backlinks, content. Pull one piece out and the whole thing underperforms. Foundation builds the floor. Ongoing keeps it compounding."
@@ -221,7 +221,7 @@ export default function SeoPage() {
           headingId="pricing-heading"
           heading={
             <>
-              Foundation, then <span className="text-clay-500">compounding</span>{" "}
+              Foundation, then <span className="text-lime-600">compounding</span>{" "}
               work.
             </>
           }
@@ -242,7 +242,7 @@ export default function SeoPage() {
           align="right"
           heading={
             <>
-              Slow at first. Then <span className="text-clay-500">all at once.</span>
+              Slow at first. Then <span className="text-lime-600">all at once.</span>
             </>
           }
           intro="SEO does not spike, it compounds. The work you pay for in month one keeps paying in month twelve — and the rankings get harder for competitors to take back the longer you stay consistent."
@@ -262,7 +262,7 @@ export default function SeoPage() {
           heading={
             <>
               From audit to compounding{" "}
-              <span className="text-clay-500">rankings.</span>
+              <span className="text-lime-600">rankings.</span>
             </>
           }
         />
@@ -274,7 +274,7 @@ export default function SeoPage() {
           eyebrow="Questions about SEO"
           heading={
             <>
-              Honest answers about <span className="text-clay-500">ranking.</span>
+              Honest answers about <span className="text-lime-600">ranking.</span>
             </>
           }
           intro="The questions every owner asks before paying for SEO — answered the way we would answer them on a call."
@@ -286,7 +286,7 @@ export default function SeoPage() {
         heading={
           <>
             Be the top result when your town{" "}
-            <span className="text-clay-500">searches you.</span>
+            <span className="text-lime-600">searches you.</span>
           </>
         }
         blurb="Free 30-minute consult. We will pull your current rankings, look at your Google Business Profile, and tell you straight whether SEO would move the needle — or whether ads would get there faster."
