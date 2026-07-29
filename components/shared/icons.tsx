@@ -42,12 +42,12 @@ export function IconPlus() {
 }
 
 const SERVICE_ICON_SRC: Record<ServiceIconKey, { src: string; alt: string }> = {
-  globe: { src: "/websiteIcon.png", alt: "Websites" },
-  map: { src: "/seoIcon.png", alt: "Local SEO" },
-  chart: { src: "/adsIcon.png", alt: "Google & Meta Ads" },
-  bolt: { src: "/reputationIcon.png", alt: "Reputation Management" },
-  message: { src: "/chatbotIcon.png", alt: "Chatbots & Voice Agents" },
-  settings: { src: "/automationIcon.png", alt: "Automations" },
+  globe: { src: "/webdev-icon.png", alt: "Websites" },
+  map: { src: "/seoIcon.webp", alt: "Local SEO" },
+  chart: { src: "/adsIcon.webp", alt: "Google & Meta Ads" },
+  bolt: { src: "/reputationIcon.webp", alt: "Reputation Management" },
+  message: { src: "/chatbotIcon.webp", alt: "Chatbots & Voice Agents" },
+  settings: { src: "/automationIcon.webp", alt: "Automations" },
 };
 
 export function ServiceIcon({ icon }: { icon: ServiceIconKey }) {
@@ -58,6 +58,8 @@ export function ServiceIcon({ icon }: { icon: ServiceIconKey }) {
       alt={alt}
       width={44}
       height={44}
+      loading="lazy"
+      decoding="async"
       className="object-contain"
     />
   );

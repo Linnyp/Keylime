@@ -17,7 +17,7 @@ export const metadata: Metadata = {
 
 export default function TestPalettePage() {
   return (
-    <main className="key-lime-theme">
+    <main className="pt-8 key-lime-theme">
       <HeroSection />
       <ProblemSection />
       <ServicesSection />

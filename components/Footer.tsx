@@ -7,7 +7,7 @@ const FOOTER_LINKS = [
   { label: "Contact", href: "#contact" },
 ];
 
-const LOGO_SRC = "/keylimelogolite.png";
+const LOGO_SRC = "/keylimelogolite.webp";
 
 export default function Footer() {
   return (
@@ -24,6 +24,8 @@ export default function Footer() {
               <img
                 src={LOGO_SRC}
                 alt="KeyLime"
+                loading="lazy"
+                decoding="async"
                 className="block h-auto w-full"
               />
             </a>

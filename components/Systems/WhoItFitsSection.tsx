@@ -9,7 +9,7 @@ interface WhoItFitsSectionProps {
 export function WhoItFitsSection({
   personaTitle,
   persona,
-  bannerImage = "/keylimerow.png",
+  bannerImage = "/keylimerow.webp",
 }: WhoItFitsSectionProps) {
   return (
     <section className="py-24 md:py-32">
@@ -30,6 +30,8 @@ export function WhoItFitsSection({
               src={bannerImage}
               alt=""
               aria-hidden="true"
+              loading="lazy"
+              decoding="async"
               className="absolute inset-0 h-full w-full object-cover object-center"
             />
           </div>

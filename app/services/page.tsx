@@ -8,6 +8,7 @@ import {
   FiBarChart2,
   FiBell,
   FiCalendar,
+  FiChevronDown,
   FiGift,
   FiGlobe,
   FiInbox,
@@ -304,9 +305,38 @@ function SolutionRow({ solution, isLast }: { solution: Solution; isLast: boolean
   );
 }
 
+const solutionCount = `${groups.reduce((total, group) => total + group.solutions.length, 0)} solutions`;
+
+/** Grouped anchor links — shared by the mobile dropdown and the desktop grid. */
+function JumpIndexGroups() {
+  return (
+    <>
+      {groups.map((group) => (
+        <div key={group.number}>
+          <p className="font-brand text-[11px] font-bold uppercase tracking-[0.14em] text-sand-600">
+            {group.title}
+          </p>
+          <ul className="mt-3 space-y-2">
+            {group.solutions.map((solution) => (
+              <li key={solution.slug}>
+                <a
+                  href={`#${solution.slug}`}
+                  className="font-brand text-sm font-bold uppercase tracking-[-0.01em] text-sand-950 no-underline hover:text-clay-600"
+                >
+                  {solution.name}
+                </a>
+              </li>
+            ))}
+          </ul>
+        </div>
+      ))}
+    </>
+  );
+}
+
 export default function ServicesHubPage() {
   return (
-    <main className="overflow-hidden bg-sand-50 text-sand-950">
+    <main className="pt-8 overflow-hidden bg-sand-50 text-sand-950">
       {/* ── HERO ─────────────────────────────────────────────────────────── */}
       <section className="relative border-b-4 border-sand-950 py-20 md:py-28">
         <HeroGlow className="-right-40 top-0 h-[520px] w-[520px]" />
@@ -369,32 +399,39 @@ export default function ServicesHubPage() {
       </section>
 
       {/* ── JUMP INDEX ───────────────────────────────────────────────────── */}
-      <section className="border-b-4 border-sand-950 bg-sand-100 py-10">
+      <section className="border-b-4 border-sand-950 bg-sand-100 py-6 md:py-10">
         <div className="mx-auto w-full max-w-[1200px] px-6">
-          <p className="font-brand text-xs font-bold uppercase tracking-[0.18em] text-lime-600">
-            Jump to a solution
-          </p>
-          <nav aria-label="Solution index" className="mt-6 grid gap-x-10 gap-y-8 md:grid-cols-2 lg:grid-cols-4">
-            {groups.map((group) => (
-              <div key={group.number}>
-                <p className="font-brand text-[11px] font-bold uppercase tracking-[0.14em] text-sand-600">
-                  {group.title}
-                </p>
-                <ul className="mt-3 space-y-2">
-                  {group.solutions.map((solution) => (
-                    <li key={solution.slug}>
-                      <a
-                        href={`#${solution.slug}`}
-                        className="font-brand text-sm font-bold uppercase tracking-[-0.01em] text-sand-950 no-underline hover:text-clay-600"
-                      >
-                        {solution.name}
-                      </a>
-                    </li>
-                  ))}
-                </ul>
-              </div>
-            ))}
-          </nav>
+          {/* Mobile: collapsed by default so the list is not a scroll tax. */}
+          <details className="group md:hidden">
+            <summary className="flex min-h-[52px] cursor-pointer list-none items-center justify-between gap-4 rounded-full border-2 border-sand-950 bg-sand-50 px-5 py-3 [&::-webkit-details-marker]:hidden">
+              <span className="font-brand text-xs font-bold uppercase tracking-[0.18em] text-lime-600">
+                Jump to a solution
+              </span>
+              <span className="flex items-center gap-2 font-brand text-[11px] font-bold uppercase tracking-[0.12em] text-sand-600">
+                {solutionCount}
+                <FiChevronDown
+                  aria-hidden="true"
+                  className="transition-transform duration-200 group-open:rotate-180"
+                />
+              </span>
+            </summary>
+            <nav aria-label="Solution index" className="mt-5 grid gap-y-6">
+              <JumpIndexGroups />
+            </nav>
+          </details>
+
+          {/* Desktop: always visible. */}
+          <div className="hidden md:block">
+            <p className="font-brand text-xs font-bold uppercase tracking-[0.18em] text-lime-600">
+              Jump to a solution
+            </p>
+            <nav
+              aria-label="Solution index"
+              className="mt-6 grid gap-x-10 gap-y-8 md:grid-cols-2 lg:grid-cols-4"
+            >
+              <JumpIndexGroups />
+            </nav>
+          </div>
         </div>
       </section>
 
@@ -402,48 +439,63 @@ export default function ServicesHubPage() {
       {groups.map((group, index) => (
         <section
           key={group.number}
-          className={index % 2 === 1 ? "bg-sand-100 py-20 md:py-28" : "py-20 md:py-28"}
+          className={index % 2 === 1 ? "bg-sand-100 py-12 md:py-16" : "py-12 md:py-16"}
         >
           <div className="mx-auto w-full max-w-[1200px] px-6">
-            <div className="grid gap-8 lg:grid-cols-[5fr_6fr] lg:items-end">
-              <div>
-                <p className="mb-4 font-brand text-xs font-bold uppercase tracking-[0.18em] text-lime-600">
-                  {group.eyebrow}
-                </p>
-                <h2 className="font-brand text-[clamp(2.25rem,4.4vw,4rem)] font-black uppercase leading-[0.93] tracking-[-0.055em]">
-                  <span className="text-lime-600">{group.number}</span> {group.title}
-                </h2>
-              </div>
-              <p className="max-w-[560px] text-[17px] leading-[1.7] text-sand-700 lg:pb-2">
-                {group.intro}
-              </p>
-            </div>
+            {/* Each group collapses so the four headings stay scannable. */}
+            <details className="group" open={index === 0}>
+              <summary className="flex cursor-pointer list-none items-start gap-6 rounded-2xl py-2 focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-lime-600 [&::-webkit-details-marker]:hidden">
+                <div className="grid flex-1 gap-4 lg:grid-cols-[5fr_6fr] lg:items-end">
+                  <div>
+                    <p className="mb-4 font-brand text-xs font-bold uppercase tracking-[0.18em] text-lime-600">
+                      {group.eyebrow}
+                    </p>
+                    <h2 className="font-brand text-[clamp(2.25rem,4.4vw,4rem)] font-black uppercase leading-[0.93] tracking-[-0.055em]">
+                       {group.title}
+                    </h2>
+                  </div>
+                  <p className="max-w-[560px] text-[17px] leading-[1.7] text-sand-700 lg:pb-2">
+                    {group.intro}
+                  </p>
+                </div>
 
-            <div className="mt-12 border-t-4 border-sand-950">
-              {group.solutions.map((solution, solutionIndex) => (
-                <SolutionRow
-                  key={solution.slug}
-                  solution={solution}
-                  isLast={solutionIndex === group.solutions.length - 1}
-                />
-              ))}
-            </div>
+                <span className="mt-2 flex shrink-0 items-center gap-3">
+                  <span className="hidden font-brand text-[11px] font-bold uppercase tracking-[0.12em] text-sand-600 sm:inline">
+                    {group.solutions.length}{" "}
+                    {group.solutions.length === 1 ? "solution" : "solutions"}
+                  </span>
+                  <span className="inline-flex h-12 w-12 items-center justify-center rounded-full border-2 border-sand-950 transition-transform duration-200 group-hover:bg-lime-500 group-open:rotate-180">
+                    <FiChevronDown size={22} aria-hidden="true" />
+                  </span>
+                </span>
+              </summary>
 
-            {group.number === "04" ? (
-              <div className="mt-10 flex flex-wrap items-center gap-6 rounded-3xl border-2 border-sand-950 bg-sand-50 p-8">
-                <p className="max-w-[620px] font-brand text-lg font-bold leading-snug tracking-[-0.03em]">
-                  Specialized work is priced on the real scope, not from a template. Tell us
-                  what you are trying to do and we will come back with a written scope and a
-                  price.
-                </p>
-                <Link
-                  href="/contact"
-                  className="inline-flex min-h-[50px] items-center justify-center gap-2 rounded-full bg-sand-950 px-6 py-3 font-brand text-sm font-bold uppercase tracking-[0.06em] text-sand-50 no-underline transition-transform duration-200 hover:-translate-y-0.5"
-                >
-                  Talk to us about a custom quote <FiArrowRight aria-hidden="true" />
-                </Link>
+              <div className="mt-10 border-t-4 border-sand-950">
+                {group.solutions.map((solution, solutionIndex) => (
+                  <SolutionRow
+                    key={solution.slug}
+                    solution={solution}
+                    isLast={solutionIndex === group.solutions.length - 1}
+                  />
+                ))}
               </div>
-            ) : null}
+
+              {group.number === "04" ? (
+                <div className="mt-10 flex flex-wrap items-center gap-6 rounded-3xl border-2 border-sand-950 bg-sand-50 p-8">
+                  <p className="max-w-[620px] font-brand text-lg font-bold leading-snug tracking-[-0.03em]">
+                    Specialized work is priced on the real scope, not from a template. Tell us
+                    what you are trying to do and we will come back with a written scope and a
+                    price.
+                  </p>
+                  <Link
+                    href="/contact"
+                    className="inline-flex min-h-[50px] items-center justify-center gap-2 rounded-full bg-sand-950 px-6 py-3 font-brand text-sm font-bold uppercase tracking-[0.06em] text-sand-50 no-underline transition-transform duration-200 hover:-translate-y-0.5"
+                  >
+                    Talk to us about a custom quote <FiArrowRight aria-hidden="true" />
+                  </Link>
+                </div>
+              ) : null}
+            </details>
           </div>
         </section>
       ))}

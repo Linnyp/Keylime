@@ -12,7 +12,7 @@ export default async function CaseStudyPage({
   const { slug } = await params;
 
   return (
-    <main>
+    <main className="pt-8">
       {/* ── CLIENT CONTEXT ───────────────────────────────────────────────── */}
       <section id="client-context" className="px-6 py-24 max-w-7xl mx-auto">
         <h1 className="text-5xl font-[var(--font-display)]">Client Context — Industry, business size, challenge they faced before working with Linax Digital</h1>

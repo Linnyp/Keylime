@@ -1,6 +1,5 @@
 "use client";
 
-import PixelBlast from "@/components/PixelBlast";
 import LogoLoop from "@/components/LogoLoop";
 import { MissedCallWidget } from "@/components/MissedCallWidget/MissedCallWidget";
 import { clientLogos } from "../../data/clientLogos";
@@ -14,29 +13,10 @@ export function HeroSection() {
       aria-label="Hero"
       className="hero relative overflow-x-clip bg-sand-50 pt-28 md:pt-32"
     >
-      <div className="pointer-events-none absolute inset-0 z-0">
-        <PixelBlast
-          variant="square"
-          pixelSize={4}
-          color="#E4E8DA"
-          patternScale={2}
-          patternDensity={1}
-          pixelSizeJitter={0}
-          enableRipples
-          rippleSpeed={0.4}
-          rippleThickness={0.12}
-          rippleIntensityScale={1.5}
-          liquid={false}
-          liquidStrength={0.12}
-          liquidRadius={1.2}
-          liquidWobbleSpeed={5}
-          speed={0.5}
-          edgeFade={0.25}
-          transparent
-          className=""
-          style={{}}
-        />
-      </div>
+      <div
+        aria-hidden="true"
+        className="hero-pixel-field pointer-events-none absolute inset-0 z-0"
+      />
 
       <div className="relative z-10 mx-auto w-full max-w-[1200px] px-6 pb-16 lg:pb-20">
         <div className="grid items-center gap-12 lg:grid-cols-[minmax(0,1.05fr)_minmax(0,1fr)] lg:gap-16">
@@ -81,7 +61,15 @@ export function HeroSection() {
 
             {/* Hero iPhone rising behind the card. */}
             <div className="absolute right-0 bottom-0 aspect-[268/425] w-[56%] overflow-hidden lg:top-[19.3%] lg:aspect-auto lg:w-[60.8%] lg:rounded-br-[48px]">
-              <img src="/heroiphone.png" alt="" className="w-full" />
+              <img
+                src="/heroiphone.webp"
+                alt=""
+                width={554}
+                height={1147}
+                fetchPriority="high"
+                decoding="async"
+                className="w-full"
+              />
             </div>
 
             {/* Card — inset equally from the backdrop's bottom and left edges

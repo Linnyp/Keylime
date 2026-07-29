@@ -208,7 +208,7 @@ const pairs: PairsWithItem[] = [
 
 export default function ReputationPage() {
   return (
-    <main className="overflow-hidden bg-sand-50 text-sand-950">
+    <main className="pt-8 overflow-hidden bg-sand-50 text-sand-950">
       <ServiceHero
         eyebrow="Included on every system"
         badge="Flagship"

@@ -6,10 +6,10 @@ export const testimonials: TestimonialItem[] = [
       "Before working with Linax, our Google listing was basically invisible. Within two months of the GBP optimization and local SEO work, we were showing up in the top three for searches we’d never ranked for before. We’ve had people book charters specifically because they found us on Google — that never happened before.",
     name: "Sean O'connor",
     titleAndCompany: "Owner, Four Leaf Charters",
-    avatarSrc: "/logos/fourleafLogoNoTitle.png",
+    avatarSrc: "/logos/fourleafLogoNoTitle.webp",
     avatarAlt: "Four Leaf Charters logo",
     avatarWidthPx: 100,
-    ownerPhotoSrc: "/tarponSunset%201.png",
+    ownerPhotoSrc: "/tarponSunset.webp",
     ownerPhotoAlt: "Sean O'Connor portrait",
   },
   {
@@ -17,9 +17,9 @@ export const testimonials: TestimonialItem[] = [
       "We were doing okay with paid ads on our own, but the spend was inconsistent and we had no real targeting strategy. The competitive analysis and Meta campaign work gave us a clear picture of who we were competing with and where we were wasting money. Our cost per lead dropped significantly within the first campaign cycle.",
     name: "Vytas Sileika",
     titleAndCompany: "Owner, Verona Cabinets",
-    avatarSrc: "/logos/veronacabinet.png",
+    avatarSrc: "/logos/veronacabinet.webp",
     avatarAlt: "Owner of Verona Cabinets",
-    ownerPhotoSrc: "/vytasHeadshot.jpg",
+    ownerPhotoSrc: "/vytasHeadshot.webp",
     ownerPhotoAlt: "Owner portrait",
   },
   {
@@ -29,7 +29,7 @@ export const testimonials: TestimonialItem[] = [
     titleAndCompany: "Lead Developer, Ord-X",
     avatarSrc: "/logos/ordx-logo-light.webp",
     avatarAlt: "Client portrait",
-    ownerPhotoSrc: "/proteus.png",
+    ownerPhotoSrc: "/proteus.webp",
     ownerPhotoAlt: "Owner portrait",
   },
 ];

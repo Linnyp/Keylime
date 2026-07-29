@@ -21,35 +21,35 @@ const websiteCard: ServiceCardData = {
   title: "Website Design & Development",
   body: "Built from scratch — fast-loading, mobile friendly, and designed to turn visitors into calls and form fills.",
   href: "/services/websites",
-  icon: "/websiteIcon.png",
+  icon: "/webdev-icon.png",
 };
 
 const speedToLeadCard: ServiceCardData = {
   title: "Speed-To-Lead",
   body: "Missed-call text-back, online booking, chatbots, and after-hours voice agents. Your phone gets answered — one way or another.",
   href: "/services",
-  icon: "/chatbotIcon.png",
+  icon: "/chatbotIcon.webp",
 };
 
 const seoCard: ServiceCardData = {
   title: "Local SEO",
   body: "Get found by the customers already searching your service area.",
   href: "/services/seo",
-  icon: "/seoIcon.png",
+  icon: "/seo-icon.png",
 };
 
 const adsCard: ServiceCardData = {
   title: "Paid Advertising",
   body: "Google and Meta campaigns run on cost-per-lead — not vanity metrics.",
   href: "/services/ads",
-  icon: "/adsIcon.png",
+  icon: "/ad-icon.png",
 };
 
 const reputationCard: ServiceCardData = {
   title: "Reputation Management",
   body: "Review automation that makes your Google listing look like the quality of your work.",
   href: "/services/reputation",
-  icon: "/reputationIcon.png",
+  icon: "/googlereviewhand.png",
 };
 
 function ArrowCircle({ light }: { light?: boolean }) {
@@ -79,7 +79,7 @@ function ServiceCard({
   return (
     <a
       href={card.href}
-      className={`group flex flex-col gap-8 rounded-3xl border p-8 no-underline transition-all duration-200 hover:-translate-y-1 ${
+      className={`group flex flex-col gap-2 rounded-3xl border p-8 no-underline transition-all duration-200 hover:-translate-y-1 ${
         featured
           ? "border-sand-900 bg-sand-900 shadow-[0_12px_26px_0_rgba(28,30,26,0.14)]"
           : "border-sand-200 bg-white shadow-[0_2px_6px_0_rgba(28,30,26,0.06)] hover:border-lime-300 hover:shadow-[0_12px_26px_0_rgba(28,30,26,0.12)]"
@@ -101,7 +101,9 @@ function ServiceCard({
           src={card.icon}
           alt=""
           aria-hidden="true"
-          className="mb-6 h-16 w-16 object-contain"
+          loading="lazy"
+          decoding="async"
+          className="mb-3 h-36 w-36 object-contain"
         />
         <p
           className={`m-0 max-w-[340px] text-[15px] leading-[1.65] ${

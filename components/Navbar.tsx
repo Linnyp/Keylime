@@ -2,7 +2,7 @@
 
 import CardNav from "@/components/CardNav";
 
-const LOGO_SRC = "/keylimelogolite.png";
+const LOGO_SRC = "/keylimelogolite.webp";
 
 const NAV_ITEMS = [
   {

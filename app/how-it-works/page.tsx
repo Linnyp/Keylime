@@ -74,7 +74,7 @@ function PillLink({ href, children, dark = false }: { href: string; children: Re
 
 export default function HowItWorksPage() {
   return (
-    <main className="overflow-hidden bg-sand-50 text-sand-950">
+    <main className="pt-8 overflow-hidden bg-sand-50 text-sand-950">
       <section className="relative border-b-4 border-sand-950 py-20 md:py-28">
         <HeroGlow className="-right-36 top-4 h-[500px] w-[500px]" />
         <div className="relative mx-auto grid w-full max-w-[1200px] items-center gap-14 px-6 lg:grid-cols-[1.05fr_.95fr]">

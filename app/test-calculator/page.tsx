@@ -10,7 +10,7 @@ export const metadata: Metadata = {
 
 export default function RevenueCalculatorTestPage() {
   return (
-    <main className="key-lime-theme">
+    <main className="pt-8 key-lime-theme">
       <RevenueCalculator />
     </main>
   );

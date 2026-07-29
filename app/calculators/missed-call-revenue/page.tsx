@@ -8,7 +8,7 @@ export const metadata: Metadata = {
 
 export default function MissedCallRevenueCalculatorPage() {
   return (
-    <main>
+    <main className="pt-8">
       <RevenueCalculator />
     </main>
   );

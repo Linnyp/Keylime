@@ -36,6 +36,8 @@ export function HowItWorksSection() {
                 src={step.illustration}
                 alt=""
                 aria-hidden="true"
+                loading="lazy"
+                decoding="async"
                 className="pointer-events-none absolute right-4 top-4 h-[100px] w-[100px] object-contain"
               />
               <h3 className="hiw-step-number m-0 font-brand font-black tracking-[-0.04em] text-lime-600">

@@ -65,9 +65,13 @@ export function ProblemSection() {
             Shouldn&apos;t Be 1
           </h2>
           <img
-            src="/jugglingPain.png"
+            src="/jugglingPain.webp"
             alt=""
             aria-hidden="true"
+            width={2668}
+            height={1892}
+            loading="lazy"
+            decoding="async"
             className="pointer-events-none hidden md:block absolute top-0 right-6 h-auto w-auto max-w-[40%] select-none object-contain"
           />
         </div>
@@ -99,14 +103,22 @@ export function ProblemSection() {
                 because you&apos;re running a business.
               </p>
               <img
-                src="/jugglingPain.png"
+                src="/jugglingPain.webp"
                 alt=""
                 aria-hidden="true"
+                width={2668}
+                height={1892}
+                loading="lazy"
+                decoding="async"
                 className="pointer-events-none mx-auto block h-auto w-full max-w-[380px] select-none object-contain md:hidden"
               />
               <img
-                src="/jugglingPain.png"
+                src="/jugglingPain.webp"
                 alt="Illustration of a business owner juggling marketing pain points"
+                width={2668}
+                height={1892}
+                loading="lazy"
+                decoding="async"
                 className="absolute left-0 right-0 top-full hidden h-auto w-full lg:block"
               />
             </div>

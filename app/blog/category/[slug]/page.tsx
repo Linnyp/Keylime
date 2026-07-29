@@ -12,7 +12,7 @@ export default async function BlogCategoryPage({
   const { slug } = await params;
 
   return (
-    <main>
+    <main className="pt-8">
       {/* ── CATEGORY HEADER ──────────────────────────────────────────────── */}
       <section id="category-header" className="px-6 py-24 max-w-7xl mx-auto">
         <h1 className="text-5xl font-[var(--font-display)] capitalize">

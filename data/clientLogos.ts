@@ -2,17 +2,17 @@ import type { ClientLogoItem } from "../types";
 
 export const clientLogos: ClientLogoItem[] = [
   {
-    src: "/logos/fourleafLogoNoTitle.png",
+    src: "/logos/fourleafLogoNoTitle.webp",
     alt: "Four Leaf Charters",
     title: "Four Leaf Charters",
   },
   {
-    src: "/logos/veronacabinet.png",
+    src: "/logos/veronacabinet.webp",
     alt: "Verona Cabinets",
     title: "Verona Cabinets",
   },
   {
-    src: "/logos/mk-kitchen-logo.png",
+    src: "/logos/mk-kitchen-logo.webp",
     alt: "MK Kitchen",
     title: "MK Kitchen",
   },
@@ -22,7 +22,7 @@ export const clientLogos: ClientLogoItem[] = [
     title: "ORDX",
   },
   {
-    src: "/logos/virtuelogo.png",
+    src: "/logos/virtuelogo.webp",
     alt: "Virtue",
     title: "Virtue",
   },

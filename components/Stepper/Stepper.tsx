@@ -6,6 +6,7 @@
 import {
   Children,
   Fragment,
+  useEffect,
   useLayoutEffect,
   useRef,
   useState,
@@ -184,6 +185,17 @@ function StepContentWrapper({
 }: StepContentWrapperProps) {
   const [parentHeight, setParentHeight] = useState(0);
 
+  // Server HTML renders the `enter` variant (translateX(-100%), opacity 0),
+  // but on the client `AnimatePresence initial={false}` skips straight to
+  // `center` — the two disagree on the style attribute and React reports a
+  // hydration mismatch. Suppress the enter animation until after mount so
+  // both renders start at `center`. This lives here rather than in
+  // SlideTransition because that component is keyed by currentStep and
+  // remounts on every step, which would reset a local flag and kill the
+  // slide animation for good.
+  const [hasMounted, setHasMounted] = useState(false);
+  useEffect(() => setHasMounted(true), []);
+
   return (
     <motion.div
       className={className}
@@ -196,6 +208,7 @@ function StepContentWrapper({
           <SlideTransition
             key={currentStep}
             direction={direction}
+            animateOnEnter={hasMounted}
             onHeightReady={(h) => setParentHeight(h)}
           >
             {children}
@@ -209,12 +222,15 @@ function StepContentWrapper({
 interface SlideTransitionProps {
   children: ReactNode;
   direction: number;
+  /** False on the hydrating render so server and client agree; true after. */
+  animateOnEnter: boolean;
   onHeightReady: (height: number) => void;
 }
 
 function SlideTransition({
   children,
   direction,
+  animateOnEnter,
   onHeightReady,
 }: SlideTransitionProps) {
   const containerRef = useRef<HTMLDivElement>(null);
@@ -235,7 +251,7 @@ function SlideTransition({
       ref={containerRef}
       custom={direction}
       variants={stepVariants}
-      initial="enter"
+      initial={animateOnEnter ? "enter" : false}
       animate="center"
       exit="exit"
       transition={{ duration: 0.4 }}

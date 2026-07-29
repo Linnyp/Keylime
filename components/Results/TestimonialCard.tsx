@@ -13,6 +13,8 @@ export function TestimonialCard({
         <img
           src={testimonial.avatarSrc}
           alt={testimonial.avatarAlt}
+          loading="lazy"
+          decoding="async"
           style={
             testimonial.avatarWidthPx
               ? { width: `${testimonial.avatarWidthPx}px` }
@@ -40,6 +42,10 @@ export function TestimonialCard({
         <img
           src={testimonial.ownerPhotoSrc}
           alt={testimonial.ownerPhotoAlt}
+          width={48}
+          height={48}
+          loading="lazy"
+          decoding="async"
           className="h-12 w-12 shrink-0 rounded-full object-cover ring-2 ring-sand-100"
         />
         <div className="min-w-0">

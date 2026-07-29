@@ -5,12 +5,12 @@ import type { ServiceIconKey } from "../../types";
 import { IconArrowRight } from "../shared/icons";
 
 const ICON_SRC: Record<ServiceIconKey, string> = {
-  globe: "/websitewireframe-sm.png",
-  map: "/handMagnifying.png",
-  chart: "/handMicrophone.png",
-  bolt: "/handReviews.png",
-  message: "/chatbotIcon.png",
-  settings: "/automationIcon.png",
+  globe: "/websitewireframe-sm.webp",
+  map: "/handMagnifying.webp",
+  chart: "/handMicrophone.webp",
+  bolt: "/handReviews.webp",
+  message: "/chatbotIcon.webp",
+  settings: "/automationIcon.webp",
 };
 
 interface ServiceTab {
@@ -120,6 +120,8 @@ export function ServicesTabs() {
           src={ICON_SRC[active.icon]}
           alt=""
           aria-hidden="true"
+          loading="lazy"
+          decoding="async"
           className="pointer-events-none absolute inset-0 h-full w-full object-contain object-center opacity-25 lg:hidden"
         />
 
@@ -157,6 +159,8 @@ export function ServicesTabs() {
         <img
           src={ICON_SRC[active.icon]}
           alt={active.tabLabel}
+          loading="lazy"
+          decoding="async"
           className={[
             "hidden h-full max-h-[400px] w-full self-end object-contain object-bottom lg:-mb-14 lg:block",
             active.id !== "reputation" ? "lg:max-w-none lg:mx-0" : "",

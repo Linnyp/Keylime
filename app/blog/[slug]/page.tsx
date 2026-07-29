@@ -12,7 +12,7 @@ export default async function BlogPostPage({
   const { slug } = await params;
 
   return (
-    <main>
+    <main className="pt-8">
       {/* ── ARTICLE HEADER ───────────────────────────────────────────────── */}
       <section id="article-header" className="px-6 py-16 max-w-3xl mx-auto">
         <h1 className="text-5xl font-[var(--font-display)]">Article Header — Post title (Fraunces) · category badge · publish date · estimated read time</h1>

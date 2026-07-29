@@ -4,6 +4,9 @@ import { gsap } from "gsap";
 import { GoArrowUpRight } from "react-icons/go";
 import "./CardNav.css";
 
+// Collapsed bar height — must match --nav-bar-h in CardNav.css.
+const NAV_BAR_HEIGHT = 85;
+
 const CardNav = ({
   logo,
   logoAlt = "Logo",
@@ -41,7 +44,7 @@ const CardNav = ({
 
         contentEl.offsetHeight;
 
-        const topBar = 60;
+        const topBar = NAV_BAR_HEIGHT;
         const padding = 16;
         const contentHeight = contentEl.scrollHeight;
 
@@ -60,7 +63,7 @@ const CardNav = ({
     const navEl = navRef.current;
     if (!navEl) return null;
 
-    gsap.set(navEl, { height: 60, overflow: "hidden" });
+    gsap.set(navEl, { height: NAV_BAR_HEIGHT, overflow: "hidden" });
     gsap.set(cardsRef.current, { y: 50, opacity: 0 });
 
     const tl = gsap.timeline({ paused: true });

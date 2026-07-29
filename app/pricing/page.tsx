@@ -115,7 +115,7 @@ function CalendlyButton({ children, className = "" }: { children: React.ReactNod
 
 export default function PricingPage() {
   return (
-    <main className="overflow-hidden bg-sand-50 text-sand-950">
+    <main className="pt-8 overflow-hidden bg-sand-50 text-sand-950">
       <section className="relative border-b-4 border-sand-950 py-20 md:py-28">
         <HeroGlow className="left-[4%] top-0 h-[440px] w-[440px]" />
         <HeroGlow className="right-[4%] top-16 h-[380px] w-[380px]" />

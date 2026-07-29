@@ -1,3 +1,9 @@
+:root {
+  /* Collapsed nav bar height — shared by the silk backdrop, the nav shell,
+     and the GSAP collapse height in CardNav.jsx. */
+  --nav-bar-h: 85px;
+}
+
 .card-nav-container {
   position: absolute;
   top: 2em;
@@ -16,7 +22,7 @@
   transform: translateX(-50%);
   width: 90%;
   max-width: 1200px;
-  height: 60px;
+  height: var(--nav-bar-h);
   border-radius: 0.75rem;
   overflow: hidden;
   backdrop-filter: blur(20px);
@@ -25,7 +31,7 @@
 
 .card-nav {
   display: block;
-  height: 60px;
+  height: var(--nav-bar-h);
   padding: 0;
   background-color: transparent;
   border: 0.5px solid rgba(255, 255, 255, 0.1);
@@ -41,7 +47,7 @@
   top: 0;
   left: 0;
   right: 0;
-  height: 60px;
+  height: var(--nav-bar-h);
   display: flex;
   align-items: center;
   justify-content: space-between;
@@ -132,7 +138,7 @@
   position: absolute;
   left: 0;
   right: 0;
-  top: 60px;
+  top: var(--nav-bar-h);
   bottom: 0;
   padding: 0.5rem;
   display: flex;
