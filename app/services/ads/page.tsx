@@ -160,7 +160,7 @@ const faq: FaqItem[] = [
   {
     question: "How is the management fee actually calculated?",
     answer:
-      "$300/mo minimum or 10% of monthly ad spend, whichever is greater, capped at $2,000/mo. At $3,000 in spend you pay $300, the minimum. At $10,000 in spend you pay $1,000. At $25,000 or more you pay $2,000 flat, where the cap kicks in. No tiered packages, no setup fees, no surprise invoices.",
+      "$300/mo minimum or 10% of monthly ad spend, whichever is greater, capped at $2,000/mo. At $3,000 in spend you pay $300, the minimum. At $10,000 in spend you pay $1,000. At $25,000 or more you pay $2,000 flat, where the cap kicks in. No tiered packages and no surprise invoices. Ads management carries no setup fee of its own — the $200 one-time setup applies to the tiered systems (Foundation, Growth, and Expansion), so you only pay it if you are on one.",
   },
   {
     question: "Are you running my own ads or reselling someone else's?",
@@ -235,8 +235,9 @@ export default function AdsPage() {
         <PricingPair cards={priceCards} />
         <PricingFootnote>
           Most clients land between $300 and $1,000/mo in management fees. The cap kicks
-          in once monthly ad spend clears $20,000. No setup fee, no audit invoice, no
-          contract.
+          in once monthly ad spend clears $20,000. No audit invoice and no contract. Ads
+          management carries no setup fee of its own — the $200 one-time setup comes with
+          the tiered systems, not with ads work.
         </PricingFootnote>
       </ServiceSection>
 

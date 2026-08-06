@@ -89,37 +89,38 @@ const stats: Stat[] = [
 
 const priceCards: PriceCard[] = [
   {
-    name: "Reputation",
-    meta: "Month-to-month",
-    priceLabel: "Flat monthly",
-    price: "$195",
+    name: "Foundation",
+    meta: "Where it starts · month-to-month",
+    priceLabel: "Entry system",
+    price: "$99",
     priceSuffix: "/mo",
-    body: "The full done-for-you reputation system, the workspace, the unified inbox, and the CRM. Setup is included — no separate onboarding invoice, no surprise fees.",
+    priceNote: "plus $200 one-time setup",
+    body: "Reputation Management is not sold on its own — it comes with the system, and Foundation is the least you can buy to get it. The full review engine, the unified inbox, and the CRM are all in at the entry tier.",
     features: [
       "Dedicated managed workspace",
       "Review request workflows configured and run",
       "Sentiment routing and customer engagement",
       "CRM and unified inbox access",
       "Multi-platform review monitoring",
-      "Setup included · no long-term contract",
+      "One-page website and a dedicated business number",
     ],
-    ctaLabel: "Start Reputation Management",
-    ctaHref: "/contact",
-    badge: "Most common",
+    ctaLabel: "See the Foundation system",
+    ctaHref: "/systems/foundation",
+    badge: "Where it starts",
     featured: true,
   },
   {
     name: "What you don't pay for",
     meta: "The fine print",
-    priceLabel: "Setup · platform · cancellation",
+    priceLabel: "Software bills on top",
     price: "$0",
-    body: "A standalone subscription to the platform underneath this runs $97–$497/mo before you configure anything. Most agencies add a setup fee on top of their monthly. We do not.",
+    body: "A standalone subscription to the platform underneath this runs $97–$497/mo before you configure anything, and most agencies bill their management fee on top of it. With us the platform is the system — nothing stacked on the monthly price.",
     features: [
-      "No setup or onboarding fee",
       "No separate platform subscription",
       "No long-term contract — cancel anytime",
       "No per-message or per-contact charges",
       "No data lock-in — your contact list is yours",
+      "No surprise invoices — everything quoted up front",
       "Written gameplan included up front",
     ],
     ctaLabel: "Talk it through with us",
@@ -141,7 +142,7 @@ const addOns: IncludedItem[] = [
   {
     no: "03",
     title: "Rewards & loyalty",
-    body: "A points or referral program that runs automatically against your customer list — the kind that keeps repeat customers coming back without eating staff time.",
+    body: "A points or referral program that runs automatically against your customer list — the kind that keeps repeat customers coming back without eating staff time. Comes standard on Expansion.",
   },
   {
     no: "04",
@@ -151,7 +152,7 @@ const addOns: IncludedItem[] = [
   {
     no: "05",
     title: "Chatbots & voice agents",
-    body: "A chatbot on your site or a voice agent on a dedicated line. Trained on your services, escalates real leads to your calendar, works at 11pm on a Tuesday.",
+    body: "A chatbot on your site or a voice agent on a dedicated line. Trained on your services, escalates real leads to your calendar, works at 11pm on a Tuesday. Chatbots come standard on Growth.",
   },
   {
     no: "06",
@@ -182,9 +183,9 @@ const faq: FaqItem[] = [
       "Yes. You get full login access — every message sent, every review request, every customer reply. We do not black-box this. You can edit templates, pause campaigns, or turn anything off whenever you want. Most clients log in once a week to scan the inbox and stay out of the weeds.",
   },
   {
-    question: "Why are campaigns and loyalty only available after I onboard?",
+    question: "Can I buy Reputation Management on its own?",
     answer:
-      "Because they all run on the same workspace. Once you are set up with Reputation Management, the scaffolding for SMS campaigns, email sends, loyalty programs, and custom automations is already in place — which makes each one faster and cheaper to add than starting from scratch. We do not sell platform access without the managed service, because the platform without the work is not the product.",
+      "No, and that is deliberate. The review engine runs on the same workspace as your CRM, your inbox, and your follow-ups — pulling it out and selling it separately would mean standing up all of that anyway and charging you twice for it. So it comes with the system instead. Foundation at $99/mo is the smallest way in, and it includes the whole thing. We do not sell platform access without the managed service, because the platform without the work is not the product.",
   },
 ];
 
@@ -200,9 +201,9 @@ const pairs: PairsWithItem[] = [
     href: "/services/websites",
   },
   {
-    label: "Compare systems",
-    copy: "Reputation Management is included on every system. See what else each one adds.",
-    href: "/pricing",
+    label: "Foundation",
+    copy: "Included from the entry system up — $99/mo. See everything else Foundation covers.",
+    href: "/systems/foundation",
   },
 ];
 
@@ -222,7 +223,7 @@ export default function ReputationPage() {
         glance={[
           ["Format", "Done-for-you · managed"],
           ["Included in", "Foundation · Growth · Expansion"],
-          ["Standalone", "$195/mo flat"],
+          ["Starts at", "$99/mo · Foundation"],
           ["Lock-in", "None · month-to-month"],
         ]}
       />
@@ -247,17 +248,17 @@ export default function ReputationPage() {
           headingId="pricing-heading"
           heading={
             <>
-              One flat fee. <span className="text-lime-600">No setup cost.</span> No
+              In the system. <span className="text-lime-600">Not a line item.</span> No
               lock-in.
             </>
           }
-          intro="Everything below for one monthly price. Cancel anytime — though most clients stay because the inbox alone is worth more than the fee."
+          intro="There is no separate Reputation Management invoice — it is part of every system we run, starting with Foundation. Cancel anytime, though most clients stay because the inbox alone is worth more than the fee."
         />
         <PricingPair cards={priceCards} />
         <PricingFootnote>
-          Onboarding to Reputation Management unlocks the rest of the platform. Campaigns,
-          loyalty, automations, chatbots, and custom workflows are available as add-ons
-          quoted per scope.
+          Growth and Expansion carry the same reputation engine and add to it — booking,
+          reminders, and local search on Growth; loyalty, nurture, and Google Business
+          Profile management on Expansion.
         </PricingFootnote>
       </ServiceSection>
 
@@ -301,11 +302,10 @@ export default function ReputationPage() {
           headingId="add-ons-heading"
           heading={
             <>
-              What unlocks once{" "}
-              <span className="text-lime-600">you&apos;re on.</span>
+              What you can <span className="text-lime-600">add next.</span>
             </>
           }
-          intro="Every Reputation Management client is already on the platform, which makes everything below faster and cheaper to add than starting from scratch — quoted per scope, with no hidden platform fees."
+          intro="Once a system is running, everything below sits on the same workspace and the same contact list — which makes each one faster and cheaper to add than starting from scratch. Some come standard when you move up a system; the rest are quoted per scope, with no hidden platform fees."
         />
         <IncludedGrid items={addOns} />
         <p className="mt-10 max-w-[640px] text-[15px] leading-[1.7] text-sand-700">
