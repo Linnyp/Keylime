@@ -42,7 +42,7 @@ export function IconPlus() {
 }
 
 const SERVICE_ICON_SRC: Record<ServiceIconKey, { src: string; alt: string }> = {
-  globe: { src: "/webdev-icon.png", alt: "Websites" },
+  globe: { src: "/webdev-icon.webp", alt: "Websites" },
   map: { src: "/seoIcon.webp", alt: "Local SEO" },
   chart: { src: "/adsIcon.webp", alt: "Google & Meta Ads" },
   bolt: { src: "/reputationIcon.webp", alt: "Reputation Management" },

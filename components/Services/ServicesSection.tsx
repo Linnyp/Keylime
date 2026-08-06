@@ -21,35 +21,35 @@ const websiteCard: ServiceCardData = {
   title: "Website Design & Development",
   body: "Built from scratch — fast-loading, mobile friendly, and designed to turn visitors into calls and form fills.",
   href: "/services/websites",
-  icon: "/webdev-icon.png",
+  icon: "/webdev-icon.webp",
 };
 
 const speedToLeadCard: ServiceCardData = {
   title: "Speed-To-Lead",
   body: "Missed-call text-back, online booking, chatbots, and after-hours voice agents. Your phone gets answered — one way or another.",
   href: "/services",
-  icon: "/speedlead-icon.png",
+  icon: "/speedlead-icon.webp",
 };
 
 const seoCard: ServiceCardData = {
   title: "Local SEO",
   body: "Get found by the customers already searching your service area.",
   href: "/services/seo",
-  icon: "/seo-icon.png",
+  icon: "/seo-icon.webp",
 };
 
 const adsCard: ServiceCardData = {
   title: "Paid Advertising",
   body: "Google and Meta campaigns run on cost-per-lead — not vanity metrics.",
   href: "/services/ads",
-  icon: "/ad-icon.png",
+  icon: "/ad-icon.webp",
 };
 
 const reputationCard: ServiceCardData = {
   title: "Reputation Management",
   body: "Review automation that makes your Google listing look like the quality of your work.",
   href: "/services/reputation",
-  icon: "/googlereviewhand.png",
+  icon: "/googlereviewhand.webp",
 };
 
 function ArrowCircle({ light }: { light?: boolean }) {
