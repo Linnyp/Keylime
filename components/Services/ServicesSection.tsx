@@ -28,7 +28,7 @@ const speedToLeadCard: ServiceCardData = {
   title: "Speed-To-Lead",
   body: "Missed-call text-back, online booking, chatbots, and after-hours voice agents. Your phone gets answered — one way or another.",
   href: "/services",
-  icon: "/chatbotIcon.webp",
+  icon: "/speedlead-icon.png",
 };
 
 const seoCard: ServiceCardData = {
@@ -122,7 +122,7 @@ export function ServicesSection() {
     <section
       id="services"
       aria-labelledby="services-heading"
-      className="services-section relative z-10 bg-sand-50 py-24 md:py-28"
+      className="services-section relative z-10 bg-sand-100 py-24 md:py-28"
     >
       <div className="mx-auto w-full max-w-[1200px] px-6">
         {/* Split header — eyebrow + heading left, browse button right */}

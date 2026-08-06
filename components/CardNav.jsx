@@ -6,6 +6,8 @@ import "./CardNav.css";
 
 // Collapsed bar height — must match --nav-bar-h in CardNav.css.
 const NAV_BAR_HEIGHT = 85;
+// Used only when the panel can't be measured (refs not attached yet).
+const FALLBACK_OPEN_HEIGHT = 260;
 
 const CardNav = ({
   logo,
@@ -24,39 +26,38 @@ const CardNav = ({
   const cardsRef = useRef([]);
   const tlRef = useRef(null);
 
+  // Measure the panel at its natural height so every link fits — cards with
+  // longer link lists used to get clipped by the nav's `overflow: clip`.
   const calculateHeight = () => {
     const navEl = navRef.current;
-    if (!navEl) return 260;
+    if (!navEl) return FALLBACK_OPEN_HEIGHT;
 
+    const contentEl = navEl.querySelector(".card-nav-content");
+    if (!contentEl) return FALLBACK_OPEN_HEIGHT;
+
+    const wasVisible = contentEl.style.visibility;
+    const wasPointerEvents = contentEl.style.pointerEvents;
+    const wasPosition = contentEl.style.position;
+    const wasHeight = contentEl.style.height;
+
+    contentEl.style.visibility = "visible";
+    contentEl.style.pointerEvents = "auto";
+    contentEl.style.position = "static";
+    contentEl.style.height = "auto";
+
+    contentEl.offsetHeight;
+
+    // scrollHeight already covers the panel's own padding, so the desktop row
+    // lands exactly on the tallest card — no slack under the shorter columns.
+    const contentHeight = contentEl.scrollHeight;
     const isMobile = window.matchMedia("(max-width: 768px)").matches;
-    if (isMobile) {
-      const contentEl = navEl.querySelector(".card-nav-content");
-      if (contentEl) {
-        const wasVisible = contentEl.style.visibility;
-        const wasPointerEvents = contentEl.style.pointerEvents;
-        const wasPosition = contentEl.style.position;
-        const wasHeight = contentEl.style.height;
 
-        contentEl.style.visibility = "visible";
-        contentEl.style.pointerEvents = "auto";
-        contentEl.style.position = "static";
-        contentEl.style.height = "auto";
+    contentEl.style.visibility = wasVisible;
+    contentEl.style.pointerEvents = wasPointerEvents;
+    contentEl.style.position = wasPosition;
+    contentEl.style.height = wasHeight;
 
-        contentEl.offsetHeight;
-
-        const topBar = NAV_BAR_HEIGHT;
-        const padding = 16;
-        const contentHeight = contentEl.scrollHeight;
-
-        contentEl.style.visibility = wasVisible;
-        contentEl.style.pointerEvents = wasPointerEvents;
-        contentEl.style.position = wasPosition;
-        contentEl.style.height = wasHeight;
-
-        return topBar + contentHeight + padding;
-      }
-    }
-    return 260;
+    return NAV_BAR_HEIGHT + contentHeight + (isMobile ? 16 : 0);
   };
 
   const createTimeline = () => {

@@ -113,7 +113,7 @@ export function ProblemSection() {
                 className="pointer-events-none mx-auto block h-auto w-full max-w-[380px] select-none object-contain md:hidden"
               />
               <img
-                src="/jugglingPain.webp"
+                src="/deskFrustration2.png"
                 alt="Illustration of a business owner juggling marketing pain points"
                 width={2668}
                 height={1892}

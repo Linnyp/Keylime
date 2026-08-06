@@ -74,7 +74,7 @@ export function MarketingSystemsSection() {
     <section
       id="systems"
       aria-label="Marketing systems"
-      className="relative z-10 bg-sand-100 py-24 md:py-28"
+      className="relative z-10 bg-sand-50 py-24 md:py-28"
     >
       <div className="mx-auto w-full max-w-brand px-6">
         {/* Split header — intro left, eyebrow + heading right */}
