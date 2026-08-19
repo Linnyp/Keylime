@@ -22,7 +22,7 @@ export function FaqSection() {
             Questions we get asked a lot.
           </h2>
           <div className="hidden lg:block">
-            <PrimaryButton href="#contact">Still have questions?</PrimaryButton>
+            <PrimaryButton href="/contact#contact-form">Still have questions?</PrimaryButton>
           </div>
         </div>
 
@@ -31,7 +31,7 @@ export function FaqSection() {
         </div>
 
         <div className="flex justify-center lg:hidden">
-          <PrimaryButton href="#contact">Still have questions?</PrimaryButton>
+          <PrimaryButton href="/contact#contact-form">Still have questions?</PrimaryButton>
         </div>
       </div>
     </section>

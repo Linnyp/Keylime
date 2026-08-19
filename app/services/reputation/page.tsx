@@ -34,6 +34,7 @@ const includedItems: IncludedItem[] = [
     no: "02",
     title: "Review request workflows",
     body: "Automated text and email requests that go out after a job, sale, or appointment — written in your voice, sent under your business name. Review velocity goes up without sounding like a robot.",
+    icon: "/repIcons/reviewRequestIcon.webp",
   },
   {
     no: "03",
@@ -44,6 +45,7 @@ const includedItems: IncludedItem[] = [
     no: "04",
     title: "Unified inbox",
     body: "Texts, emails, Facebook messages, and Google Business chat in one inbox. Stop juggling six apps, missing replies in three of them, and losing track of which thread is which.",
+    icon: "/repIcons/unifiedInboxIcon.webp",
   },
   {
     no: "05",
@@ -211,7 +213,7 @@ export default function ReputationPage() {
   return (
     <main className="pt-8 overflow-hidden bg-sand-50 text-sand-950">
       <ServiceHero
-        eyebrow="Included on every system"
+        eyebrow="Reputation Management"
         badge="Flagship"
         title={
           <>
@@ -314,7 +316,7 @@ export default function ReputationPage() {
         </p>
       </ServiceSection>
 
-      <ServiceSection id="faq" grid rule={false}>
+      <ServiceSection id="faq" grid>
         <ServiceFaq
           eyebrow="Questions about reputation"
           heading={

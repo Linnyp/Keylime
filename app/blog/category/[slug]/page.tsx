@@ -14,7 +14,7 @@ export default async function BlogCategoryPage({
   return (
     <main className="pt-8">
       {/* ── CATEGORY HEADER ──────────────────────────────────────────────── */}
-      <section id="category-header" className="px-6 py-24 max-w-7xl mx-auto">
+      <section id="category-header" className="px-6 pt-28 pb-24 max-w-7xl mx-auto">
         <h1 className="text-5xl font-[var(--font-display)] capitalize">
           Category: {slug.replace(/-/g, " ")} — All posts in this topic cluster
         </h1>

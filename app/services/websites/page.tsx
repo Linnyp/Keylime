@@ -29,42 +29,42 @@ const includedItems: IncludedItem[] = [
     no: "01",
     title: "Custom design",
     body: "Every page drawn around your business — your services, your customers, your market. No drag-and-drop template that looks like the four shops down the road.",
-    icon: "/logos/webdesignlogo.webp",
+    icon: "/logos/uxUiDesign.webp",
     bullets: ["Brand voice", "Local imagery", "Service pages"],
   },
   {
     no: "02",
     title: "Modern build",
     body: "Built on Next.js and React. Fast on a phone, fast on a slow connection, fast on a search engine's crawl. The same stack the big national sites run on.",
-    icon: "/logos/webdevlogo.webp",
+    icon: "/logos/websiteBuild.webp",
     bullets: ["Next.js & React", "Mobile-first", "Sub-second loads"],
   },
   {
     no: "03",
     title: "Hosting & email",
     body: "Domain email, SSL, daily backups, and hosting that does not go down on a Saturday. Subscription clients get this baked in.",
-    icon: "/logos/hostingemailLogo.webp",
+    icon: "/logos/emailHosting.webp",
     bullets: ["Domain email", "SSL & backups", "Uptime monitoring"],
   },
   {
     no: "04",
     title: "Local search setup",
     body: "Schema markup, sitemaps, page speed, and on-page fundamentals done right at launch — so the site starts ranking without a rebuild six months in.",
-    icon: "/logos/formsLogo.webp",
+    icon: "/logos/localSeo.webp",
     bullets: ["Schema markup", "Sitemaps", "Page speed"],
   },
   {
     no: "05",
     title: "Analytics that make sense",
     body: "Analytics and call tracking installed and configured. We tell you which pages actually book calls, in plain English, every month.",
-    icon: "/logos/anayzeLogo.webp",
+    icon: "/logos/websiteAnalytics.webp",
     bullets: ["GA4 setup", "Call tracking", "Monthly reports"],
   },
   {
     no: "06",
     title: "Edits & support",
     body: "Need a new service page? A price update? A photo swapped? Text us. Subscription clients get unlimited edits, usually same day.",
-    icon: "/logos/editsupportLogo.webp",
+    icon: "/logos/support.webp",
     bullets: ["Same-day fixes", "Unlimited edits", "Direct text line"],
   },
 ];
@@ -196,7 +196,7 @@ export default function WebsitesPage() {
   return (
     <main className="pt-8 overflow-hidden bg-sand-50 text-sand-950">
       <ServiceHero
-        eyebrow="Specialized work"
+        eyebrow="Websites"
         title={
           <>
             A site built to work hard. Not to{" "}
@@ -302,7 +302,7 @@ export default function WebsitesPage() {
         <ProcessSteps steps={processSteps} />
       </ServiceSection>
 
-      <ServiceSection id="faq" surface="alt" grid rule={false}>
+      <ServiceSection id="faq" surface="alt" grid>
         <ServiceFaq
           eyebrow="Questions about websites"
           heading={

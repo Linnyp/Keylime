@@ -1,5 +1,6 @@
 import type { Metadata } from "next";
 import Link from "next/link";
+import { CALENDLY_URL } from "@/data/booking";
 import {
   FiActivity,
   FiArrowRight,
@@ -9,8 +10,11 @@ import {
   FiGitBranch,
   FiLock,
   FiMessageSquare,
+  FiPackage,
   FiPhone,
   FiSettings,
+  FiTag,
+  FiTrendingUp,
   FiUser,
 } from "react-icons/fi";
 import { HeroGlow } from "@/components/shared/HeroGlow";
@@ -18,8 +22,45 @@ import { HeroGlow } from "@/components/shared/HeroGlow";
 export const metadata: Metadata = {
   title: "How It Works",
   description:
-    "One team, one platform, one monthly price. See how KeyLime sets up and runs your marketing system.",
+    "One team, one platform, one monthly price. See why KeyLime sells complete marketing systems instead of separate services — and how we set yours up and run it.",
 };
+
+/* Company overview — the "why systems" argument. The two stacks are read as a
+   pair: same five jobs, five vendors versus one. Keep them the same length so
+   the panels line up row for row. */
+const vendorStack = [
+  "SEO from one vendor",
+  "Ads from another",
+  "A CRM from a third",
+  "A review tool from a fourth",
+  "A website from a fifth",
+];
+
+const keylimeStack = [
+  "One system",
+  "One team",
+  "One monthly price",
+  "One point of contact",
+  "One monthly report",
+];
+
+const systemPillars = [
+  {
+    icon: FiPackage,
+    title: "Complete on day one",
+    body: "Foundation, Growth, and Expansion are each a working system the day they go live — not a stripped-down preview of the next one up.",
+  },
+  {
+    icon: FiTag,
+    title: "Priced for your size",
+    body: "Standardizing what does not need customizing is what makes real marketing infrastructure affordable for a local operator, not just a national brand.",
+  },
+  {
+    icon: FiTrendingUp,
+    title: "Moves both directions",
+    body: "Same contacts, same workflows, same team. Move up when the business grows, back down if things change. Nothing gets rebuilt either way.",
+  },
+];
 
 const steps = [
   {
@@ -63,7 +104,7 @@ function PillLink({ href, children, dark = false }: { href: string; children: Re
       href={href}
       className={`inline-flex min-h-[50px] items-center justify-center gap-2 rounded-full px-6 py-3 text-sm font-bold uppercase tracking-[0.06em] no-underline transition-transform duration-200 hover:-translate-y-0.5 ${
         dark
-          ? "bg-sand-950 text-sand-950 hover:bg-sand-800"
+          ? "bg-sand-950 text-sand-50 hover:bg-sand-800"
           : "bg-lime-500 text-sand-950 hover:bg-lime-600"
       }`}
     >
@@ -75,11 +116,10 @@ function PillLink({ href, children, dark = false }: { href: string; children: Re
 export default function HowItWorksPage() {
   return (
     <main className="pt-8 overflow-hidden bg-sand-50 text-sand-950">
-      <section className="relative border-b-4 border-sand-950 py-20 md:py-28">
+      <section className="relative pt-28 pb-20 md:py-28">
         <HeroGlow className="-right-36 top-4 h-[500px] w-[500px]" />
         <div className="relative mx-auto grid w-full max-w-[1200px] items-center gap-14 px-6 lg:grid-cols-[1.05fr_.95fr]">
           <div>
-            <p className="mb-5 font-brand text-xs font-bold uppercase tracking-[0.18em] text-lime-600">How it works</p>
             <h1 className="max-w-[680px] font-brand text-[clamp(3rem,6vw,5.75rem)] font-black uppercase leading-[0.91] tracking-[-0.055em]">
               One team. One platform. <span className="text-lime-600">One monthly price.</span>
             </h1>
@@ -113,7 +153,75 @@ export default function HowItWorksPage() {
         </div>
       </section>
 
-      <section className="border-b-4 border-sand-950 bg-sand-100 bg-grid-pattern py-24 md:py-32">
+      {/* Company overview. Dark band between two light sections so the "why
+          systems" argument reads as a statement beat, and bookends the dark
+          CTA at the foot of the page. */}
+      <section
+        aria-labelledby="overview-heading"
+        className="bg-sand-950 py-24 text-sand-50 md:py-32"
+      >
+        <div className="mx-auto w-full max-w-[1200px] px-6">
+          <div className="grid gap-14 lg:grid-cols-[6fr_5fr] lg:items-center lg:gap-20">
+            <div>
+              <p className="mb-4 font-brand text-xs font-bold uppercase tracking-[0.18em] text-lime-300">The company</p>
+              <h2
+                id="overview-heading"
+                className="font-brand text-[clamp(2.4rem,4.6vw,4.25rem)] font-black uppercase leading-[0.94] tracking-[-0.055em]"
+              >
+                Marketing sold as one system. <span className="text-lime-500">Not five vendors.</span>
+              </h2>
+              <p className="mt-7 max-w-[560px] text-[17px] leading-[1.65] text-sand-50/70">
+                KeyLime helps local service businesses get more leads, win more jobs, and keep more customers — without the owner assembling a stack of software to do it.
+              </p>
+              <p className="mt-5 max-w-[560px] text-[17px] leading-[1.65] text-sand-50/70">
+                That is why we sell systems instead of a menu of services. The pieces only pay off when they talk to each other, and that happens when one team owns all of them.
+              </p>
+            </div>
+
+            <div className="grid gap-4 sm:grid-cols-2">
+              <div className="rounded-3xl border-2 border-sand-50/15 p-6">
+                <p className="font-brand text-xs font-bold uppercase tracking-[0.14em] text-sand-50/50">The usual way</p>
+                <ul className="mt-5 space-y-3.5">
+                  {vendorStack.map((item) => (
+                    <li key={item} className="text-sm leading-snug text-sand-50/45 line-through decoration-sand-50/35 decoration-2">
+                      {item}
+                    </li>
+                  ))}
+                </ul>
+              </div>
+              <div className="rounded-3xl bg-lime-500 p-6 text-sand-950">
+                <p className="font-brand text-xs font-bold uppercase tracking-[0.14em] text-sand-950/60">The KeyLime way</p>
+                <ul className="mt-5 space-y-3.5">
+                  {keylimeStack.map((item) => (
+                    <li key={item} className="font-brand text-sm font-bold uppercase leading-snug tracking-[-0.02em]">
+                      {item}
+                    </li>
+                  ))}
+                </ul>
+              </div>
+            </div>
+          </div>
+
+          <div className="mt-16 grid gap-6 border-t-2 border-sand-50/15 pt-12 md:grid-cols-3">
+            {systemPillars.map(({ icon: Icon, title, body }) => (
+              <article key={title}>
+                <Icon size={26} className="text-lime-300" aria-hidden="true" />
+                <h3 className="mt-5 font-brand text-base font-extrabold uppercase tracking-[-0.02em]">{title}</h3>
+                <p className="mt-3 text-sm leading-[1.7] text-sand-50/70">{body}</p>
+              </article>
+            ))}
+          </div>
+
+          <p className="mt-12 max-w-[760px] text-[15px] leading-[1.7] text-sand-50/60">
+            Built in Southwest Florida for home service and beauty businesses — the trades that live on fast callbacks, steady reviews, and a full calendar. The same system deploys anywhere those businesses operate.{" "}
+            <Link href="/pricing" className="font-bold text-sand-50 underline decoration-lime-500 decoration-2 underline-offset-4">
+              See the three systems →
+            </Link>
+          </p>
+        </div>
+      </section>
+
+      <section className="bg-sand-100 bg-grid-pattern py-24 md:py-32">
         <div className="mx-auto w-full max-w-[1200px] px-6">
           <div className="mb-14 ml-auto max-w-[690px] text-right">
             <p className="mb-4 font-brand text-xs font-bold uppercase tracking-[0.18em] text-lime-600">The process</p>
@@ -190,7 +298,7 @@ export default function HowItWorksPage() {
           </div>
           <div className="mt-12 grid gap-6 lg:grid-cols-2">
             <article className="rounded-3xl bg-sand-50 p-8 text-sand-950 md:p-10"><h3 className="font-brand text-2xl font-black uppercase tracking-[-0.04em]">Ready to pick a system?</h3><p className="mt-4 max-w-[440px] leading-[1.65] text-sand-700">Three systems. Three prices. Month-to-month. Move up or down as the business changes.</p><div className="mt-8"><PillLink href="/pricing" dark>See pricing</PillLink></div></article>
-            <article className="rounded-3xl border border-lime-500/50 bg-sand-800 p-8 md:p-10"><h3 className="font-brand text-2xl font-black uppercase tracking-[-0.04em]">Not sure which one fits?</h3><p className="mt-4 max-w-[440px] leading-[1.65] text-sand-50/70">Free 30-minute consult. No pitch deck. We&apos;ll tell you which system fits and what it would take to get there.</p><div className="mt-8"><a href="https://calendly.com/keylime-marketing/discovery-call" className="inline-flex min-h-[50px] items-center justify-center gap-2 rounded-full bg-lime-500 px-6 py-3 text-sm font-bold uppercase tracking-[0.06em] text-sand-950 no-underline transition-transform hover:-translate-y-0.5">Book Free Consult <FiArrowRight aria-hidden="true" /></a></div></article>
+            <article className="rounded-3xl border border-lime-500/50 bg-sand-800 p-8 md:p-10"><h3 className="font-brand text-2xl font-black uppercase tracking-[-0.04em]">Not sure which one fits?</h3><p className="mt-4 max-w-[440px] leading-[1.65] text-sand-50/70">Free 30-minute consult. No pitch deck. We&apos;ll tell you which system fits and what it would take to get there.</p><div className="mt-8"><a href={CALENDLY_URL} className="inline-flex min-h-[50px] items-center justify-center gap-2 rounded-full bg-lime-500 px-6 py-3 text-sm font-bold uppercase tracking-[0.06em] text-sand-950 no-underline transition-transform hover:-translate-y-0.5">Book Free Consult <FiArrowRight aria-hidden="true" /></a></div></article>
           </div>
           <p className="mt-9 text-center text-sm text-sand-50/65">Still scoping the problem? <Link href="/calculators/missed-call-revenue" className="font-bold text-sand-50 underline decoration-lime-500 decoration-2 underline-offset-4">Calculate my missed-call revenue →</Link></p>
         </div>

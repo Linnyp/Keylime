@@ -29,37 +29,37 @@ const includedItems: IncludedItem[] = [
     no: "01",
     title: "Google Search ads",
     body: "The high-intent work. Someone searching for a roof repair at 2pm on a Tuesday is ready to buy — we put your business in front of them before they scroll to a competitor.",
-    icon: "/adIcons/googleSearch.webp",
+    icon: "/adIcons/googleAdsIcon.webp",
   },
   {
     no: "02",
     title: "Performance Max",
     body: "Google's automated multi-channel campaigns — Search, Display, YouTube, Maps, Gmail — running as one. Best once you are ready to scale beyond pure search.",
-    icon: "/adIcons/googleMax.webp",
+    icon: "/adIcons/googleMaxIcon.webp",
   },
   {
     no: "03",
     title: "Local Services Ads",
     body: "Pay per lead, not per click. Google-verified, sits above the regular search ads, and only charges when a real customer contacts you. Ideal for home services.",
-    icon: "/adIcons/localService.webp",
+    icon: "/adIcons/googleLocalServiceIcon.webp",
   },
   {
     no: "04",
     title: "Meta ads",
     body: "Audience-driven campaigns on Facebook and Instagram for awareness, retargeting, and visual sells. Useful when your customers are scrolling rather than searching.",
-    icon: "/adIcons/metaFb.webp",
+    icon: "/adIcons/metaAdsIcon.webp",
   },
   {
     no: "05",
     title: "Ad copy & creative",
     body: "Headlines, descriptions, and assets written for your business and tested against each other every week. Winners rotate up, losers rotate out — weekly, not quarterly.",
-    icon: "/adIcons/copy.webp",
+    icon: "/adIcons/creativeAdsIcon.webp",
   },
   {
     no: "06",
     title: "Tracking & reporting",
     body: "Conversion tracking, call tracking, and a monthly report in plain English. Cost per lead, return on spend, what worked, what we changed.",
-    icon: "/adIcons/reporting.webp",
+    icon: "/adIcons/adsReportIcon.webp",
   },
 ];
 
@@ -191,7 +191,7 @@ export default function AdsPage() {
   return (
     <main className="pt-8 overflow-hidden bg-sand-50 text-sand-950">
       <ServiceHero
-        eyebrow="Specialized work"
+        eyebrow="Google & Meta Ads"
         title={
           <>
             Get in front of customers{" "}
@@ -274,7 +274,7 @@ export default function AdsPage() {
         <ProcessSteps steps={processSteps} />
       </ServiceSection>
 
-      <ServiceSection id="faq" surface="alt" grid rule={false}>
+      <ServiceSection id="faq" surface="alt" grid>
         <ServiceFaq
           eyebrow="Questions about ads"
           heading={

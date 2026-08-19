@@ -29,37 +29,37 @@ const includedItems: IncludedItem[] = [
     no: "01",
     title: "Keyword research & mapping",
     body: "We pull the terms your customers actually search in your market — not a generic template list. Each keyword gets mapped to the page on your site that should rank for it.",
-    icon: "/icons/keywordseoLogo.webp",
+    icon: "/icons/keywordResearchIcon.webp",
   },
   {
     no: "02",
     title: "Local citations & NAP",
     body: "Your name, address, and phone number cleaned up and unified across every directory that matters. Inconsistent listings are one of the most common reasons a local business does not rank.",
-    icon: "/icons/citationseoLogo.webp",
+    icon: "/icons/localCitationsIcon.webp",
   },
   {
     no: "03",
     title: "Google Business Profile",
     body: "Full setup and optimization — categories, services, photos, posts, Q&A. The map pack drives more local calls than the blue links do most weeks.",
-    icon: "/icons/gmbseo.webp",
+    icon: "/icons/googleBusinessIcon.webp",
   },
   {
     no: "04",
     title: "Foundation backlinks",
     body: "One to two high-authority backlinks at setup, then strategic monthly link building from real local and industry sources. No link farms, no penalty risk.",
-    icon: "/icons/backlinklogo.webp",
+    icon: "/icons/seoBacklinksIcon.webp",
   },
   {
     no: "05",
     title: "Content that ranks",
     body: "Four articles a month written around keywords your customers search, structured to turn a reader into a phone call rather than just a pageview.",
-    icon: "/icons/seocontentlogo.webp",
+    icon: "/icons/rankingContentIcon.webp",
   },
   {
     no: "06",
     title: "Plain-English reporting",
     body: "A monthly report a human can read. Rankings, traffic, and what we shipped — no jargon dump, no vanity metrics, no forty-tab spreadsheet.",
-    icon: "/icons/analyzeseoIcon.webp",
+    icon: "/icons/seoReportIcon.webp",
   },
 ];
 
@@ -184,7 +184,7 @@ export default function SeoPage() {
   return (
     <main className="pt-8 overflow-hidden bg-sand-50 text-sand-950">
       <ServiceHero
-        eyebrow="Specialized work"
+        eyebrow="Local SEO"
         title={
           <>
             Show up when your customers{" "}
@@ -269,7 +269,7 @@ export default function SeoPage() {
         <ProcessSteps steps={processSteps} />
       </ServiceSection>
 
-      <ServiceSection id="faq" surface="alt" grid rule={false}>
+      <ServiceSection id="faq" surface="alt" grid>
         <ServiceFaq
           eyebrow="Questions about SEO"
           heading={

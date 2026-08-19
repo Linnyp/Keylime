@@ -97,9 +97,13 @@
   transform: translate(-50%, -50%);
 }
 
+/* width:auto is required — the <img> carries width="256"/height="97" for
+   layout stability, and without it that 256px presentational width sticks
+   while height is pinned to 60px, stretching the mark horizontally. */
 .logo {
   height: 60px;
   max-height: 60px;
+  width: auto;
 }
 
 /* Matches the site-wide pill button (.wf-btn) — Inter 500, -0.03em tracking,

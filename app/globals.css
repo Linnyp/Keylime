@@ -46,10 +46,15 @@
   /* Translucent charcoal for the fixed nav frost */
   --color-sand-frost: rgba(28, 30, 26, 0.9);
 
-  /* ----- Typography ----- */
-  --font-display: "Inter", system-ui, sans-serif;
-  --font-body: "Inter", system-ui, sans-serif;
-  --font-brand: "Inter", "Helvetica Neue", Helvetica, Arial, sans-serif;
+  /* ----- Typography -----
+     Use --font-inter (set by next/font in layout.tsx) rather than a bare
+     "Inter": it expands to `"Inter","Inter Fallback"`, where the second face is
+     next/font's size-adjusted, metric-matched fallback. Dropping straight to
+     system-ui instead makes text reflow when the webfont swaps in, which was
+     the dominant layout shift on /how-it-works, /pricing and /faq. */
+  --font-display: var(--font-inter), system-ui, sans-serif;
+  --font-body: var(--font-inter), system-ui, sans-serif;
+  --font-brand: var(--font-inter), "Helvetica Neue", Helvetica, Arial, sans-serif;
 
   /* ----- Layout ----- */
   --container-brand: 1200px;

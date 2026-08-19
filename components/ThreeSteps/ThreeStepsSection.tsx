@@ -3,7 +3,7 @@
  *
  * Homepage 3-step snapshot between Problem and Services. Editorial Citrus &
  * Charcoal treatment: warm alternating surface, soft rounded step cards with
- * centered copy chained by flow arrows, right-aligned header. Card body copy
+ * centered copy chained by flow arrows, centered header. Card body copy
  * comes from homepage-copy.md §4.
  */
 
@@ -11,6 +11,7 @@ import { Fragment } from "react";
 
 import { SectionLabel } from "../shared/SectionLabel";
 import { PrimaryButton } from "../shared/PrimaryButton";
+import { CALENDLY_URL } from "@/data/booking";
 
 const steps = [
   {
@@ -34,7 +35,7 @@ function StepArrow() {
       aria-hidden
       viewBox="0 0 24 24"
       fill="none"
-      className="size-7 shrink-0 rotate-90 self-center text-lime-500 lg:rotate-0"
+      className="size-7 shrink-0 rotate-90 self-center text-sand-950 lg:rotate-0"
     >
       <path
         d="M5 12h14M12 5l7 7-7 7"
@@ -55,8 +56,8 @@ export function ThreeStepsSection() {
       className="relative z-10 bg-sand-100 py-24 md:py-28"
     >
       <div className="mx-auto w-full max-w-[1200px] px-6">
-        <div className="mb-14 text-right">
-          <div className="flex justify-end">
+        <div className="mb-14 text-center">
+          <div className="flex justify-center">
             <SectionLabel text="Our Fix" />
           </div>
           <h2 className="m-0 font-brand font-extrabold text-sand-950 text-[clamp(2rem,4vw,3.25rem)] leading-[1.05] tracking-[-0.03em]">
@@ -64,7 +65,7 @@ export function ThreeStepsSection() {
             <br />
             in <span className="text-lime-600">three steps.</span>
           </h2>
-          <p className="m-0 ml-auto mt-6 max-w-[540px] text-[16px] leading-[1.6] text-sand-600">
+          <p className="m-0 mx-auto mt-6 max-w-[540px] text-[16px] leading-[1.6] text-sand-600">
             You run the business. We run the marketing. Here&apos;s exactly how
             that works.
           </p>
@@ -87,7 +88,7 @@ export function ThreeStepsSection() {
         </div>
 
         <div className="mt-12 flex justify-center">
-          <PrimaryButton href="#contact">Let&apos;s Talk</PrimaryButton>
+          <PrimaryButton href={CALENDLY_URL}>Let&apos;s Talk</PrimaryButton>
         </div>
       </div>
     </section>

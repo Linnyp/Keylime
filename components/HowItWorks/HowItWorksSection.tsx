@@ -7,7 +7,7 @@ export function HowItWorksSection() {
     <section
       id="how-it-works"
       aria-labelledby="hiw-heading"
-      className="border-y-4 border-sand-950 bg-sand-100 bg-grid-pattern py-28"
+      className="bg-sand-100 bg-grid-pattern py-28"
     >
       <div className="mx-auto w-full max-w-[1200px] px-6">
         <div className="mb-16 text-right">

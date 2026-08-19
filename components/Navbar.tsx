@@ -10,10 +10,10 @@ const NAV_ITEMS = [
     bgColor: "var(--color-sand-900)",
     textColor: "#FFFFFF",
     links: [
+      { label: "How It Works", ariaLabel: "How KeyLime works", href: "/how-it-works" },
       { label: "Foundation", ariaLabel: "Foundation system", href: "/systems/foundation" },
       { label: "Growth", ariaLabel: "Growth system", href: "/systems/growth" },
       { label: "Expansion", ariaLabel: "Expansion system", href: "/systems/expansion" },
-      { label: "How It Works", ariaLabel: "How KeyLime works", href: "/how-it-works" },
       { label: "Compare & Pricing", ariaLabel: "Compare systems and pricing", href: "/pricing" },
     ],
   },
@@ -35,11 +35,8 @@ const NAV_ITEMS = [
     textColor: "#1C1E1A",
     links: [
       { label: "About", ariaLabel: "About Linax Digital", href: "/about" },
-      { label: "Case Studies", ariaLabel: "Client Case Studies", href: "/case-studies" },
       { label: "Revenue Calculator", ariaLabel: "Missed-call revenue calculator", href: "/calculators/missed-call-revenue" },
-      { label: "Free Audit", ariaLabel: "Free Digital Presence Audit", href: "/audit" },
       { label: "FAQ", ariaLabel: "Frequently Asked Questions", href: "/faq" },
-      { label: "Blog", ariaLabel: "Linax Digital Blog", href: "/blog" },
       { label: "Contact", ariaLabel: "Contact Linax Digital", href: "/contact" },
     ],
   },

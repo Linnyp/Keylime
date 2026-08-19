@@ -12,8 +12,8 @@ import DecryptedText from "@/components/shared/DecryptedText";
  * palette, pill CTAs, rounded cards, and 4px charcoal section rules.
  */
 
-export const CALENDLY_URL =
-  "https://calendly.com/keylime-marketing/discovery-call";
+export { CALENDLY_URL } from "@/data/booking";
+import { CALENDLY_URL } from "@/data/booking";
 
 const CONTAINER = "mx-auto w-full max-w-[1200px] px-6";
 const EYEBROW =
@@ -35,7 +35,7 @@ export function ServicePill({
 }) {
   const variantClass =
     variant === "charcoal"
-      ? "bg-sand-950 text-sand-950 hover:bg-sand-800"
+      ? "bg-sand-950 text-sand-50 hover:bg-sand-800"
       : variant === "light"
         ? "border-2 border-sand-50/60 bg-transparent text-sand-950"
         : "bg-lime-500 text-sand-950 hover:bg-lime-600";
@@ -108,7 +108,7 @@ export function ServiceHero({
   secondaryLabel?: string;
 }) {
   return (
-    <section className="relative border-b-4 border-sand-950 py-20 md:py-28">
+    <section className="relative pt-28 pb-20 md:py-28">
       <HeroGlow className="-right-40 top-0 h-[520px] w-[520px]" />
       <div className={`relative ${CONTAINER}`}>
         <div className="grid gap-12 lg:grid-cols-[7fr_5fr] lg:items-end">
@@ -609,15 +609,12 @@ export function ServiceSection({
   id,
   surface = "light",
   grid = false,
-  rule = true,
   children,
 }: {
   id?: string;
   surface?: "light" | "alt";
   /** Apply the faint grid texture. */
   grid?: boolean;
-  /** Charcoal 4px bottom rule. */
-  rule?: boolean;
   children: ReactNode;
 }) {
   return (
@@ -625,7 +622,7 @@ export function ServiceSection({
       id={id}
       className={`${surface === "alt" ? "bg-sand-100" : "bg-sand-50"} ${
         grid ? "bg-grid-pattern" : ""
-      } ${rule ? "border-b-4 border-sand-950" : ""} scroll-mt-24 py-24 md:py-32`}
+      } scroll-mt-24 py-24 md:py-32`}
     >
       <div className={CONTAINER}>{children}</div>
     </section>

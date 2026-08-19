@@ -3,6 +3,7 @@
 import RippleGrid from "@/components/RippleGrid";
 import { PrimaryButton } from "../shared/PrimaryButton";
 import { IconArrowRight } from "../shared/icons";
+import { CALENDLY_URL } from "@/data/booking";
 import "./FinalCtaSection.css";
 
 export function FinalCtaSection() {
@@ -39,7 +40,7 @@ export function FinalCtaSection() {
           </p>
 
           <div className="flex flex-wrap items-center gap-3">
-            <PrimaryButton href="#contact" variant="lime">
+            <PrimaryButton href={CALENDLY_URL} variant="lime">
               Book Your Free Audit Call <IconArrowRight />
             </PrimaryButton>
             <a

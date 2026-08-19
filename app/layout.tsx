@@ -7,7 +7,11 @@ import Footer from "@/components/Footer";
 const inter = Inter({
   subsets: ["latin"],
   variable: "--font-inter",
-  display: "swap",
+  // "optional" instead of "swap": the display headings are 900-weight with
+  // heavy negative tracking, so the metric-matched fallback is still far enough
+  // off that swapping reflowed whole sections (CLS 0.22 on /how-it-works). With
+  // "optional" the browser never swaps mid-page, so those shifts disappear.
+  display: "optional",
 });
 
 export const metadata: Metadata = {

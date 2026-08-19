@@ -63,6 +63,9 @@ export interface ClientLogoItem {
   src: string;
   alt: string;
   title: string;
+  /** Rendered size, so the loop reserves space before the image loads. */
+  width?: number;
+  height?: number;
 }
 
 export interface StatItem {

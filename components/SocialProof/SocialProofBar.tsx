@@ -9,7 +9,7 @@ export function SocialProofBar() {
   return (
     <section
       aria-label="Social proof"
-      className="bg-sand-100 bg-dots-pattern border-y-4 border-sand-950"
+      className="bg-sand-100 bg-dots-pattern"
     >
       <div className="mx-auto w-full max-w-[1200px] px-6">
         <div className="stats-grid grid grid-cols-1 md:grid-cols-3">

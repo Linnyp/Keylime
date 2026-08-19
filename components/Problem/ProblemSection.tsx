@@ -64,16 +64,6 @@ export function ProblemSection() {
             <br />
             Shouldn&apos;t Be 1
           </h2>
-          <img
-            src="/jugglingPain.webp"
-            alt=""
-            aria-hidden="true"
-            width={2668}
-            height={1892}
-            loading="lazy"
-            decoding="async"
-            className="pointer-events-none hidden md:block absolute top-0 right-6 h-auto w-auto max-w-[40%] select-none object-contain"
-          />
         </div>
 
         <div className="grid grid-cols-1 items-start gap-6 lg:grid-cols-[5fr_7fr] lg:gap-16 ">
@@ -102,15 +92,18 @@ export function ProblemSection() {
                 2019. It&apos;s not because you don&apos;t care. It&apos;s
                 because you&apos;re running a business.
               </p>
+              {/* Below lg the illustration sits in the flow under the copy;
+                  from lg up it's absolutely positioned beneath the sticky
+                  column. Same artwork either way — only one is ever rendered,
+                  so the descriptive alt isn't duplicated for screen readers. */}
               <img
-                src="/jugglingPain.webp"
-                alt=""
-                aria-hidden="true"
-                width={2668}
-                height={1892}
+                src="/deskFrustration2.webp"
+                alt="Illustration of a business owner juggling marketing pain points"
+                width={1440}
+                height={714}
                 loading="lazy"
                 decoding="async"
-                className="pointer-events-none mx-auto block h-auto w-full max-w-[380px] select-none object-contain md:hidden"
+                className="mx-auto block h-auto w-full select-none object-contain lg:hidden"
               />
               <img
                 src="/deskFrustration2.webp"

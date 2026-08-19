@@ -2,6 +2,7 @@ import type { Metadata } from "next";
 import Link from "next/link";
 import type { IconType } from "react-icons";
 import { HeroGlow } from "@/components/shared/HeroGlow";
+import { CALENDLY_URL } from "@/data/booking";
 import {
   FiArrowRight,
   FiAward,
@@ -29,7 +30,6 @@ export const metadata: Metadata = {
     "Twelve platform solutions and three specialized services, delivered as one managed system. See what each one does, which system includes it, and what it costs.",
 };
 
-const CALENDLY_URL = "https://calendly.com/keylime-marketing/discovery-call";
 
 type SystemKey = "foundation" | "growth" | "expansion";
 
@@ -338,7 +338,7 @@ export default function ServicesHubPage() {
   return (
     <main className="pt-8 overflow-hidden bg-sand-50 text-sand-950">
       {/* ── HERO ─────────────────────────────────────────────────────────── */}
-      <section className="relative border-b-4 border-sand-950 py-20 md:py-28">
+      <section className="relative pt-28 pb-20 md:py-28">
         <HeroGlow className="-right-40 top-0 h-[520px] w-[520px]" />
         <div className="relative mx-auto grid w-full max-w-[1200px] gap-12 px-6 lg:grid-cols-[7fr_5fr] lg:items-end">
           <div>
@@ -371,7 +371,7 @@ export default function ServicesHubPage() {
           </div>
 
           {/* Count panel — mirrors the price card on the system pages. */}
-          <div className="rounded-3xl bg-sand-950 p-8 text-sand-950 shadow-[10px_10px_0_0_#588817]">
+          <div className="rounded-3xl bg-sand-950 p-8 text-sand-50 shadow-[10px_10px_0_0_#588817]">
             <p className="font-brand text-sm font-bold uppercase tracking-[0.12em] text-lime-600">
               What we run
             </p>
@@ -389,7 +389,7 @@ export default function ServicesHubPage() {
                     <p className="font-brand text-sm font-extrabold uppercase tracking-[-0.01em]">
                       {label}
                     </p>
-                    <p className="mt-1 text-[13px] leading-relaxed text-sand-950/65">{detail}</p>
+                    <p className="mt-1 text-[13px] leading-relaxed text-sand-50/65">{detail}</p>
                   </dd>
                 </div>
               ))}
@@ -399,7 +399,7 @@ export default function ServicesHubPage() {
       </section>
 
       {/* ── JUMP INDEX ───────────────────────────────────────────────────── */}
-      <section className="border-b-4 border-sand-950 bg-sand-100 py-6 md:py-10">
+      <section className="bg-sand-100 py-6 md:py-10">
         <div className="mx-auto w-full max-w-[1200px] px-6">
           {/* Mobile: collapsed by default so the list is not a scroll tax. */}
           <details className="group md:hidden">
@@ -501,7 +501,7 @@ export default function ServicesHubPage() {
       ))}
 
       {/* ── ADD-ON EXPLAINER ─────────────────────────────────────────────── */}
-      <section className="border-y-4 border-sand-950 bg-sand-100 bg-grid-pattern py-20 md:py-28">
+      <section className="bg-sand-100 bg-grid-pattern py-20 md:py-28">
         <div className="mx-auto w-full max-w-[1200px] px-6">
           <div className="max-w-[720px]">
             <p className="mb-4 font-brand text-xs font-bold uppercase tracking-[0.18em] text-lime-600">

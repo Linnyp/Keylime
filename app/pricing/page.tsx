@@ -2,6 +2,7 @@ import type { Metadata } from "next";
 import Link from "next/link";
 import { FiArrowRight, FiCheck, FiMessageCircle, FiMove, FiUserCheck } from "react-icons/fi";
 import { HeroGlow } from "@/components/shared/HeroGlow";
+import { CALENDLY_URL } from "@/data/booking";
 
 export const metadata: Metadata = {
   title: "Pricing",
@@ -9,7 +10,6 @@ export const metadata: Metadata = {
     "Three managed marketing systems for local service businesses. Foundation from $99/month, Growth from $195/month, and Expansion from $495/month. Month-to-month, live in 4 to 8 weeks.",
 };
 
-const CALENDLY_URL = "https://calendly.com/keylime-marketing/discovery-call";
 
 const systems = [
   {
@@ -116,7 +116,7 @@ function CalendlyButton({ children, className = "" }: { children: React.ReactNod
 export default function PricingPage() {
   return (
     <main className="pt-8 overflow-hidden bg-sand-50 text-sand-950">
-      <section className="relative border-b-4 border-sand-950 py-20 md:py-28">
+      <section className="relative pt-28 pb-20 md:py-28">
         <HeroGlow className="left-[4%] top-0 h-[440px] w-[440px]" />
         <HeroGlow className="right-[4%] top-16 h-[380px] w-[380px]" />
         <div className="relative mx-auto max-w-[1200px] px-6 text-center">
@@ -162,7 +162,41 @@ export default function PricingPage() {
 
       <section className="bg-sand-100 py-24 md:py-32" aria-labelledby="comparison-heading">
         <div className="mx-auto max-w-[1200px] px-6"><div className="max-w-[720px]"><p className="font-brand text-xs font-bold uppercase tracking-[0.18em] text-lime-600">Full comparison</p><h2 id="comparison-heading" className="mt-4 font-brand text-[clamp(2.4rem,4.6vw,4.25rem)] font-black uppercase leading-[0.93] tracking-[-0.055em]">See what each system includes.</h2><p className="mt-6 text-[17px] leading-[1.65] text-sand-700">Start with the work your business needs now. Add more when it makes sense.</p></div>
-          <div className="mt-14 overflow-x-auto rounded-3xl border-2 border-sand-200 bg-sand-50"><table className="min-w-[820px] w-full border-collapse text-left"><thead className="border-b-2 border-sand-950"><tr><th className="p-5 font-brand text-sm font-extrabold uppercase">Capability</th><th className="p-5 font-brand text-sm font-extrabold uppercase">Foundation<br /><span className="text-lime-600">$99/mo</span></th><th className="bg-sand-950 p-5 font-brand text-sm font-extrabold uppercase text-sand-50">Growth<br /><span className="text-lime-600">$195/mo</span></th><th className="p-5 font-brand text-sm font-extrabold uppercase">Expansion<br /><span className="text-lime-600">$495/mo</span></th></tr></thead><tbody>{comparisonRows.map(([capability, foundation, growth, expansion], index) => <tr key={capability} className={index % 2 ? "bg-sand-100/70" : ""}><th scope="row" className="border-b border-sand-200 p-5 font-brand text-sm font-bold">{capability}</th><td className="border-b border-sand-200 p-5 text-sm leading-relaxed text-sand-700">{foundation}</td><td className="border-b border-sand-200 bg-sand-950/5 p-5 text-sm font-semibold leading-relaxed text-sand-950">{growth}</td><td className="border-b border-sand-200 p-5 text-sm leading-relaxed text-sand-700">{expansion}</td></tr>)}</tbody></table></div>
+          {/* Below lg the 820px table cannot fit, so each row becomes its own
+              card with the three systems stacked as label/value pairs. Same
+              data, no horizontal scrolling. */}
+          <div className="mt-12 space-y-4 lg:hidden">
+            {comparisonRows.map(([capability, foundation, growth, expansion]) => (
+              <div key={capability} className="overflow-hidden rounded-2xl border-2 border-sand-200 bg-sand-50">
+                <p className="border-b-2 border-sand-950 px-5 py-4 font-brand text-sm font-extrabold uppercase leading-snug tracking-[-0.02em]">
+                  {capability}
+                </p>
+                <dl className="m-0 divide-y divide-sand-200">
+                  {[
+                    ["Foundation", foundation],
+                    ["Growth", growth],
+                    ["Expansion", expansion],
+                  ].map(([tier, value]) => (
+                    <div
+                      key={tier}
+                      className={`flex items-baseline justify-between gap-5 px-5 py-3.5 ${tier === "Growth" ? "bg-sand-950/5" : ""}`}
+                    >
+                      <dt className="font-brand text-xs font-bold uppercase tracking-[0.1em] text-sand-600">{tier}</dt>
+                      <dd
+                        className={`m-0 text-right text-sm leading-snug ${
+                          value === "—" ? "text-sand-600/70" : "font-semibold text-sand-950"
+                        }`}
+                      >
+                        {value === "—" ? "Not included" : value}
+                      </dd>
+                    </div>
+                  ))}
+                </dl>
+              </div>
+            ))}
+          </div>
+
+          <div className="mt-14 hidden overflow-x-auto rounded-3xl border-2 border-sand-200 bg-sand-50 lg:block"><table className="min-w-[820px] w-full border-collapse text-left"><thead className="border-b-2 border-sand-950"><tr><th className="p-5 font-brand text-sm font-extrabold uppercase">Capability</th><th className="p-5 font-brand text-sm font-extrabold uppercase">Foundation<br /><span className="text-lime-600">$99/mo</span></th><th className="bg-sand-950 p-5 font-brand text-sm font-extrabold uppercase text-sand-50">Growth<br /><span className="text-lime-600">$195/mo</span></th><th className="p-5 font-brand text-sm font-extrabold uppercase">Expansion<br /><span className="text-lime-600">$495/mo</span></th></tr></thead><tbody>{comparisonRows.map(([capability, foundation, growth, expansion], index) => <tr key={capability} className={index % 2 ? "bg-sand-100/70" : ""}><th scope="row" className="border-b border-sand-200 p-5 font-brand text-sm font-bold">{capability}</th><td className="border-b border-sand-200 p-5 text-sm leading-relaxed text-sand-700">{foundation}</td><td className="border-b border-sand-200 bg-sand-950/5 p-5 text-sm font-semibold leading-relaxed text-sand-950">{growth}</td><td className="border-b border-sand-200 p-5 text-sm leading-relaxed text-sand-700">{expansion}</td></tr>)}</tbody></table></div>
           <p className="mt-7 max-w-[960px] text-sm leading-[1.7] text-sand-700">Every system also includes a dedicated business number, the required SMS registration, a private workspace, baseline workflows, and a written gameplan.</p>
         </div>
       </section>

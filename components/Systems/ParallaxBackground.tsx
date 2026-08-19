@@ -1,6 +1,7 @@
 "use client";
 
 import { useEffect, useRef } from "react";
+import { preload } from "react-dom";
 
 interface ParallaxBackgroundProps {
   /** Image URL (public path). */
@@ -17,6 +18,12 @@ interface ParallaxBackgroundProps {
  * content wrapper `relative z-10`.
  */
 export function ParallaxBackground({ image }: ParallaxBackgroundProps) {
+  // This backdrop is the LCP element on /about and the /systems/* pages, but it
+  // is painted from a CSS `url()`, which the preload scanner cannot see — the
+  // fetch only starts once styles resolve and the layer is laid out. Hoisting an
+  // explicit preload lets it download alongside the document instead.
+  preload(image, { as: "image", fetchPriority: "high" });
+
   const rootRef = useRef<HTMLDivElement>(null);
   const bgRef = useRef<HTMLDivElement>(null);
 

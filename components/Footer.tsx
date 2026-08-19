@@ -24,6 +24,8 @@ export default function Footer() {
               <img
                 src={LOGO_SRC}
                 alt="KeyLime"
+                width={256}
+                height={97}
                 loading="lazy"
                 decoding="async"
                 className="block h-auto w-full"

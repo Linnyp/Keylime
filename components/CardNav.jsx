@@ -176,7 +176,14 @@ const CardNav = ({
           </div>
 
           <a href="/" className="logo-container" aria-label="Go to homepage">
-            <img src={logo} alt={logoAlt} className="logo" />
+            <img
+              src={logo}
+              alt={logoAlt}
+              width={256}
+              height={97}
+              fetchPriority="high"
+              className="logo"
+            />
           </a>
 
           <button
@@ -184,7 +191,7 @@ const CardNav = ({
             className="card-nav-cta-button"
             style={{ backgroundColor: buttonBgColor, color: buttonTextColor }}
           >
-            Get Started
+            Free Consultation
           </button>
         </div>
 

@@ -13,6 +13,7 @@ import { useState } from "react";
 import { SectionLabel } from "../shared/SectionLabel";
 import { PrimaryButton } from "../shared/PrimaryButton";
 import { IconCheck, IconPlus } from "../shared/icons";
+import { CALENDLY_URL } from "@/data/booking";
 
 interface MarketingSystem {
   name: string;
@@ -184,7 +185,7 @@ export function MarketingSystemsSection() {
               ))}
             </ul>
 
-            <PrimaryButton href="#contact">Get Started</PrimaryButton>
+            <PrimaryButton href={CALENDLY_URL}>Book a Call</PrimaryButton>
           </div>
         </div>
 

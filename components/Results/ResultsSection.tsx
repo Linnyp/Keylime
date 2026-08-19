@@ -5,6 +5,7 @@ import { SectionLabel } from "../shared/SectionLabel";
 import { PrimaryButton } from "../shared/PrimaryButton";
 import { IconArrowRight } from "../shared/icons";
 import { TestimonialCard } from "./TestimonialCard";
+import { CALENDLY_URL } from "@/data/booking";
 import "./ResultsSection.css";
 
 export function ResultsSection() {
@@ -15,7 +16,7 @@ export function ResultsSection() {
       className="bg-sand-50 py-24 md:py-28"
     >
       <div className="mx-auto w-full max-w-[1200px] px-6">
-        <div className="mb-14">
+        <div className="mb-14 text-center">
           <SectionLabel text="Results" />
           <h2
             id="results-heading"
@@ -39,7 +40,7 @@ export function ResultsSection() {
           <p className="results-cta-line m-0 font-brand font-extrabold text-white">
             Ready to find out where you stand?
           </p>
-          <PrimaryButton href="#contact" variant="lime">
+          <PrimaryButton href={CALENDLY_URL} variant="lime">
             See if we&apos;re a fit <IconArrowRight />
           </PrimaryButton>
         </div>

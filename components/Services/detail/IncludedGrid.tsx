@@ -55,19 +55,9 @@ export function IncludedGrid({ items }: { items: IncludedItem[] }) {
           ref={(el) => {
             cardRefs.current[i] = el;
           }}
-          className="group flex flex-col rounded-3xl border-2 border-sand-200 bg-sand-50 p-8 transition-colors duration-200 md:hover:border-sand-950 md:hover:bg-sand-950 max-md:data-[active=true]:border-sand-950 max-md:data-[active=true]:bg-sand-950"
+          className="group flex flex-col overflow-hidden rounded-3xl border-2 border-sand-200 bg-sand-50 p-8 transition-colors duration-200 md:hover:border-sand-950 md:hover:bg-sand-950 max-md:data-[active=true]:border-sand-950 max-md:data-[active=true]:bg-sand-950"
         >
-          <div className="flex items-baseline justify-between">
-            <span className="font-brand text-xs font-bold uppercase tracking-[0.18em] text-lime-600">
-              {item.no}
-            </span>
-            <span
-              aria-hidden="true"
-              className="h-0.5 w-10 bg-sand-200 transition-colors duration-200 md:group-hover:bg-lime-500 max-md:group-data-[active=true]:bg-lime-500"
-            />
-          </div>
-
-          <h3 className="mt-7 font-brand text-xl font-black uppercase leading-[1.1] tracking-[-0.035em] transition-colors duration-200 md:group-hover:text-sand-50 max-md:group-data-[active=true]:text-sand-50">
+          <h3 className="font-brand text-xl font-black uppercase leading-[1.1] tracking-[-0.035em] transition-colors duration-200 md:group-hover:text-sand-50 max-md:group-data-[active=true]:text-sand-50">
             {item.title}
           </h3>
 
@@ -88,18 +78,26 @@ export function IncludedGrid({ items }: { items: IncludedItem[] }) {
             </ul>
           ) : null}
 
+          {/* Cards stretch to a shared row height, so mt-auto absorbs the slack
+              from shorter copy and pins every icon to the card's bottom edge
+              (-mb-8 cancels the card's bottom padding); pt-4 keeps a minimum gap
+              below the copy. The inner box then translates down by a fifth of
+              its own height, and the card clips it (overflow-hidden) — so each
+              icon emerges from the bottom by the same amount. */}
           {item.icon ? (
             <div
               aria-hidden="true"
-              className="pointer-events-none mx-auto mt-8 w-full max-w-[240px] flex-none opacity-60 transition-opacity duration-200 md:group-hover:opacity-100 max-md:group-data-[active=true]:opacity-100"
+              className="pointer-events-none -mb-8 mt-auto flex-none pt-4"
             >
-              <Image
-                src={item.icon}
-                alt=""
-                width={500}
-                height={500}
-                className="h-auto w-full"
-              />
+              <div className="mx-auto w-full max-w-[190px] translate-y-[20%] opacity-60 transition-opacity duration-200 md:group-hover:opacity-100 max-md:group-data-[active=true]:opacity-100">
+                <Image
+                  src={item.icon}
+                  alt=""
+                  width={500}
+                  height={500}
+                  className="h-auto w-full"
+                />
+              </div>
             </div>
           ) : null}
         </article>
