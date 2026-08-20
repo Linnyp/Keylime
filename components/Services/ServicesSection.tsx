@@ -122,7 +122,7 @@ export function ServicesSection() {
     <section
       id="services"
       aria-labelledby="services-heading"
-      className="services-section relative z-10 bg-sand-100 py-24 md:py-28"
+      className="services-section relative z-10 bg-sand-50 py-24 md:py-28"
     >
       <div className="mx-auto w-full max-w-[1200px] px-6">
         {/* Split header — eyebrow + heading left, browse button right */}
@@ -131,7 +131,7 @@ export function ServicesSection() {
             <SectionLabel text="Our Services" />
             <h2
               id="services-heading"
-              className="services-headline font-brand font-extrabold text-sand-950"
+              className="services-headline font-brand font-black text-sand-950"
             >
               Twelve individual solutions to
               <br />

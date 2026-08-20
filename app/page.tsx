@@ -5,7 +5,6 @@ import { ThreeStepsSection } from "@/components/ThreeSteps/ThreeStepsSection";
 import { ServicesSection } from "@/components/Services/ServicesSection";
 import { ResultsSection } from "@/components/Results/ResultsSection";
 import { MarketingSystemsSection } from "@/components/MarketingSystems/MarketingSystemsSection";
-import { HowItWorksSection } from "@/components/HowItWorks/HowItWorksSection";
 import { FaqSection } from "@/components/Faq/FaqSection";
 import { FinalCtaSection } from "@/components/FinalCta/FinalCtaSection";
 

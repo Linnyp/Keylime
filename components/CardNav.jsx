@@ -186,13 +186,13 @@ const CardNav = ({
             />
           </a>
 
-          <button
-            type="button"
+          <a
+            href="/contact#booking"
             className="card-nav-cta-button"
             style={{ backgroundColor: buttonBgColor, color: buttonTextColor }}
           >
             Free Consultation
-          </button>
+          </a>
         </div>
 
         <div className="card-nav-content" aria-hidden={!isExpanded}>
@@ -222,6 +222,18 @@ const CardNav = ({
               </div>
             </div>
           ))}
+
+          {/* The top-bar CTA is hidden on mobile, so it reappears here under the
+              third card. Height is measured from this panel's scrollHeight, so
+              the open animation accounts for it automatically. */}
+          <a
+            href="/contact#booking"
+            className="card-nav-cta-button card-nav-cta-mobile"
+            style={{ backgroundColor: buttonBgColor, color: buttonTextColor }}
+            tabIndex={isExpanded ? 0 : -1}
+          >
+            Free Consultation
+          </a>
         </div>
       </nav>
     </div>

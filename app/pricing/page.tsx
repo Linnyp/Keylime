@@ -2,6 +2,7 @@ import type { Metadata } from "next";
 import Link from "next/link";
 import { FiArrowRight, FiCheck, FiMessageCircle, FiMove, FiUserCheck } from "react-icons/fi";
 import { HeroGlow } from "@/components/shared/HeroGlow";
+import { LimeRow } from "@/components/Pricing/LimeRow";
 import { CALENDLY_URL } from "@/data/booking";
 
 export const metadata: Metadata = {
@@ -116,10 +117,15 @@ function CalendlyButton({ children, className = "" }: { children: React.ReactNod
 export default function PricingPage() {
   return (
     <main className="pt-8 overflow-hidden bg-sand-50 text-sand-950">
-      <section className="relative pt-28 pb-20 md:py-28">
+      <section className="relative overflow-hidden pt-28 pb-40 md:pt-28 md:pb-48">
         <HeroGlow className="left-[4%] top-0 h-[440px] w-[440px]" />
         <HeroGlow className="right-[4%] top-16 h-[380px] w-[380px]" />
-        <div className="relative mx-auto max-w-[1200px] px-6 text-center">
+
+        {/* Sits on the section break: clipped by the section's overflow, and on
+            desktop it sinks further as the page scrolls. */}
+        <LimeRow />
+
+        <div className="relative z-10 mx-auto max-w-[1200px] px-6 text-center">
           <p className="font-brand text-xs font-bold uppercase tracking-[0.18em] text-lime-600">Simple, published pricing</p>
           <h1 className="mx-auto mt-5 max-w-[930px] font-brand text-[clamp(3rem,7vw,6rem)] font-black uppercase leading-[0.9] tracking-[-0.06em]">Three systems. <span className="text-lime-600">One monthly price.</span></h1>
           <p className="mx-auto mt-7 max-w-[660px] text-[17px] leading-[1.65] text-sand-700">Pick the system that fits today. You can move up or down as the business changes — without rebuilding everything from scratch.</p>

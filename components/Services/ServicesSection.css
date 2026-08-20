@@ -1,15 +1,17 @@
 /* ServicesSection — fluid display headlines. */
 
 .services-headline {
+  text-transform: uppercase;
   font-size: clamp(2rem, 4vw, 3.25rem);
-  letter-spacing: -0.03em;
-  line-height: 1.05;
+  letter-spacing: -0.055em;
+  line-height: 0.93;
   margin: 0;
 }
 
 .services-headline-accent {
+  text-transform: uppercase;
   font-size: clamp(2rem, 4vw, 3.25rem);
-  letter-spacing: -0.03em;
-  line-height: 1.05;
+  letter-spacing: -0.055em;
+  line-height: 0.93;
   margin: 0;
 }

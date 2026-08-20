@@ -2,9 +2,14 @@
   container-type: inline-size;
 }
 
+/* Typography matches the page heroes (about, contact, how-it-works, service
+   detail): black weight, uppercase, tight leading and tracking. Size stays on
+   a container query rather than vw because this hero shares its row with the
+   estimator widget — the title column is roughly half the viewport. */
 .hero-title {
   font-size: clamp(2.5rem, 12cqi, 4.75rem);
-  line-height: 1.02;
-  letter-spacing: -0.03em;
+  line-height: 0.9;
+  letter-spacing: -0.06em;
+  text-transform: uppercase;
   margin: 0;
 }

@@ -1,9 +1,10 @@
 /* ResultsSection — fluid display headlines. */
 
 .results-heading {
+  text-transform: uppercase;
   font-size: clamp(2rem, 4vw, 3.25rem);
-  letter-spacing: -0.03em;
-  line-height: 1.04;
+  letter-spacing: -0.055em;
+  line-height: 0.93;
   margin: 0;
 }
 

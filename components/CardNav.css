@@ -120,10 +120,11 @@
   border: 1px solid transparent;
   border-radius: 80px;
   font-family: inherit;
-  font-size: 15px;
+  font-size: 14px;
   line-height: 1.25;
-  font-weight: 500;
-  letter-spacing: -0.03em;
+  font-weight: 700;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
   white-space: nowrap;
   text-decoration: none;
   cursor: pointer;
@@ -131,6 +132,10 @@
   transition:
     transform 300ms ease,
     box-shadow 150ms ease;
+}
+
+.card-nav-cta-mobile {
+  display: none;
 }
 
 .card-nav-cta-button:hover {
@@ -242,6 +247,12 @@
 
   .card-nav-cta-button {
     display: none;
+  }
+
+  .card-nav-cta-mobile {
+    display: inline-flex;
+    width: 100%;
+    margin-top: 4px;
   }
 
   .card-nav-content {

@@ -2,6 +2,30 @@
 
 import Image from "next/image";
 import { useEffect, useRef, useState } from "react";
+import {
+  FiAward,
+  FiMail,
+  FiMessageCircle,
+  FiMessageSquare,
+  FiTool,
+  FiZap,
+} from "react-icons/fi";
+
+/**
+ * Glyphs available beside a card title. Keyed by string rather than passed as
+ * a component so the item arrays stay serializable across the server/client
+ * boundary — this grid is a client component.
+ */
+const leadIcons = {
+  sms: FiMessageSquare,
+  email: FiMail,
+  rewards: FiAward,
+  automation: FiZap,
+  chat: FiMessageCircle,
+  custom: FiTool,
+} as const;
+
+export type LeadIconKey = keyof typeof leadIcons;
 
 export interface IncludedItem {
   no: string;
@@ -9,6 +33,8 @@ export interface IncludedItem {
   body: string;
   /** Optional illustration (public path). */
   icon?: string;
+  /** Optional glyph shown to the left of the title. */
+  leadIcon?: LeadIconKey;
   /** Optional short capability chips. */
   bullets?: string[];
 }
@@ -57,9 +83,23 @@ export function IncludedGrid({ items }: { items: IncludedItem[] }) {
           }}
           className="group flex flex-col overflow-hidden rounded-3xl border-2 border-sand-200 bg-sand-50 p-8 transition-colors duration-200 md:hover:border-sand-950 md:hover:bg-sand-950 max-md:data-[active=true]:border-sand-950 max-md:data-[active=true]:bg-sand-950"
         >
-          <h3 className="font-brand text-xl font-black uppercase leading-[1.1] tracking-[-0.035em] transition-colors duration-200 md:group-hover:text-sand-50 max-md:group-data-[active=true]:text-sand-50">
-            {item.title}
-          </h3>
+          <div className="flex items-center gap-3">
+            {item.leadIcon
+              ? (() => {
+                  const LeadIcon = leadIcons[item.leadIcon];
+                  return (
+                    <LeadIcon
+                      aria-hidden="true"
+                      className="size-6 flex-none text-lime-700 transition-colors duration-200 md:group-hover:text-lime-500 max-md:group-data-[active=true]:text-lime-500"
+                    />
+                  );
+                })()
+              : null}
+
+            <h3 className="font-brand text-xl font-black uppercase leading-[1.1] tracking-[-0.035em] transition-colors duration-200 md:group-hover:text-sand-50 max-md:group-data-[active=true]:text-sand-50">
+              {item.title}
+            </h3>
+          </div>
 
           <p className="mt-4 text-[15px] leading-[1.7] text-sand-700 transition-colors duration-200 md:group-hover:text-sand-50/75 max-md:group-data-[active=true]:text-sand-50/75">
             {item.body}

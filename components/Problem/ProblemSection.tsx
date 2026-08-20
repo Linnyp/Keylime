@@ -35,12 +35,12 @@ export function ProblemSection() {
       ref={sectionRef}
       id="problem"
       aria-label="The Problem"
-      className="bg-sand-50 py-28"
+      className="bg-sand-100 py-28"
     >
       {showNavCover && (
         <div
           aria-hidden
-          className="pointer-events-none fixed inset-x-0 top-0 z-30 h-20 bg-sand-50 lg:hidden"
+          className="pointer-events-none fixed inset-x-0 top-0 z-30 h-20 bg-sand-100 lg:hidden"
         />
       )}
 
@@ -49,13 +49,13 @@ export function ProblemSection() {
           <SectionLabel text="The Problem" />
         </div>
 
-        <div className="relative z-20 -mx-6 px-6 lg:hidden bg-sand-50">
-          <h2 className="problem-heading font-brand font-extrabold text-sand-950 md:hidden">
+        <div className="relative z-20 -mx-6 px-6 lg:hidden bg-sand-100">
+          <h2 className="problem-heading font-brand font-black text-sand-950 md:hidden">
             You&apos;ve Got 99 Problems
             <br />
             <span className="text-lime-600">Marketing</span> Shouldn&apos;t Be 1
           </h2>
-          <h2 className="problem-heading font-brand font-extrabold text-sand-950 hidden md:block">
+          <h2 className="problem-heading font-brand font-black text-sand-950 hidden md:block">
             You&apos;ve Got
             <br />
             99 Problems
@@ -71,7 +71,7 @@ export function ProblemSection() {
             <div className="lg:sticky lg:top-24">
               <div className="hidden lg:block">
                 <SectionLabel text="The Problem" />
-                <h2 className="problem-heading font-brand font-extrabold text-sand-950">
+                <h2 className="problem-heading font-brand font-black text-sand-950">
                   You&apos;ve Got
                   <br />
                   99 Problems

@@ -1,7 +1,8 @@
 /* FaqSection — fluid heading. */
 
 .faq-heading {
+  text-transform: uppercase;
   font-size: clamp(1.75rem, 3vw, 2.5rem);
-  letter-spacing: -0.03em;
-  line-height: 1.05;
+  letter-spacing: -0.055em;
+  line-height: 0.93;
 }

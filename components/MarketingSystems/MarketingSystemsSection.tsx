@@ -9,14 +9,18 @@
  * with discipline. Copy comes from homepage-copy.md §6.
  */
 
+import Image from "next/image";
 import { useState } from "react";
 import { SectionLabel } from "../shared/SectionLabel";
 import { PrimaryButton } from "../shared/PrimaryButton";
 import { IconCheck, IconPlus } from "../shared/icons";
-import { CALENDLY_URL } from "@/data/booking";
 
 interface MarketingSystem {
   name: string;
+  /** Lime stage for this tier — wedge, halved, whole as the system grows. */
+  icon: string;
+  /** Detail page for this system. */
+  href: string;
   tagline: string;
   price: string;
   badge?: string;
@@ -26,6 +30,8 @@ interface MarketingSystem {
 const systems: MarketingSystem[] = [
   {
     name: "Foundation",
+    href: "/systems/foundation",
+    icon: "/limes/wedge.webp",
     tagline: "A real working system for businesses just getting their footing.",
     price: "$99",
     included: [
@@ -38,6 +44,8 @@ const systems: MarketingSystem[] = [
   },
   {
     name: "Growth",
+    href: "/systems/growth",
+    icon: "/limes/half.webp",
     tagline: "The lead engine.",
     price: "$195",
     badge: "Most operators start here",
@@ -53,6 +61,8 @@ const systems: MarketingSystem[] = [
   },
   {
     name: "Expansion",
+    href: "/systems/expansion",
+    icon: "/limes/whole.webp",
     tagline: "The full customer lifecycle.",
     price: "$495",
     included: [
@@ -75,7 +85,7 @@ export function MarketingSystemsSection() {
     <section
       id="systems"
       aria-label="Marketing systems"
-      className="relative z-10 bg-sand-50 py-24 md:py-28"
+      className="relative z-10 bg-sand-100 py-24 md:py-28"
     >
       <div className="mx-auto w-full max-w-brand px-6">
         {/* Split header — intro left, eyebrow + heading right */}
@@ -88,7 +98,7 @@ export function MarketingSystemsSection() {
             <div className="flex lg:justify-end">
               <SectionLabel text="Marketing Systems" />
             </div>
-            <h2 className="m-0 font-brand font-extrabold text-sand-950 text-[clamp(2rem,4vw,3.25rem)] leading-[1.05] tracking-[-0.03em]">
+            <h2 className="m-0 font-brand font-black uppercase text-sand-950 text-[clamp(2rem,4vw,3.25rem)] leading-[0.93] tracking-[-0.055em]">
               Three systems.
               <br />
               One <span className="text-lime-600">monthly price.</span>
@@ -117,6 +127,14 @@ export function MarketingSystemsSection() {
                 >
                   <span className="flex flex-col gap-1.5">
                     <span className="flex flex-wrap items-center gap-3">
+                      <Image
+                        src={system.icon}
+                        alt=""
+                        width={64}
+                        height={64}
+                        aria-hidden="true"
+                        className="h-7 w-auto shrink-0"
+                      />
                       <span className="font-brand text-[22px] font-extrabold tracking-[-0.03em]">
                         {system.name}
                       </span>
@@ -185,7 +203,7 @@ export function MarketingSystemsSection() {
               ))}
             </ul>
 
-            <PrimaryButton href={CALENDLY_URL}>Book a Call</PrimaryButton>
+            <PrimaryButton href={active.href}>View Details</PrimaryButton>
           </div>
         </div>
 

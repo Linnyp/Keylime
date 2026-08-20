@@ -53,14 +53,14 @@ export function ThreeStepsSection() {
     <section
       id="how-it-works-snapshot"
       aria-label="How it works in three steps"
-      className="relative z-10 bg-sand-100 py-24 md:py-28"
+      className="relative z-10 bg-sand-50 py-24 md:py-28"
     >
       <div className="mx-auto w-full max-w-[1200px] px-6">
         <div className="mb-14 text-center">
           <div className="flex justify-center">
             <SectionLabel text="Our Fix" />
           </div>
-          <h2 className="m-0 font-brand font-extrabold text-sand-950 text-[clamp(2rem,4vw,3.25rem)] leading-[1.05] tracking-[-0.03em]">
+          <h2 className="m-0 font-brand font-black uppercase text-sand-950 text-[clamp(2rem,4vw,3.25rem)] leading-[0.93] tracking-[-0.055em]">
             A complete marketing system
             <br />
             in <span className="text-lime-600">three steps.</span>

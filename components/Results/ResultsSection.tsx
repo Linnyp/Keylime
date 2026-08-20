@@ -13,14 +13,14 @@ export function ResultsSection() {
     <section
       id="results"
       aria-labelledby="results-heading"
-      className="bg-sand-50 py-24 md:py-28"
+      className="bg-sand-100 py-24 md:py-28"
     >
       <div className="mx-auto w-full max-w-[1200px] px-6">
         <div className="mb-14 text-center">
           <SectionLabel text="Results" />
           <h2
             id="results-heading"
-            className="results-heading font-brand font-extrabold text-sand-950"
+            className="results-heading font-brand font-black text-sand-950"
           >
             Real results from
             <br />

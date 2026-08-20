@@ -27,8 +27,9 @@ export const metadata: Metadata = {
 const includedItems: IncludedItem[] = [
   {
     no: "01",
-    title: "Your own platform workspace",
-    body: "A private workspace provisioned, configured, and managed for your business. You get login access — never a $400/mo software bill or a three-month setup learning curve.",
+    title: "Unified inbox",
+    body: "Texts, emails, Facebook messages, and Google Business chat in one inbox. Stop juggling six apps, missing replies in three of them, and losing track of which thread is which.",
+    icon: "/repIcons/unifiedInboxIcon.webp",
   },
   {
     no: "02",
@@ -38,24 +39,15 @@ const includedItems: IncludedItem[] = [
   },
   {
     no: "03",
-    title: "Sentiment routing",
-    body: "Happy customers get sent to a public review. Unhappy ones get a private feedback form. You get the chance to fix something before a one-star review lands on the internet.",
+    title: "CRM & contact management",
+    body: "Every customer who has ever called, emailed, or filled out a form ends up in one organized contact list — searchable, taggable, and ready for whatever comes next.",
+    icon: "/repIcons/crmContactsIcon.webp",
   },
   {
     no: "04",
-    title: "Unified inbox",
-    body: "Texts, emails, Facebook messages, and Google Business chat in one inbox. Stop juggling six apps, missing replies in three of them, and losing track of which thread is which.",
-    icon: "/repIcons/unifiedInboxIcon.webp",
-  },
-  {
-    no: "05",
-    title: "CRM & contact management",
-    body: "Every customer who has ever called, emailed, or filled out a form ends up in one organized contact list — searchable, taggable, and ready for whatever comes next.",
-  },
-  {
-    no: "06",
     title: "Multi-platform monitoring",
     body: "Google, Facebook, and Yelp watched continuously. We get notified when a review lands so you can respond fast — and we will draft the response if you want us to.",
+    icon: "/repIcons/multiPlatformIcon.webp",
   },
 ];
 
@@ -134,31 +126,37 @@ const addOns: IncludedItem[] = [
   {
     no: "01",
     title: "SMS campaigns",
+    leadIcon: "sms",
     body: "Targeted text campaigns to your contact list — promotions, seasonal offers, win-back flows. The platform is already wired up and the deliverability is real.",
   },
   {
     no: "02",
     title: "Email campaigns",
+    leadIcon: "email",
     body: "Newsletters, drip sequences, and one-off sends run from the same CRM. No separate email tool, no duplicated contact list, no extra invoice.",
   },
   {
     no: "03",
     title: "Rewards & loyalty",
+    leadIcon: "rewards",
     body: "A points or referral program that runs automatically against your customer list — the kind that keeps repeat customers coming back without eating staff time. Comes standard on Expansion.",
   },
   {
     no: "04",
     title: "Workflow automations",
+    leadIcon: "automation",
     body: "Lead routing, appointment reminders, no-show recovery, post-job follow-ups, internal alerts. Anything repeatable can be automated.",
   },
   {
     no: "05",
     title: "Chatbots & voice agents",
+    leadIcon: "chat",
     body: "A chatbot on your site or a voice agent on a dedicated line. Trained on your services, escalates real leads to your calendar, works at 11pm on a Tuesday. Chatbots come standard on Growth.",
   },
   {
     no: "06",
     title: "Custom builds",
+    leadIcon: "custom",
     body: "Have a process eating your time? We design and build a custom automation around it — quoted per scope, transparently, with no surprise platform fees.",
   },
 ];

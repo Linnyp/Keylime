@@ -8,7 +8,7 @@ export function FaqSection() {
     <section
       id="faq"
       aria-labelledby="faq-heading"
-      className="bg-sand-100 py-24"
+      className="bg-sand-50 py-24"
     >
       <div className="mx-auto grid w-full max-w-[1200px] grid-cols-1 items-start gap-10 px-6 lg:grid-cols-[8fr_4fr]">
         <div className="text-center lg:order-2 lg:text-left">
@@ -17,7 +17,7 @@ export function FaqSection() {
           </div>
           <h2
             id="faq-heading"
-            className="faq-heading mb-6 font-brand font-extrabold text-sand-950"
+            className="faq-heading mb-6 font-brand font-black text-sand-950"
           >
             Questions we get asked a lot.
           </h2>

@@ -50,6 +50,10 @@ export interface MissedCallWidgetProps {
   eyebrow?: string;
   /** Optional max-width cap (px). Unset = fill the parent. */
   maxWidth?: number;
+  /** Destination for the in-card CTA at the bottom. */
+  ctaHref?: string;
+  /** Label for the in-card CTA. Pass `null` to render the card without one. */
+  ctaLabel?: string | null;
 }
 
 /* ─── Helpers ─────────────────────────────────────────────────────────────── */
@@ -235,13 +239,72 @@ function FieldRow({
   );
 }
 
+/* ─── In-card CTA ─────────────────────────────────────────────────────────── */
+/* Plain anchor with inline styles, like the rest of this file, so the card
+   stays a self-contained lift. Sized shorter than the global `.wf-btn` pill —
+   the card is a narrow column in the hero and a 52px button crowds it. */
+function CardCta({ href, label }: { href: string; label: string }) {
+  const [hovered, setHovered] = useState(false);
+
+  return (
+    <a
+      href={href}
+      onMouseEnter={() => setHovered(true)}
+      onMouseLeave={() => setHovered(false)}
+      style={{
+        display: "flex",
+        alignItems: "center",
+        justifyContent: "center",
+        gap: 8,
+        minHeight: 44,
+        paddingInline: 18,
+        borderRadius: 80,
+        backgroundColor: hovered ? "#8FC22B" : t.accent,
+        color: t.surface,
+        fontFamily: t.font,
+        fontSize: 13,
+        fontWeight: 700,
+        letterSpacing: "0.06em",
+        textTransform: "uppercase",
+        textDecoration: "none",
+        textAlign: "center",
+        lineHeight: 1.25,
+        boxShadow: hovered
+          ? "0 4px 14px 0 rgba(164, 214, 57, 0.28)"
+          : "0 1px 4px 0 rgba(164, 214, 57, 0.2)",
+        transition:
+          "background-color 150ms ease, box-shadow 150ms ease, transform 300ms ease",
+        transform: hovered ? "translateY(-2px)" : "none",
+      }}
+    >
+      {label}
+      <svg
+        width="16"
+        height="16"
+        viewBox="0 0 24 24"
+        fill="none"
+        stroke="currentColor"
+        strokeWidth="2.5"
+        strokeLinecap="round"
+        strokeLinejoin="round"
+        aria-hidden
+        style={{ flexShrink: 0 }}
+      >
+        <path d="M5 12h14M13 6l6 6-6 6" />
+      </svg>
+    </a>
+  );
+}
+
 /* ─── Widget ──────────────────────────────────────────────────────────────── */
 export function MissedCallWidget({
   initialCallsPerWeek = 12,
   initialJobValue = 300,
   initialCloseRate = 50,
-  eyebrow = "Estimated monthly loss",
+  eyebrow = "Estimated monthly loss calculator",
   maxWidth,
+  ctaHref = "/calculators/missed-call-revenue",
+  ctaLabel = "Calculate Total Losses",
 }: MissedCallWidgetProps) {
   const [callsPerWeek, setCallsPerWeek] = useState(initialCallsPerWeek);
   const [jobValue, setJobValue] = useState(initialJobValue);
@@ -392,20 +455,24 @@ export function MissedCallWidget({
         />
       </div>
 
-      {/* Footnote */}
-      <span
-        style={{
-          fontFamily: t.font,
-          fontSize: 11,
-          letterSpacing: t.tracking,
-          color: t.onSurfaceMuted,
-          lineHeight: 1.4,
-          marginTop: 2,
-        }}
-      >
-        Estimate based on {WEEKS_PER_MONTH} weeks per month. Adjust any field to
-        recalculate.
-      </span>
+      {/* Footnote + CTA — the card closes on the action it earns. */}
+      <div style={{ display: "flex", flexDirection: "column", gap: 12 }}>
+        <span
+          style={{
+            fontFamily: t.font,
+            fontSize: 11,
+            letterSpacing: t.tracking,
+            color: t.onSurfaceMuted,
+            lineHeight: 1.4,
+            marginTop: 2,
+          }}
+        >
+          Estimate based on {WEEKS_PER_MONTH} weeks per month. Adjust any field
+          to recalculate.
+        </span>
+
+        {ctaLabel && <CardCta href={ctaHref} label={ctaLabel} />}
+      </div>
     </div>
   );
 }

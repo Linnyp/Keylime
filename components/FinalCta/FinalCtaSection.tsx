@@ -23,7 +23,7 @@ export function FinalCtaSection() {
 
           <h2
             id="cta-heading"
-            className="cta-heading mb-8 font-brand font-extrabold text-white"
+            className="cta-heading mb-8 font-brand font-black text-white"
           >
             The window
             <br />
