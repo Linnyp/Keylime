@@ -56,6 +56,7 @@ anywhere.
 - `app/test`, `app/test2`, `app/test3`, and `app/test-calculator` are palette and
   layout scratch routes. They ship in the build — remove them before going live
   if you don't want them public.
-- `public/` carries both `.png` and `.webp` versions of several large images.
-  Only the WebP variants are referenced; the PNGs can be dropped to cut repo size.
+- All images are WebP or SVG. The unreferenced PNG/JPG originals were purged
+  from the full history during extraction — if you need one back, it's in the
+  `landingPagePurgatory` repo under `keylime/public/`.
 - See `PERFORMANCE-AUDIT.md` for outstanding performance work.
