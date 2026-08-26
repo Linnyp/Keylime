@@ -83,28 +83,10 @@ export function ProblemSection() {
                 </h2>
               </div>
               <p className="font-brand text-[15px] leading-[1.65] text-sand-600 mb-10 md:w-1/2 lg:w-auto">
-                Most local service businesses in Southwest Florida have the same
-                problem. Their customers are happy. Their work is solid. But
-                somewhere between the last job they finished and the next one
-                they&apos;re trying to book, something&apos;s leaking. Leads go
-                to a competitor with worse reviews. Calls don&apos;t get
-                returned in time. The website hasn&apos;t been touched since
-                2019. It&apos;s not because you don&apos;t care. It&apos;s
-                because you&apos;re running a business.
+                Most local service businesses in Southwest Florida have the same problem. Their customers are happy and the work is solid but they&apos;re missing the digital marketing foundation a local business needs to reach and capture more potential clients. Often losing sales to competitors due to lack of an active strategy and execution. Setting up and managing marketing for your business can be confusing, time consuming, and get expensive quickly. We make it simple by bringing together everything you'll need in one place and doing the heavy lifting work for you with transparent pricing.
               </p>
-              {/* Below lg the illustration sits in the flow under the copy;
-                  from lg up it's absolutely positioned beneath the sticky
-                  column. Same artwork either way — only one is ever rendered,
-                  so the descriptive alt isn't duplicated for screen readers. */}
-              <img
-                src="/deskFrustration2.webp"
-                alt="Illustration of a business owner juggling marketing pain points"
-                width={1440}
-                height={714}
-                loading="lazy"
-                decoding="async"
-                className="mx-auto block h-auto w-full select-none object-contain lg:hidden"
-              />
+              {/* Desktop only — absolutely positioned beneath the sticky
+                  column. Below lg the stacked layout has no room for it. */}
               <img
                 src="/deskFrustration2.webp"
                 alt="Illustration of a business owner juggling marketing pain points"

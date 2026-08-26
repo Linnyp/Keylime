@@ -11,7 +11,6 @@ import { Fragment } from "react";
 
 import { SectionLabel } from "../shared/SectionLabel";
 import { PrimaryButton } from "../shared/PrimaryButton";
-import { CALENDLY_URL } from "@/data/booking";
 
 const steps = [
   {
@@ -88,7 +87,7 @@ export function ThreeStepsSection() {
         </div>
 
         <div className="mt-12 flex justify-center">
-          <PrimaryButton href={CALENDLY_URL}>Let&apos;s Talk</PrimaryButton>
+          <PrimaryButton href="/how-it-works">See How It Works</PrimaryButton>
         </div>
       </div>
     </section>

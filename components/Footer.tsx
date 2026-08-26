@@ -1,10 +1,13 @@
+/* Standalone routes, matching the nav in `Navbar.tsx`. Results has no page of
+   its own, so it stays a homepage section — but as a root-relative anchor, so
+   it resolves from subpages instead of only working on `/`. */
 const FOOTER_LINKS = [
-  { label: "Services", href: "#services" },
-  { label: "How It Works", href: "#how-it-works" },
-  { label: "Results", href: "#results" },
-  { label: "Pricing", href: "#systems" },
-  { label: "FAQ", href: "#faq" },
-  { label: "Contact", href: "#contact" },
+  { label: "Services", href: "/services" },
+  { label: "How It Works", href: "/how-it-works" },
+  { label: "Results", href: "/#results" },
+  { label: "Pricing", href: "/pricing" },
+  { label: "FAQ", href: "/faq" },
+  { label: "Contact", href: "/contact" },
 ];
 
 const LOGO_SRC = "/keylimelogolite.webp";
