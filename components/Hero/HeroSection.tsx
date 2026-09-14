@@ -27,10 +27,10 @@ export function HeroSection() {
             phone can still bleed to the panel's right edge. */}
         <div className="grid items-center gap-y-0 overflow-hidden rounded-[48px] border border-sand-200 bg-sand-100 px-6 py-10 shadow-[0_2px_6px_0_rgba(28,30,26,0.06)] lg:grid-cols-[minmax(0,1.05fr)_minmax(0,1fr)] lg:gap-16 lg:p-0">
           {/* Below lg the copy column dissolves (`display: contents`) so its
-              children become items of the stacked grid and the paragraph can be
-              ordered below the widget. Mobile spacing therefore rides on the
-              children's own margins, not the grid gap. From lg up it's a normal
-              flex column again and every `order`/`mx-auto` resets. */}
+              children become items of the stacked grid, letting the widget sit
+              in the same flow directly after the paragraph. Mobile spacing
+              therefore rides on the children's own margins, not the grid gap.
+              From lg up it's a normal flex column again and `mx-auto` resets. */}
           <div className="contents text-center lg:mt-14 lg:ml-14 lg:flex lg:flex-col lg:items-start lg:text-left">
             <div className="mb-6 flex justify-center lg:justify-start">
               <span className="wf-eyebrow">Digital marketing · Southwest Florida</span>
@@ -44,9 +44,7 @@ export function HeroSection() {
               </h1>
             </div>
 
-            {/* Ordered after the widget on mobile: the numbers hook first, the
-                explanation backs them up. */}
-            <p className="order-1 mx-auto mt-10 mb-0 max-w-[600px] text-[17px] font-normal leading-[1.6] text-sand-600 lg:order-none lg:mx-0 lg:mt-0 lg:mb-9">
+            <p className="mx-auto mb-0 max-w-[600px] text-[17px] font-normal leading-[1.6] text-sand-600 lg:mx-0 lg:mb-9">
               KeyLime helps local service businesses in South Florida show up on
               Google, look credible to the people who find them, and turn those
               visitors into booked jobs. One working system. Honest pricing.
@@ -59,30 +57,43 @@ export function HeroSection() {
 
           {/* Missed-call revenue widget — the hero's conversion centerpiece.
               Desktop (441×435 comp): estimator card floating in front of the
-              hero iPhone, which rises behind it and bleeds to the panel edge. */}
-          <div className="relative mx-auto mt-4 w-full max-w-[480px] lg:mx-0 lg:mt-0 lg:aspect-[441/435] lg:max-w-none">
-            {/* Hero iPhone rising behind the card. */}
-            <div className="absolute right-0 bottom-0 aspect-[268/425] w-[56%] overflow-hidden lg:top-[19.3%] lg:aspect-auto lg:w-[60.8%]">
-              <img
-                src="/heroiphone.webp"
-                alt=""
-                width={554}
-                height={1147}
-                fetchPriority="high"
-                decoding="async"
-                className="w-full"
-              />
+              hero iPhone, which rises behind it and bleeds to the panel edge.
+              Below lg the phone drops out entirely and the card owns the column
+              at full width — the old side-by-side arrangement left it around
+              240px on a 375px screen, which crowded the fields. */}
+          <div className="relative mx-auto mt-8 w-full max-w-[480px] lg:mx-0 lg:mt-0 lg:aspect-[441/435] lg:max-w-none">
+            {/* Hero iPhone rising behind the card — desktop only. The <source>
+                hands mobile a 1x1 placeholder instead: a `hidden` wrapper alone
+                would still pull the 49KB webp down, and it's a high-priority
+                fetch competing with LCP on exactly the connections that can
+                least afford it. */}
+            <div className="hidden lg:absolute lg:top-[19.3%] lg:right-0 lg:bottom-0 lg:block lg:w-[60.8%] lg:overflow-hidden">
+              <picture>
+                <source
+                  media="(max-width: 1023.98px)"
+                  srcSet="data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7"
+                />
+                <img
+                  src="/heroiphone.webp"
+                  alt=""
+                  width={554}
+                  height={1147}
+                  fetchPriority="high"
+                  decoding="async"
+                  className="w-full"
+                />
+              </picture>
             </div>
 
             {/* Card — anchored to the bottom-left of the media box on desktop,
                 overlapping the phone. */}
-            <div className="relative mt-[5%] w-[74%] lg:absolute lg:bottom-0 lg:left-0 lg:mt-0 lg:w-[68%]">
+            <div className="relative w-full lg:absolute lg:bottom-0 lg:left-0 lg:w-[68%]">
               <MissedCallWidget />
             </div>
           </div>
 
-          {/* Mobile CTA slot — last in the stacked grid, after the paragraph. */}
-          <div className="order-2 mt-8 flex justify-center lg:hidden">
+          {/* Mobile CTA slot — last in the stacked grid, after the widget. */}
+          <div className="mt-8 flex justify-center lg:hidden">
             {ctas}
           </div>
         </div>

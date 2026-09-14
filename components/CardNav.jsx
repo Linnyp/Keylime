@@ -179,8 +179,8 @@ const CardNav = ({
             <img
               src={logo}
               alt={logoAlt}
-              width={256}
-              height={97}
+              width={362}
+              height={93}
               fetchPriority="high"
               className="logo"
             />

@@ -2,6 +2,11 @@
 
 import { useMemo, useState, type ReactNode } from "react";
 import Stepper, { Step } from "@/components/Stepper/Stepper";
+import {
+  CLOSING_RATE_OPTIONS,
+  missedCallLoss,
+  type CalculatorSeed,
+} from "@/data/estimatorHandoff";
 import { IconArrowRight } from "../shared/icons";
 
 /* ─────────────────────────────────────────────────────────────────────────────
@@ -72,24 +77,11 @@ const industryConfig: Record<
 
 /* ── Calculation helpers ──────────────────────────────────────────────────── */
 
-const WORKING_DAYS_PER_MONTH = 22; // voice channel — business hours
 const DIGITAL_DAYS_PER_MONTH = 30; // digital channels — always-on
 
-// Conservative blended recovery rate for missed-call text-back.
-// Industry data: ~35–50% engage with the text, ~50–70% of engaged convert.
-// Blended midpoint ≈ 22%.
-const TEXT_BACK_RECOVERY_RATE = 0.22;
-
-function missedCallLoss(
-  dailyMissed: number,
-  closingRatePct: number,
-  avgValue: number,
-): number {
-  const monthlyMissed = dailyMissed * WORKING_DAYS_PER_MONTH;
-  const recoverableJobs =
-    monthlyMissed * TEXT_BACK_RECOVERY_RATE * (closingRatePct / 100);
-  return recoverableJobs * avgValue;
-}
+/* WORKING_DAYS_PER_MONTH, TEXT_BACK_RECOVERY_RATE and missedCallLoss live in
+   the handoff module — the hero widget shows the same figure, so the formula
+   has one home. */
 
 // Luca (Harvard Business School, 2016) review-count buckets.
 // % revenue lift per full star, by current review volume.
@@ -181,13 +173,15 @@ const fmtMoney = (n: number) =>
 
 /* ── Component ────────────────────────────────────────────────────────────── */
 
-export function RevenueCalculator() {
+export function RevenueCalculator({ seed }: { seed?: CalculatorSeed } = {}) {
   const [industry, setIndustry] = useState<Industry>("homeServices");
 
-  // Module 1 — missed calls
-  const [dailyMissed, setDailyMissed] = useState(4);
-  const [closingRate, setClosingRate] = useState(40);
-  const [avgValue, setAvgValue] = useState(350);
+  // Module 1 — missed calls. Seeded from the hero widget's CTA when the visitor
+  // arrives from it, so they don't retype numbers they just entered; each field
+  // falls back to its own default independently.
+  const [dailyMissed, setDailyMissed] = useState(seed?.dailyMissed ?? 4);
+  const [closingRate, setClosingRate] = useState(seed?.closingRate ?? 40);
+  const [avgValue, setAvgValue] = useState(seed?.avgValue ?? 350);
 
   // Module 2 — reputation
   const [currentRating, setCurrentRating] = useState(4.2);
@@ -688,7 +682,8 @@ function PercentDropdownField({
   value: number;
   onChange: (v: number) => void;
 }) {
-  const options = [10, 20, 30, 40, 50, 60, 70, 80, 90, 100];
+  // Shared with the handoff module, which snaps an incoming rate to this list.
+  const options = CLOSING_RATE_OPTIONS;
   return (
     <label className="flex flex-col gap-2">
       <span className="font-brand text-[13px] font-semibold tracking-[-0.01em] text-sand-950">

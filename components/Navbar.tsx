@@ -2,7 +2,8 @@
 
 import CardNav from "@/components/CardNav";
 
-const LOGO_SRC = "/keylimelogolite.webp";
+/* Light-text variant everywhere, nav included — the same file the footer uses. */
+const LOGO_SRC = "/keylimelogo2-lite.webp";
 
 const NAV_ITEMS = [
   {

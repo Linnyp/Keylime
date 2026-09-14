@@ -10,7 +10,9 @@ const FOOTER_LINKS = [
   { label: "Contact", href: "/contact" },
 ];
 
-const LOGO_SRC = "/keylimelogolite.webp";
+/* Light-text variant of the lockup ("SYSTEMS" recolored from black to sand-50),
+   shared with the nav — this is the site-wide logo. */
+const LOGO_SRC = "/keylimelogo2-lite.webp";
 
 export default function Footer() {
   return (
@@ -22,13 +24,13 @@ export default function Footer() {
             <a
               href="/"
               aria-label="KeyLime home"
-              className="inline-block max-w-[110px]"
+              className="inline-block max-w-[150px]"
             >
               <img
                 src={LOGO_SRC}
                 alt="KeyLime"
-                width={256}
-                height={97}
+                width={362}
+                height={93}
                 loading="lazy"
                 decoding="async"
                 className="block h-auto w-full"
