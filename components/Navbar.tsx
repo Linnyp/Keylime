@@ -38,7 +38,7 @@ const NAV_ITEMS = [
       { label: "About", ariaLabel: "About Linax Digital", href: "/about" },
       { label: "Revenue Calculator", ariaLabel: "Missed-call revenue calculator", href: "/calculators/missed-call-revenue" },
       { label: "FAQ", ariaLabel: "Frequently Asked Questions", href: "/faq" },
-      { label: "Contact", ariaLabel: "Contact Linax Digital", href: "/contact" },
+      { label: "Contact", ariaLabel: "Contact Linax Digital", href: "/contact#contact-form" },
     ],
   },
 ];
