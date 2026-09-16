@@ -1,6 +1,6 @@
 "use client";
 
-import RippleGrid from "@/components/RippleGrid";
+import { ContactForm } from "@/components/Contact/ContactForm";
 import { PrimaryButton } from "../shared/PrimaryButton";
 import { IconArrowRight } from "../shared/icons";
 import { CALENDLY_URL } from "@/data/booking";
@@ -13,7 +13,7 @@ export function FinalCtaSection() {
       aria-labelledby="cta-heading"
       className="relative overflow-hidden bg-sand-900 py-24"
     >
-      <div className="mx-auto grid w-full max-w-[1200px] grid-cols-1 items-center gap-16 px-6 lg:grid-cols-[7fr_5fr]">
+      <div className="mx-auto grid w-full max-w-[1200px] grid-cols-1 items-center gap-16 px-6 lg:grid-cols-[6fr_6fr]">
         {/* Left: copy */}
         <div>
           <div className="mb-6 flex items-center gap-3 font-brand text-[12px] font-semibold uppercase tracking-[0.14em] text-lime-300">
@@ -57,41 +57,10 @@ export function FinalCtaSection() {
           </p>
         </div>
 
-        {/* Right: decorative composition (desktop only) */}
-        <div className="hidden lg:block">
-          <div className="relative aspect-square w-full">
-            <div className="absolute inset-[10%] rounded-[32px] border-2 border-lime-500/70" />
-            <div className="absolute left-[10%] top-[10%] h-4/5 w-4/5 overflow-hidden rounded-[32px]">
-              <RippleGrid
-                enableRainbow={false}
-                gridColor="#6FA51F"
-                rippleIntensity={0.03}
-                gridSize={10}
-                gridThickness={15}
-                mouseInteraction={true}
-                mouseInteractionRadius={1.2}
-                opacity={0.8}
-              />
-            </div>
-            <CornerMarks />
-          </div>
-        </div>
+        {/* Right: the same Netlify "contact" form as /contact, shown at every
+            breakpoint so the section converts on mobile too. */}
+        <ContactForm />
       </div>
     </section>
-  );
-}
-
-function CornerMarks() {
-  return (
-    <>
-      <span className="corner-mark corner-mark-h top-0 left-0" />
-      <span className="corner-mark corner-mark-v top-0 left-0" />
-      <span className="corner-mark corner-mark-h top-0 right-0" />
-      <span className="corner-mark corner-mark-v top-0 right-0" />
-      <span className="corner-mark corner-mark-h bottom-0 left-0" />
-      <span className="corner-mark corner-mark-v bottom-0 left-0" />
-      <span className="corner-mark corner-mark-h bottom-0 right-0" />
-      <span className="corner-mark corner-mark-v bottom-0 right-0" />
-    </>
   );
 }

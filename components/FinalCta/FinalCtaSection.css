@@ -1,24 +1,8 @@
-/* FinalCtaSection — fluid headline + corner-mark accents around the
-   decorative composition. */
+/* FinalCtaSection — fluid headline. */
 
 .cta-heading {
   text-transform: uppercase;
   font-size: clamp(2.5rem, 6vw, 4.5rem);
   letter-spacing: -0.055em;
   line-height: 0.93;
-}
-
-.corner-mark {
-  position: absolute;
-  background-color: rgba(164, 214, 57, 0.7);
-}
-
-.corner-mark-h {
-  width: 12%;
-  height: 2px;
-}
-
-.corner-mark-v {
-  width: 2px;
-  height: 12%;
 }
