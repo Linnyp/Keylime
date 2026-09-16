@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<!--
+  Netlify Forms detection skeleton. Netlify only discovers forms in static HTML
+  at deploy time, and the Next.js runtime renders /contact on demand, so this
+  file declares the "contact" form's fields for the build bot. The live form
+  (components/Contact/ContactForm.tsx) POSTs here. Keep field names in sync.
+-->
+<html>
+  <body>
+    <form name="contact" data-netlify="true" netlify-honeypot="bot-field" hidden>
+      <input type="hidden" name="form-name" value="contact" />
+      <input name="bot-field" />
+      <input name="name" />
+      <input name="business" />
+      <select name="industry"></select>
+      <input name="phone" type="tel" />
+      <input name="email" type="email" />
+      <select name="projectType"></select>
+      <textarea name="message"></textarea>
+    </form>
+  </body>
+</html>
