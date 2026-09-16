@@ -38,17 +38,9 @@ export function ProblemCard({
         <div className="absolute inset-0 bg-white/70 backdrop-blur-sm" />
       </div>
 
-      {/* Title centres on the card itself, so the index sits absolutely in the
-          corner rather than taking flow width and pushing the title off-centre.
-          The horizontal padding keeps a long title clear of it. */}
-      <div className="relative mb-4">
-        <h3 className="px-8 text-center font-brand text-[22px] font-bold tracking-[-0.03em] text-sand-950">
-          {problem.name}
-        </h3>
-        <span className="absolute top-0 right-0 font-brand text-[13px] font-extrabold tracking-[0.02em] text-lime-600">
-          0{index + 1}
-        </span>
-      </div>
+      <h3 className="mb-4 text-center font-brand text-[22px] font-bold tracking-[-0.03em] text-sand-950">
+        {problem.name}
+      </h3>
 
       <p className="mb-5 text-[15px] leading-[1.7] text-sand-600">
         {problem.body}

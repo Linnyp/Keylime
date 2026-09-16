@@ -74,6 +74,10 @@ export function ThreeStepsSection() {
           {steps.map((step, index) => (
             <Fragment key={step.title}>
               <div className="relative w-full max-w-[420px] overflow-hidden rounded-3xl border border-sand-200 bg-white px-7 py-8 text-center shadow-[0_2px_6px_0_rgba(28,30,26,0.06)] lg:max-w-none lg:flex-1">
+                {/* Step number as a centered eyebrow over the title. */}
+                <span className="mb-2 block font-brand text-[13px] font-extrabold tracking-[0.14em] text-lime-600">
+                  {String(index + 1).padStart(2, "0")}
+                </span>
                 <h3 className="mt-0 mb-2.5 font-brand text-[18px] font-bold leading-[1.25] tracking-[-0.03em] text-sand-950">
                   {step.title}
                 </h3>
