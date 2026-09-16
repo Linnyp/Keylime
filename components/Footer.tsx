@@ -1,3 +1,5 @@
+import { FiFacebook } from "react-icons/fi";
+
 /* Standalone routes, matching the nav in `Navbar.tsx`. Results has no page of
    its own, so it stays a homepage section — but as a root-relative anchor, so
    it resolves from subpages instead of only working on `/`. */
@@ -13,6 +15,8 @@ const FOOTER_LINKS = [
 /* Light-text variant of the lockup ("SYSTEMS" recolored from black to sand-50),
    shared with the nav — this is the site-wide logo. */
 const LOGO_SRC = "/keylimelogo2-lite.webp";
+
+const FACEBOOK_URL = "https://www.facebook.com/profile.php?id=61594013250016";
 
 export default function Footer() {
   return (
@@ -39,10 +43,15 @@ export default function Footer() {
             <p className="m-0 max-w-[320px] font-brand text-[13px] leading-[1.6] text-sand-50/80">
               Local expertise. Modern tools. Built by someone who does the work.
             </p>
-            <p className="m-0 font-brand text-[11px] italic text-sand-50/60">
-              [REPLACE: LinkedIn, Instagram — add handles when social profiles
-              are live]
-            </p>
+            <a
+              href={FACEBOOK_URL}
+              target="_blank"
+              rel="noopener noreferrer"
+              aria-label="KeyLime on Facebook"
+              className="inline-flex h-10 w-10 items-center justify-center rounded-full border border-sand-50/20 text-sand-50/70 transition-colors duration-150 hover:border-lime-300 hover:text-lime-300"
+            >
+              <FiFacebook size={18} aria-hidden="true" />
+            </a>
           </div>
 
           {/* Footer nav */}
