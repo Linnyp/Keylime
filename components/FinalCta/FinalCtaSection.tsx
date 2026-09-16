@@ -18,30 +18,29 @@ export function FinalCtaSection() {
         <div>
           <div className="mb-6 flex items-center gap-3 font-brand text-[12px] font-semibold uppercase tracking-[0.14em] text-lime-300">
             <span className="inline-block h-0.5 w-7 bg-lime-500" />
-            Act Now
+            Let&apos;s Talk
           </div>
 
           <h2
             id="cta-heading"
             className="cta-heading mb-8 font-brand font-black text-white"
           >
-            The window
+            Not sure
             <br />
-            to get ahead
+            where to
             <br />
-            is <span className="text-lime-500">narrowing.</span>
+            <span className="text-lime-500">start?</span>
           </h2>
 
           <p className="mb-10 max-w-[480px] border-l-2 border-lime-500 pl-5 text-[16px] font-normal leading-[1.6] text-white/70">
-            AI-powered marketing isn&apos;t coming — it&apos;s already here. The
-            businesses that move now will hold a lead advantage that&apos;s very
-            hard to close later. Book a free 30-minute call to find out where you
-            stand.
+            Book a free 30-minute call. We&apos;ll look at how customers find you
+            today, where leads are slipping through, and what&apos;s worth fixing
+            first. If we&apos;re not the right fit, we&apos;ll tell you that too.
           </p>
 
           <div className="flex flex-wrap items-center gap-3">
             <PrimaryButton href={CALENDLY_URL} variant="lime">
-              Book Your Free Audit Call <IconArrowRight />
+              Book a Free Discovery Call <IconArrowRight />
             </PrimaryButton>
             <a
               href="#checklist"
@@ -52,8 +51,8 @@ export function FinalCtaSection() {
           </div>
 
           <p className="mt-4 text-[13px] tracking-[-0.01em] text-white/40">
-            No pressure, no pitch deck. Just a clear look at where your business
-            stands online.
+            No pressure, no pitch deck. Prefer to write? Send us a message and
+            we&apos;ll get back to you.
           </p>
         </div>
 
